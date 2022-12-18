@@ -1,0 +1,17 @@
+DATA:
+  data_root: data/matterport_3d
+  data_root_2d_fused_feature: data/matterport_multiview_lseg
+  feature_2d_extractor: lseg
+  classes: 21
+  aug: True
+  voxel_size: 0.02
+  input_color: False
+  use_shm: False
+  
+DISTILL:
+  arch_3d: MinkUNet18A
+  ignore_label: 255
+  train_gpu: [0]
+  workers: 8  # data loader workers
+  batch_size: 8  # batch size for training
+  batch_size_val: 1  # batch size for validation during 
