@@ -1,0 +1,12 @@
+DATA:
+  data_root: data/matterport_3d
+  data_root_2d_fused_feature: data/matterport_multiview_openseg_test
+  feature_2d_extractor: openseg
+  classes: 21
+  aug: True
+  voxel_size: 0.02
+  input_color: False
+  use_shm: False
+  
+DISTILL:
+  arch_3d: M
