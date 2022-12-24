@@ -1,0 +1,3 @@
+DATA:
+  data_root: ./data/data_matterport/matterport_3d_160
+  data_root_2d_fused_feature: ./data/data_matterport/matterport_multiview_openseg_t

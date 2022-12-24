@@ -40,4 +40,15 @@ TEST:
   vis_pred: True
   vis_gt: True
   test_workers: 8
-  test_gpu: [
+  test_gpu: [0]
+  test_batch_size: 1
+  test_repeats: 5
+  model_path: /data1/liruihuang/pretrained_models/matterport_lseg.pth.tar
+  save_folder:
+
+Distributed:
+  dist_url: tcp://127.0.0.1:6787
+  dist_backend: 'nccl'
+  multiprocessing_distributed: True
+  world_size: 1
+  rank: 0
