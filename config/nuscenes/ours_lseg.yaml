@@ -1,0 +1,16 @@
+DATA:
+  data_root: data_nus/nuscenes_3d
+  data_root_2d_fused_feature: data_nus/nuscenes_2d/nuscenes_multiview_openseg_val
+  feature_2d_extractor: lseg
+  classes: 16
+  aug: False
+  voxel_size: 0.05
+  input_color: False
+  use_shm: False
+  
+DISTILL:
+  arch_3d: MinkUNet18A
+  ignore_label: 255
+  train_gpu: [0,1,2,3]
+  workers: 16  # data loader workers
+  batch_size: 16  # batch 

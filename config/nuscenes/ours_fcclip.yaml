@@ -51,3 +51,6 @@ TEST:
 Distributed:
   dist_url: tcp://127.0.0.1:6787
   dist_backend: 'nccl'
+  multiprocessing_distributed: True
+  world_size: 1
+  rank: 0
