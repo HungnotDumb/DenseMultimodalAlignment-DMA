@@ -1,0 +1,4 @@
+DATA:
+  data_root: data/replica_processed/replica_3d
+  data_root_2d_fused_feature: data/replica_multiview_openseg
+  feature_2d_
