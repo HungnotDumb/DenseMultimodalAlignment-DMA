@@ -19,4 +19,15 @@ TEST:
   test_workers: 0
   test_gpu: [0]
   test_batch_size: 1
-  model_path:
+  model_path: 'https://cvg-data.inf.ethz.ch/openscene/models/matterport_openseg.pth.tar'
+  save_folder:
+  test_repeats: 1
+  arch_3d: MinkUNet18A
+  manual_seed: 3407
+
+Distributed:
+  dist_url: tcp://127.0.0.1:6787
+  dist_backend: 'nccl'
+  multiprocessing_distributed: True
+  world_size: 1
+  rank: 0
