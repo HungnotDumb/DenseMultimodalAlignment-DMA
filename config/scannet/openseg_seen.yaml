@@ -20,4 +20,19 @@ DISTILL:
   loop: 5
   epochs: 100
   start_epoch: 0
- 
+  power: 0.9
+  momentum: 0.9
+  manual_seed: 1463
+  print_freq: 10
+  save_freq: 1
+  save_path:
+  resume: 
+  evaluate: True  # evaluate on validation set, extra gpu memory needed and small batch_size_val is recommend
+  eval_freq: 1
+
+TEST:
+  split: train  # split in [train, val]
+  prompt_eng: True
+  mark_no_feature_to_unknown: True
+  feature_type: 'distill' # 'distill' | 'fusion' | 'ensemble'
+  s
