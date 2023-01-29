@@ -43,4 +43,14 @@ TEST:
   test_gpu: [0]
   test_batch_size: 1
   test_repeats: 5
-  # model_path: 'https://cvg-data.inf.ethz.ch/openscene/models/scannet_lseg.pth.t
+  # model_path: 'https://cvg-data.inf.ethz.ch/openscene/models/scannet_lseg.pth.tar'
+  # model_path: ./output_lseg_1/model/model_best.pth.tar
+  model_path: ./scannet_lseg.pth.tar
+  save_folder:
+
+Distributed:
+  dist_url: tcp://127.0.0.1:6787
+  dist_backend: 'nccl'
+  multiprocessing_distributed: True
+  world_size: 1
+  rank: 0

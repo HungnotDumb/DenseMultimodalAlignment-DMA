@@ -1,0 +1,4 @@
+DATA:
+  data_root: ./dma_remove/data/data_scannet/scannet_3d
+  data_root_2d_fused_feature: ./dma_remove/data/data_scannet/scannet_multiview_openseg
+  fe
