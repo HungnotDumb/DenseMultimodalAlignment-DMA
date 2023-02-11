@@ -16,4 +16,19 @@ DISTILL:
   workers: 8  # data loader workers
   batch_size: 6  # batch size for training
   batch_size_val: 1  # batch size for validation during training, memory and speed tradeoff
- 
+  base_lr: 0.0001
+  base_weight: 0.1
+  loss_type: cosine # l1 | cosine
+  loop: 5
+  epochs: 100
+  start_epoch: 0
+  power: 0.9
+  momentum: 0.9
+  manual_seed: 1463
+  print_freq: 10
+  save_freq: 1
+  save_path:
+  # resume: ./output_7_best/model/model_best.pth.tar
+  # resume: './scannet_openseg.pth.tar'
+  resume:
+  evaluate: True  # evaluate on validation set, extra gpu memory needed an
