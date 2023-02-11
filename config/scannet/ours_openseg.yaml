@@ -31,4 +31,20 @@ DISTILL:
   # resume: ./output_7_best/model/model_best.pth.tar
   # resume: './scannet_openseg.pth.tar'
   resume:
-  evaluate: True  # evaluate on validation set, extra gpu memory needed an
+  evaluate: True  # evaluate on validation set, extra gpu memory needed and small batch_size_val is recommend
+  eval_freq: 1
+
+TEST:
+  split: val  # split in [train, val]
+  prompt_eng: True
+  mark_no_feature_to_unknown: True
+  feature_type: 'ensemble' # 'distill' | 'fusion' | 'ensemble'
+  save_feature_as_numpy: False
+  vis_input: False
+  vis_pred: False
+  vis_gt: False
+  test_workers: 8
+  test_gpu: [0]
+  test_batch_size: 1
+  test_repeats: 5
+  model_path: ./output/output_op
