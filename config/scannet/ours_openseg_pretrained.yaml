@@ -1,0 +1,4 @@
+DATA:
+  data_root: data/scannet_3d
+  data_root_2d_fused_feature: data/scannet_multiview_openseg
+  feature_2d_extractor: open
