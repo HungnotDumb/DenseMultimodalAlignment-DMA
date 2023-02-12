@@ -1,4 +1,19 @@
 DATA:
   data_root: data/scannet_3d
   data_root_2d_fused_feature: data/scannet_multiview_openseg
-  feature_2d_extractor: open
+  feature_2d_extractor: openseg
+  classes: 20
+  aug: True
+  voxel_size: 0.02
+  input_color: False
+  use_shm: False
+  
+DISTILL:
+  arch_3d: MinkUNet18A
+  ignore_label: 255
+  train_gpu: [0]
+  workers: 8  # data loader workers
+  batch_size: 8  # batch size for training
+  batch_size_val: 1  # batch size for validation during training, memory and speed tradeoff
+  base_lr: 0.0001
+  loss_type: cosine # l1 | c
