@@ -35,4 +35,20 @@ TEST:
   prompt_eng: True
   mark_no_feature_to_unknown: True
   feature_type: 'ensemble' # 'distill' | 'fusion' | 'ensemble'
-  save_
+  save_feature_as_numpy: False
+  vis_input: False
+  vis_pred: True
+  vis_gt: False
+  test_workers: 4
+  test_gpu: [0]
+  test_batch_size: 1
+  test_repeats: 5
+  model_path: ./pretrained_model/model_best_liyang.pth.tar
+  save_folder:
+
+Distributed:
+  dist_url: tcp://127.0.0.1:6787
+  dist_backend: 'nccl'
+  multiprocessing_distributed: True
+  world_size: 1
+  rank: 0
