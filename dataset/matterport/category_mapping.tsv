@@ -1,0 +1,39 @@
+
+index	raw_category	category	count	nyuId	nyu40id	eigen13id	nyuClass	nyu40class	eigen13class	ModelNet40	ModelNet10	ShapeNetCore55	synsetoffset	wnsynsetid	wnsynsetkey	mpcat40index	mpcat40
+1	wall	wall	7667	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+2	door	door	2544	28	8	12	door	door	Wall	door				n03221720	door.n.01	4	door
+3	ceiling	ceiling	2363	4	22	3	ceiling	ceiling	Ceiling					n02990373	ceiling.n.01	17	ceiling
+4	floor	floor	2252	11	2	5	floor	floor	Floor					n03365592	floor.n.01	2	floor
+5	picture	picture	2125	64	11	8	picture	picture	Picture					n03931044	picture.n.01	6	picture
+6	window	window	2013	59	9	13	window	window	Window					n04587648	window.n.01	9	window
+7	chair	chair	1947	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+8	doorframe	door frame	1935	28	8	12	door	door	Wall	door				n03221720	door.n.01	4	door
+9	remove	remove	1622	0	0	0	void	void	void							0	void
+10	pillow	pillow	1335	119	18	7	pillow	pillow	Objects			pillow	03938244	n03938244	pillow.n.01	8	cushion
+11	object	object	1145		40	7		otherprop	Objects					n00002684	object.n.01	39	objects
+12	light	light	967	144	35	7	lamp	lamp	Objects	lamp		lamp	03636649	n03636649	lamp.n.02	28	lighting
+13	cabinet	cabinet	785	3	3	6	cabinet	cabinet	Furniture			cabinet	02933112	n02933112	cabinet.n.01	7	cabinet
+14	curtain	curtain	692	89	16	13	curtain	curtain	Window	curtain				n03151077	curtain.n.01	12	curtain
+15	table	table	691	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+16	plant	plant	632	82	40	7	plant	otherprop	Objects	plant				n00017222	plant.n.02	14	plant
+17	decoration	decoration	532		40	7		otherprop	Objects					n03169390	decoration.n.01	39	objects
+18	window frame	window frame	526	59	9	13	window	window	Window					n04589593	window_frame.n.01	9	window
+19	lamp	lamp	540	144	35	7	lamp	lamp	Objects	lamp		lamp	03636649	n03636649	lamp.n.02	28	lighting
+20	mirror	mirror	488	122	19	7	mirror	mirror	Objects					n03773035	mirror.n.01	21	mirror
+21	towel	towel	437	135	27	7	towel	towel	Objects					n04459362	towel.n.01	20	towel
+22	sink	sink	417	24	34	7	sink	sink	Objects	sink				n04223580	sink.n.01	15	sink
+23	shelf	shelf	417	42	15	6	shelves	shelves	Furniture					n04190052	shelf.n.01	31	shelving
+24	couch	couch	290	83	6	9	sofa	sofa	Sofa	sofa	sofa	sofa	04256520	n04256520	sofa.n.01	10	sofa
+25	dining chair	dining chair	277	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+26	bed	bed	270	157	4	1	bed	bed	Bed	bed	bed	bed	02818832	n02818832	bed.n.01	11	bed
+27	nightstand	nightstand	275	158	32	6	night stand	night stand	Furniture	night_stand	night_stand			n03015254	chest_of_drawers.n.01	13	chest_of_drawers
+28	toilet	toilet	268	124	33	7	toilet	toilet	Objects	toilet	toilet			n04446276	toilet.n.01	18	toilet
+29	sofa chair	sofa chair	262	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+30	column	pillar	243	94	38	7	column	otherstructure	Objects					n03073977	column.n.07	24	column
+31	handrail	handrail	241	453	38	7	banister	otherstructure	Objects					n02788148	bannister.n.02	30	railing
+32	stair	stair	241	215	38	7	stairs	otherstructure	Objects	stairs				n04314914	step.n.04	16	stairs
+33	stool	stool	232	150	40	7	stool	otherprop	Objects	stool				n04326896	stool.n.01	19	stool
+34	armchair	armchair	224	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n02738535	armchair.n.01	3	chair
+35	kitchen cabinet	kitchen cabinet	212	3	3	6	cabinet	cabinet	Furniture					n02933112	cabinet.n.01	7	cabinet
+36	vase	vase	205	78	40	7	vase	otherprop	Objects	vase		jar	03593526	n04522168	vase.n.01	39	objects
+37	cushion	cushion	204	119	18	7	pillow	pillow	Objects					n03151500	cushion.n.03	8	cushion
