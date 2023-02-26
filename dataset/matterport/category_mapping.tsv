@@ -434,3 +434,381 @@ index	raw_category	category	count	nyuId	nyu40id	eigen13id	nyuClass	nyu40class	ei
 432	toilet brush holder	toilet brush holder	4		40	7		otherprop	Objects							40	misc
 433	handrail /otherroom	handrail /otherroom	4	453	38	7	banister	otherstructure	Objects					n02788148	bannister.n.02	30	railing
 434	landing	landing	6		40	7		otherprop	Objects					n03638511	landing.n.01	2	floor
+435	book rack	book rack	4	224	39	6	bookrack	otherfurniture	Furniture							40	misc
+436	wall mirror	mirror	4	122	19	7	mirror	mirror	Objects					n03773035	mirror.n.01	21	mirror
+437	hunting trophy	hunting trophy	4	547	40	7	trophy	otherprop	Objects							40	misc
+438	rod	rod	4		40	7		otherprop	Objects					n04100174	rod.n.01	39	objects
+439	floor mat	floor mat	4	143	20	5	floor mat	floor mat	Floor					n03727837	mat.n.01	2	floor
+440	motion detector	motion detector	4		40	7		otherprop	Objects							40	misc
+441	clothing	clothes	4	141	21	7	clothes	clothes	Objects					n02728440	apparel.n.01	38	clothes
+442	can of paint	can of paint	4		40	7		otherprop	Objects							40	misc
+443	medicine cabinet	medicine cabinet	4	3	3	6	cabinet	cabinet	Furniture			cabinet	02933112	n03742115	medicine_chest.n.01	7	cabinet
+444	sensor	sensor	4		40	7		otherprop	Objects					n03180969	detector.n.01	39	objects
+445	cart	cart	4	305	40	7	cart	otherprop	Objects					n03484083	handcart.n.01	39	objects
+446	slab	slab	4		38	7		otherstructure	Objects					n04233405	slab.n.01	39	objects
+447	bean bag chair	bean bag chair	4	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+448	window valence	window valence	4	89	16	13	curtain	curtain	Window	curtain				n03151077	curtain.n.01	12	curtain
+449	window /outside	window /outside	4	59	9	13	window	window	Window					n04587648	window.n.01	9	window
+450	pole	pole	4		40	7		otherprop	Objects					n03976657	pole.n.01	39	objects
+451	picture / other room	picture /otherroom	4	64	11	8	picture	picture	Picture					n03931044	picture.n.01	6	picture
+452	canister	canister	4	794	40	7	canister	otherprop	Objects							40	misc
+453	washbasin counter	washbasin counter	4	7	12	6	counter	counter	Furniture	table	table	table	04379243	n03116530	counter.n.01	26	counter
+454	kitchen top	kitchen top	4	7	12	6	counter	counter	Furniture					n03118245	countertop.n.01	26	counter
+455	unknown object	object	4		40	7		otherprop	Objects					n00002684	object.n.01	39	objects
+456	pitcher	pitcher	4	273	40	7	pitcher	otherprop	Objects					n03950228	pitcher.n.02	39	objects
+457	showerhead	showerhead	4	650	40	7	shower head	otherprop	Objects					n04209383	showerhead.n.01	23	shower
+458	podium	podium	4		40	7		otherprop	Objects					n03159640	dais.n.01	39	objects
+459	ceiling vent	ceiling vent	4	25	38	7	air vent	otherstructure	Objects					n04526241	vent.n.01	40	misc
+460	throw pillow	pillow	4	119	18	7	pillow	pillow	Objects			pillow	03938244	n03938244	pillow.n.01	8	cushion
+461	grill	grill	4	700	38	7	grill	otherstructure	Objects					n03459591	grill.n.02	40	misc
+462	sink cabinet	sink cabinet	4	3	3	6	cabinet	cabinet	Furniture			cabinet	02933112	n02933112	cabinet.n.01	7	cabinet
+463	tapestry	tapestry	4		40	7		otherprop	Objects					n04393549	tapestry.n.02	39	objects
+464	bed sheet	bed sheet	5	559	40	7	sheet	otherprop	Objects					n04188179	sheet.n.03	11	bed
+465	shade	shade	4		40	7		otherprop	Objects					n04181718	shade.n.03	39	objects
+466	doorknob	doorknob	4	27	40	7	door knob	otherprop	Objects					n03222959	doorknob.n.01	4	door
+467	stair railing	banister	4	453	38	7	banister	otherstructure	Objects					n02788148	bannister.n.02	30	railing
+468	vacuum cleaner	vacuum cleaner	4	306	40	7	vacuum cleaner	otherprop	Objects					n04517823	vacuum.n.04	37	appliances
+469	bed comforter	bed comforter	4	484	40	7	comforter	otherprop	Objects							40	misc
+470	door / other room	door /otherroom	4	28	8	12	door	door	Wall	door				n03221720	door.n.01	4	door
+471	pictures	picture	4	64	11	8	picture	picture	Picture					n03931044	picture.n.01	6	picture
+472	bed table	bed table	4	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+473	shirt	shirt	4		40	7		otherprop	Objects					n04197391	shirt.n.01	38	clothes
+474	dressing table	dressing table	4	19	7	10	table	table	Table	table	table	table	04379243	n03238586	dressing_table.n.01	5	table
+475	shower wall cubby	shower wall cubby	4		40	7		otherprop	Objects					n04208936	shower.n.01	23	shower
+476	side wall	wall	4	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+477	beside table	beside table	4	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+478	curb	curb	4		40	7		otherprop	Objects					n03149135	curb.n.02	39	objects
+479	arches	arch	4		40	7		otherprop	Objects					n02733524	arch.n.04	40	misc
+480	storage bin	storage bin	4	812	40	7	storage bin	otherprop	Objects							40	misc
+481	support beam	support beam	4		40	7		otherprop	Objects					n02815950	beam.n.02	29	beam
+482	globe	globe	5	347	40	7	globe	otherprop	Objects							40	misc
+483	pantry	pantry	4		38	7		otherstructure	Objects					n03885535	pantry.n.01	40	misc
+484	skateboard	skateboard	4	408	38	7	board	otherstructure	Objects			skateboard	04225987	n04225987	skateboard.n.01	39	objects
+485	stove hood	range hood	4	380	38	7	range hood	otherstructure	Objects	range_hood				n04053677	range_hood.n.01	39	objects
+486	cabin	cabin	4		40	7		otherprop	Objects							40	misc
+487	shower bar	shower bar	4	51	38	7	bar	otherstructure	Objects							40	misc
+488	chaise	chaise	4	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03002711	chaise_longue.n.01	3	chair
+489	flower wash	flower vase	4	78	40	7	vase	otherprop	Objects	vase		jar	03593526	n04522168	vase.n.01	39	objects
+490	desk and chairs	desk and chairs	4		40	7		otherprop	Objects							40	misc
+491	plant vase	flower vase	4	78	40	7	vase	otherprop	Objects	vase		jar	03593526	n04522168	vase.n.01	39	objects
+492	towel rack	towel rack	4		40	7		otherprop	Objects					n04459773	towel_rack.n.01	40	misc
+493	cross	cross	4	49	40	7	monitor	otherprop	Objects					n03857828	oscilloscope.n.01	39	objects
+494	sliding door	sliding door	4	28	8	12	door	door	Wall	door				n04239074	sliding_door.n.01	4	door
+495	cosmetics	cosmetics	4		40	7		otherprop	Objects					n03113152	cosmetic.n.01	39	objects
+496	wall other room	wall /otherroom	4	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+497	kettle	kettle	4	16	40	7	pot	otherprop	Objects					n03612814	kettle.n.01	39	objects
+498	junk	junk	4		40	7		otherprop	Objects					n14857897	debris.n.01	39	objects
+499	stationery	stationery	3	15	26	7	paper	paper	Objects					n06258852	stationery.n.01	39	objects
+500	lights	light	3	144	35	7	lamp	lamp	Objects	lamp		lamp	03636649	n03636649	lamp.n.02	28	lighting
+501	window / other room	window /otherroom	3	59	9	13	window	window	Window					n04587648	window.n.01	9	window
+502	dish cabinet	dish cabinet	3	3	3	6	cabinet	cabinet	Furniture			cabinet	02933112	n02933112	cabinet.n.01	7	cabinet
+503	wall panel	wall panel	3	21	1	12	wall	wall	Wall					n04548503	wall_panel.n.01	1	wall
+504	gate	gate	3	223	38	7	gate	otherstructure	Objects					n03427296	gate.n.01	40	misc
+505	safe	safe	3	26	29	7	box	box	Objects					n04125021	safe.n.01	39	objects
+506	ventilation	ventilation	3		40	7		otherprop	Objects					n04526520	ventilation.n.02	39	objects
+507	logs	firewood	3		40	7		otherprop	Objects					n15100644	firewood.n.01	40	misc
+508	sliding doors	sliding door	3	28	8	12	door	door	Wall	door				n04239074	sliding_door.n.01	4	door
+509	shower rod	shower rod	3		40	7		otherprop	Objects					n04100174	rod.n.01	12	curtain
+510	towel shelf	towel shelf	3	42	15	6	shelves	shelves	Furniture					n04190052	shelf.n.01	31	shelving
+511	row of theater chairs	row of theater chairs	3		40	7		otherprop	Objects							40	misc
+512	closet wall	wall	3	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+513	bath utencils	bath utensil	3	267	40	7	utensil	otherprop	Objects							40	misc
+514	sconce	sconce	3	62	38	7	light	otherstructure	Objects					n04148703	sconce.n.03	28	lighting
+515	garage light	garage light	3	62	38	7	light	otherstructure	Objects							40	misc
+516	ceiling beam	beam	3		38	7		otherstructure	Objects					n02815950	beam.n.02	29	beam
+517	toolbox	toolbox	3	344	39	6	chest	otherfurniture	Furniture					n04452615	toolbox.n.01	39	objects
+518	sponge stool	stool	3	150	40	7	stool	otherprop	Objects	stool				n04326896	stool.n.01	19	stool
+519	security camera	security camera	3	212	40	7	security camera	otherprop	Objects			camera	02942699	n02942699	camera.n.01	39	objects
+520	gym machine	exercise equipment	3	457	39	6	excercise equipment	otherfurniture	Furniture					n04285146	sports_equipment.n.01	33	gym_equipment
+521	wall /outside	wall /outside	3	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+522	mantle	mantle	3	874	38	7	mantle	otherstructure	Objects	mantel				n03719343	mantel.n.01	27	fireplace
+523	floor 2	floor	3	11	2	5	floor	floor	Floor					n03365592	floor.n.01	2	floor
+524	skirting	skirting	3		40	7		otherprop	Objects							40	misc
+525	banister	banister	3	453	38	7	banister	otherstructure	Objects					n02788148	bannister.n.02	30	railing
+526	lockers	locker	3	3	3	6	cabinet	cabinet	Furniture					n02933462	cabinet.n.03	40	misc
+527	trophy	trophy	3	547	40	7	trophy	otherprop	Objects							40	misc
+528	tile	tile	3		40	7		otherprop	Objects					n04435180	tile.n.01	39	objects
+529	unknown / room below	unknown /otherroom	3	20	40	7	unknown	otherprop	Objects					n08632096	unknown.n.01	41	unlabeled
+530	picture car	picture car	3	530	40	7	car	otherprop	Objects	car		car	02958343	n02958343	car.n.01	39	objects
+531	outlet	outlet	3		40	7		otherprop	Objects					n04548771	wall_socket.n.01	39	objects
+532	plant ridge	plant ridge	3		40	7		otherprop	Objects							40	misc
+533	backsplash	backsplash	3		40	7		otherprop	Objects							40	misc
+534	computer monitor	monitor	3	49	40	7	monitor	otherprop	Objects	monitor	monitor	tv or monitor	03211117	n03782190	monitor.n.04	22	tv_monitor
+535	doorframe / other room	doorframe /otherroom	3	615	38	7	door frame	otherstructure	Objects					n03222722	doorframe.n.01	4	door
+536	shower wall /otherroom	shower wall /otherroom	3	21	1	12	wall	wall	Wall					n04208936	shower.n.01	23	shower
+537	shelves with wine	shelving	3	42	15	6	shelves	shelves	Furniture					n04190052	shelf.n.01	31	shelving
+538	shoe	shoe	3	149	40	7	shoe	otherprop	Objects					n04199027	shoe.n.01	39	objects
+539	hedge	hedge	3		40	7		otherprop	Objects					n03511175	hedge.n.01	40	misc
+540	glass window	window	3	59	9	13	window	window	Window					n04587648	window.n.01	9	window
+541	sofachair	sofa chair	3	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+542	hand soap	hand soap	3	133	40	7	soap	otherprop	Objects					n04253437	soap.n.01	39	objects
+543	window blinds	blinds	3	80	13	13	blinds	blinds	Window					n04589190	window_blind.n.01	32	blinds
+544	flower vase	flower vase	3	78	40	7	vase	otherprop	Objects	vase		jar	03593526	n04522168	vase.n.01	39	objects
+545	appliance	appliance	3		40	7		otherprop	Objects							40	misc
+546	christmas tree	christmas tree	3		40	7		otherprop	Objects							40	misc
+547	support column	column	3	94	38	7	column	otherstructure	Objects					n03074380	column.n.06	40	misc
+548	dish	plate	3	233	40	7	plate	otherprop	Objects					n03959485	plate.n.04	39	objects
+549	closet floor	closet floor	3	11	2	5	floor	floor	Floor							40	misc
+550	celling	ceiling	3	4	22	3	ceiling	ceiling	Ceiling					n02990373	ceiling.n.01	17	ceiling
+551	stuffed animals	stuffed animal	3	177	40	7	stuffed animal	otherprop	Objects					n04399382	teddy.n.01	39	objects
+552	casket	casket	3		40	7		otherprop	Objects							40	misc
+553	rowing machine	exercise machine	3	220	40	7	machine	otherprop	Objects							40	misc
+554	dining table centerpiece	dining table centerpiece	3	878	40	7	centerpiece	otherprop	Objects							40	misc
+555	bedside lamp	bedside lamp	5	144	35	7	lamp	lamp	Objects	lamp		lamp	03636649	n03636649	lamp.n.02	28	lighting
+556	kitchen countertop item	kitchen countertop item	3		40	7		otherprop	Objects							40	misc
+557	fountain	fountain	3		40	7		otherprop	Objects					n03388043	fountain.n.01	40	misc
+558	window glass	window glass	3	612	38	7	glass	otherstructure	Objects					n03881893	pane.n.01	39	objects
+559	wall soffet	soffit	3		40	7		otherprop	Objects					n04256758	soffit.n.01	39	objects
+560	urinal	urinal	3		40	7		otherprop	Objects					n04515991	urinal.n.01	39	objects
+561	kitchen hood	range hood	3	380	38	7	range hood	otherstructure	Objects	range_hood				n04053677	range_hood.n.01	39	objects
+562	showpiece	decoration	3		40	7		otherprop	Objects					n03169390	decoration.n.01	39	objects
+563	wall trim	molding	3		38	7		otherstructure	Objects					n02800354	baseboard.n.01	1	wall
+564	barrel	barrel	3	343	39	6	barrel	otherfurniture	Furniture							40	misc
+565	firewood	firewood	3		40	7		otherprop	Objects					n15100644	firewood.n.01	40	misc
+566	columns	pillar	3	94	38	7	column	otherstructure	Objects					n03073977	column.n.07	24	column
+567	beams	beam	3		38	7		otherstructure	Objects					n02815950	beam.n.02	29	beam
+568	carpet roll	carpet roll	3		40	7		otherprop	Objects							40	misc
+569	portrait	portrait	3	64	11	8	picture	picture	Picture					n03987079	portrait.n.02	6	picture
+570	table light	table light	3	62	38	7	light	otherstructure	Objects							40	misc
+571	water heater	water heater	3	588	40	7	water heater	otherprop	Objects					n04560113	water_heater.n.01	39	objects
+572	stairs 2	stair	3	215	38	7	stairs	otherstructure	Objects	stairs				n04314914	step.n.04	16	stairs
+573	pouffe	pouffe	3	359	39	6	ottoman	otherfurniture	Furniture					n03858418	ottoman.n.03	34	seating
+574	ceiling behind	ceiling /otherroom	3	4	22	3	ceiling	ceiling	Ceiling					n02990373	ceiling.n.01	17	ceiling
+575	pillars	pillar	3	94	38	7	column	otherstructure	Objects					n03073977	column.n.07	24	column
+576	concrete block	concrete block	3		40	7		otherprop	Objects							40	misc
+577	range	stove	3	242	38	7	stove	otherstructure	Objects			stove	04330267	n04330267	stove.n.02	37	appliances
+578	shelf with objects	shelf	3	42	15	6	shelves	shelves	Furniture					n04190052	shelf.n.01	31	shelving
+579	toilet seat liner dispenser	toilet seat liner dispenser	3		40	7		otherprop	Objects							40	misc
+580	patio chair	patio chair	3	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+581	folding chair	folding chair	3	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03376595	folding_chair.n.01	3	chair
+582	island	island	4	456	38	7	kitchen island	otherstructure	Objects					n03620600	kitchen_island.n.01	26	counter
+583	toaster oven	toaster oven	3	275	40	7	toaster oven	otherprop	Objects					n04442441	toaster_oven.n.01	37	appliances
+584	overlook railing	railing	3	497	38	7	railing	otherstructure	Objects					n04047401	railing.n.01	30	railing
+585	bathroom mirror	mirror	3	122	19	7	mirror	mirror	Objects					n03773035	mirror.n.01	21	mirror
+586	recycle bin	recycle bin	3	307	40	7	bin	otherprop	Objects							40	misc
+587	counter top	countertop	3	7	12	6	counter	counter	Furniture					n03118245	countertop.n.01	26	counter
+588	rafter	rafter	3		40	7		otherprop	Objects					n04045644	rafter.n.01	29	beam
+589	dryer	clothes dryer	3		39	6		otherfurniture	Furniture					n03251766	dryer.n.01	37	appliances
+590	bed lamp	bedside lamp	3	144	35	7	lamp	lamp	Objects	lamp		lamp	03636649	n03636649	lamp.n.02	28	lighting
+591	wall paneling	paneling	3	21	1	12	wall	wall	Wall					n03882611	paneling.n.01	1	wall
+592	stage	stage	3		40	7		otherprop	Objects							40	misc
+593	fire sprinkler	fire sprinkler	3		40	7		otherprop	Objects							40	misc
+594	brush	brush	3		40	7		otherprop	Objects					n02908217	brush.n.02	39	objects
+595	wall 2	wall	3	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+596	balcony	balcony	3		40	7		otherprop	Objects							40	misc
+597	water tank	water tank	2	263	40	7	vessel	otherprop	Objects					n03035715	cistern.n.02	39	objects
+598	pile of objects	clutter	2		40	7		otherprop	Objects							40	misc
+599	garage door frame	garage door frame	2		40	7		otherprop	Objects							40	misc
+600	back wall	wall	2	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+601	plant soil	plant soil	2		40	7		otherprop	Objects							40	misc
+602	globe stand	globe stand	2	466	40	7	globe stand	otherprop	Objects							40	misc
+603	bicycle	bicycle	2	189	40	7	bicycle	otherprop	Objects			bicycle	02834778	n02834778	bicycle.n.01	39	objects
+604	stairframe	stair frame	2		40	7		otherprop	Objects							40	misc
+605	separating screen	partition	2	21	1	12	wall	wall	Wall					n03894379	partition.n.01	40	misc
+606	unknown wall object	object	2		40	7		otherprop	Objects					n00002684	object.n.01	39	objects
+607	air duct	air duct	2	38	38	7	air duct	otherstructure	Objects					n02690941	air_passage.n.01	40	misc
+608	kitchen upper cabinet	kitchen cabinet	2	3	3	6	cabinet	cabinet	Furniture					n02933112	cabinet.n.01	7	cabinet
+609	chair pillow	pillow	2	119	18	7	pillow	pillow	Objects			pillow	03938244	n03938244	pillow.n.01	8	cushion
+610	led tv	led tv	2		40	7		otherprop	Objects							40	misc
+611	deco	decoration	2		40	7		otherprop	Objects					n03169390	decoration.n.01	39	objects
+612	ceiling under staircase	ceiling under staircase	2		40	7		otherprop	Objects							40	misc
+613	chair /w books	chair /w books	2	85	23	2	books	books	Books							40	misc
+614	bed back rest	headboard	2	161	39	6	headboard	otherfurniture	Furniture					n03502200	headboard.n.01	11	bed
+615	giraffe	giraffe	2		40	7		otherprop	Objects					n02439033	giraffe.n.01	39	objects
+616	lightswitch	light switch	2	301	38	7	light switch	otherstructure	Objects					n04372370	switch.n.01	39	objects
+617	doorframe \other room	doorframe /otherroom	2	615	38	7	door frame	otherstructure	Objects					n03222722	doorframe.n.01	4	door
+618	object / camera?	object	2		40	7		otherprop	Objects					n00002684	object.n.01	39	objects
+619	grandfather clock	grandfather clock	2	462	39	6	grandfather clock	otherfurniture	Furniture			clock	03046257	n03452594	grandfather_clock.n.01	39	objects
+620	jewelry box	jewelry box	2	26	29	7	box	box	Objects							40	misc
+621	bottles of wine	bottles of wine	2	766	40	7	wine	otherprop	Objects							40	misc
+622	massage table base	massage table	2	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+623	hood	range hood	2	380	38	7	range hood	otherstructure	Objects	range_hood				n04053677	range_hood.n.01	39	objects
+624	mirrorframe	mirror frame	2	122	19	7	mirror	mirror	Objects					n03773035	mirror.n.01	21	mirror
+625	wall beam	wall beam	2		40	7		otherprop	Objects							40	misc
+626	wooden trim	molding	2		38	7		otherstructure	Objects					n02800354	baseboard.n.01	1	wall
+627	stalls	stall	2		38	7		otherstructure	Objects					n02873839	booth.n.02	40	misc
+628	partition	partition	2	21	1	12	wall	wall	Wall					n03894379	partition.n.01	40	misc
+629	dog	dog	2	701	40	7	dog	otherprop	Objects							40	misc
+630	valance	valance	2		40	7		otherprop	Objects					n03111296	cornice.n.01	40	misc
+631	radio	radio	2	188	40	7	radio	otherprop	Objects	radio						40	misc
+632	bush	bush	2	82	40	7	plant	otherprop	Objects	plant				n13112664	shrub.n.01	14	plant
+633	row of theater seats	row of theater seats	2		40	7		otherprop	Objects							40	misc
+634	bath utencil	bath utensil	2	267	40	7	utensil	otherprop	Objects							40	misc
+635	basket of towels	basket of towels	2		40	7		otherprop	Objects							40	misc
+636	laundry machine	washing machine	2	278	39	6	washing machine	otherfurniture	Furniture			washing_machine	04554684	n04554684	washer.n.03	37	appliances
+637	mirror /otherroom	mirror /otherroom	2	122	19	7	mirror	mirror	Objects					n03773035	mirror.n.01	21	mirror
+638	toilet sink	toilet sink	2	24	34	7	sink	sink	Objects	sink						40	misc
+639	sauna heater	sauna heater	2	111	39	6	heater	otherfurniture	Furniture							40	misc
+640	dining bench	dining bench	2	204	39	6	bench	otherfurniture	Furniture	bench		bench	02828884	n02828884	bench.n.01	34	seating
+641	fume cupboard	fume cupboard	2		40	7		otherprop	Objects							40	misc
+642	mouse	mouse	2	103	40	7	mouse	otherprop	Objects					n03793489	mouse.n.04	39	objects
+643	boiler	boiler	2		40	7		otherprop	Objects							40	misc
+644	hearth	hearth	2	372	38	7	fireplace	otherstructure	Objects							40	misc
+645	curtain darker	curtain	2	89	16	13	curtain	curtain	Window	curtain				n03151077	curtain.n.01	12	curtain
+646	round chair	round chair	2	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+647	toilet bowl	toilet	2	124	33	7	toilet	toilet	Objects	toilet	toilet			n04446276	toilet.n.01	18	toilet
+648	whine rack	wine rack	2	299	40	7	wine rack	otherprop	Objects							40	misc
+649	doorstep	doorstep	3	28	8	12	door	door	Wall					n03223686	doorsill.n.01	39	objects
+650	binder	binder	2	399	40	7	binder	otherprop	Objects							40	misc
+651	shower door frame	shower door frame	2		40	7		otherprop	Objects					n04208936	shower.n.01	23	shower
+652	bed runner	bed runner	2	157	4	1	bed	bed	Bed					n02822579	bedstead.n.01	11	bed
+653	cubicle	cubicle	2		40	7		otherprop	Objects							40	misc
+654	fitness device	exercise equipment	2	457	39	6	excercise equipment	otherfurniture	Furniture					n04285146	sports_equipment.n.01	33	gym_equipment
+655	support	support	2		40	7		otherprop	Objects							40	misc
+656	overhang	overhang	2		40	7		otherprop	Objects					n03864356	overhang.n.01	40	misc
+657	electric box	electric box	2	550	38	7	electric box	otherstructure	Objects							40	misc
+658	bathrobe	bathrobe	3		40	7		otherprop	Objects					n02807616	bathrobe.n.01	38	clothes
+659	door mat	doormat	2	143	20	5	floor mat	floor mat	Floor					n03223299	doormat.n.02	2	floor
+660	jacket	jacket	2	324	40	7	jacket	otherprop	Objects					n03589791	jacket.n.01	38	clothes
+661	cabinet table	cabinet table	2	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+662	side frame	frame	2		38	7		otherstructure	Objects							40	misc
+663	wainscoting	paneling	2	21	1	12	wall	wall	Wall					n03882611	paneling.n.01	1	wall
+664	staircase trim	staircase trim	2		40	7		otherprop	Objects							40	misc
+665	box /w books	box /w books	2	85	23	2	books	books	Books							40	misc
+666	nighstand	nightstand	2	158	32	6	night stand	night stand	Furniture	night_stand	night_stand			n03015254	chest_of_drawers.n.01	13	chest_of_drawers
+667	window reflection	window reflection	2		40	7		otherprop	Objects							40	misc
+668	pulpit	pulpit	2		40	7		otherprop	Objects					n03159640	dais.n.01	39	objects
+669	set of armchairs	set of armchairs	2		40	7		otherprop	Objects							40	misc
+670	fish tank	fish tank	2	782	38	7	fish tank	otherstructure	Objects					n02732072	aquarium.n.01	40	misc
+671	bathroom countertop objects	objects	2		40	7		otherprop	Objects					n00002684	object.n.01	39	objects
+672	concrete shelf	shelf	2	42	15	6	shelves	shelves	Furniture					n04190052	shelf.n.01	31	shelving
+673	ceiling wall	ceiling wall	2	21	1	12	wall	wall	Wall							40	misc
+674	picture \other room	picture /otherroom	2	64	11	8	picture	picture	Picture					n03931044	picture.n.01	6	picture
+675	wall entry	wall	2	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+676	lintel	lintel	2		40	7		otherprop	Objects					n03503233	header.n.02	29	beam
+677	wall table	wall table	2	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+678	small table	table	3	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+679	lighting fixture	lighting fixture	2		40	7		otherprop	Objects					n03667380	lighting_fixture.n.01	39	objects
+680	bed frame	bedframe	2	157	4	1	bed	bed	Bed					n02822579	bedstead.n.01	11	bed
+681	freezer	freezer	2	17	24	6	refridgerator	refridgerator	Furniture					n03170635	deep-freeze.n.01	37	appliances
+682	glass doors	door	2	28	8	12	door	door	Wall	door				n03221720	door.n.01	4	door
+683	extractor	extractor	2		40	7		otherprop	Objects							40	misc
+684	flower pot	flowerpot	2	146	40	7	flower pot	otherprop	Objects	flower_pot		flower pot	03991062	n03991062	pot.n.04	39	objects
+685	soffet	soffit	2		40	7		otherprop	Objects					n04256758	soffit.n.01	39	objects
+686	platform	platform	2		38	7		otherstructure	Objects							40	misc
+687	hot tub	hot tub	2	136	36	7	bathtub	bathtub	Objects	bathtub	bathtub	tub	02808440	n03543603	hot_tub.n.01	25	bathtub
+688	paper towels	paper towel	2	113	40	7	paper towel	otherprop	Objects					n03887697	paper_towel.n.01	20	towel
+689	kitchen utencils	kitchen utensil	2	267	40	7	utensil	otherprop	Objects					n03621049	kitchen_utensil.n.01	39	objects
+690	shower grab bar	shower grab bar	2	51	38	7	bar	otherstructure	Objects							40	misc
+691	wall detail	wall detail	2		40	7		otherprop	Objects							40	misc
+692	whineshelf	whine shelf	2		40	7		otherprop	Objects							40	misc
+693	painting/other room	painting /otherroom	2	64	11	8	picture	picture	Picture					n03876519	painting.n.01	39	objects
+694	television	wall tv	2		40	7		otherprop	Objects							40	misc
+695	sauna bench	bench	2	204	39	6	bench	otherfurniture	Furniture	bench		bench	02828884	n02828884	bench.n.01	34	seating
+696	fruits	fruit	2	286	40	7	fruit	otherprop	Objects					n13134947	fruit.n.01	39	objects
+697	picture frames	picture frame	2	64	11	8	picture	picture	Picture					n03931765	picture_frame.n.01	6	picture
+698	buffet	buffet	2	7	12	6	counter	counter	Furniture	table	table	table	04379243	n04247736	snack_bar.n.01	26	counter
+699	billow	billow	2		40	7		otherprop	Objects							40	misc
+700	computer chair	computer chair	2	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+701	sofa seat	sofa seat	2		40	7		otherprop	Objects							40	misc
+702	wall tv	wall tv	2		40	7		otherprop	Objects							40	misc
+703	ground	floor	2	11	2	5	floor	floor	Floor					n03365592	floor.n.01	2	floor
+704	wall2	wall	2	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+705	ceiling under stairs	ceiling under stairs	2	215	38	7	stairs	otherstructure	Objects	stairs						40	misc
+706	calendar	calendar	2	583	40	7	calendar	otherprop	Objects							40	misc
+707	dome	dome	2		40	7		otherprop	Objects							40	misc
+708	object /outside	object /outside	2		40	7		otherprop	Objects					n00002684	object.n.01	39	objects
+709	poll	poll	2		40	7		otherprop	Objects					n01817346	poll.n.04	39	objects
+710	wet bar	wet bar	2	51	38	7	bar	otherstructure	Objects	table	table	table	04379243	n04573513	wet_bar.n.01	26	counter
+711	folding table	folding table	2	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+712	stovetop	stovetop	2		40	7		otherprop	Objects							40	misc
+713	gym equip	gym equipment	2	457	39	6	excercise equipment	otherfurniture	Furniture					n04285146	sports_equipment.n.01	33	gym_equipment
+714	fruitbowl	fruit bowl	2	22	40	7	bowl	otherprop	Objects	bowl		bowl	02880940	n02880940	bowl.n.03	39	objects
+715	vending machine	vending machine	2	220	40	7	machine	otherprop	Objects					n04525305	vending_machine.n.01	39	objects
+716	handwash	hand wash	2		40	7		otherprop	Objects							40	misc
+717	wall clock	wall clock	2	56	40	7	clock	otherprop	Objects			clock	03046257	n04548280	wall_clock.n.01	39	objects
+718	liquid soap	liquid soap	2	133	40	7	soap	otherprop	Objects							40	misc
+719	trinkets	trinket	2	844	40	7	trinket	otherprop	Objects					n02787435	bangle.n.02	39	objects
+720	small table / stand	small table/stand	2		40	7		otherprop	Objects							40	misc
+721	window shuts	window shutters	2		40	7		otherprop	Objects					n04211356	shutter.n.02	39	objects
+722	door frame 3	door frame	2	28	8	12	door	door	Wall	door				n03221720	door.n.01	4	door
+723	stone	stone	2	578	40	7	stones	otherprop	Objects					n09416076	rock.n.01	39	objects
+724	tripod	tripod	2	50	39	6	stand	otherfurniture	Furniture					n04485082	tripod.n.01	31	shelving
+725	projector screen	projector screen	2	53	38	7	projector screen	otherstructure	Objects							40	misc
+726	window frame / other room	window frame /otherroom	2	477	38	7	window frame	otherstructure	Objects					n04589593	window_frame.n.01	9	window
+727	wreath	wreath	2	881	40	7	wreathe	otherprop	Objects					n04606014	wreath.n.01	39	objects
+728	door hinge	door hinge	2		40	7		otherprop	Objects							40	misc
+729	sound	speaker	2	54	40	7	speaker	otherprop	Objects			speaker	03691459	n03691459	loudspeaker.n.01	39	objects
+730	french door	french door	2	28	8	12	door	door	Wall	door				n03394649	french_door.n.01	4	door
+731	staircase handrail	staircase handrail	2		40	7		otherprop	Objects							40	misc
+732	nighttable	night table	2	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+733	photo in frame	picure	2	64	11	8	picture	picture	Picture							40	misc
+734	photoframe	picture	2	64	11	8	picture	picture	Picture					n03931044	picture.n.01	6	picture
+735	stair wall	stair wall	2	21	1	12	wall	wall	Wall							40	misc
+736	closet ceiling	closet ceiling	2	4	22	3	ceiling	ceiling	Ceiling							40	misc
+737	stick	stick	2	529	40	7	stick	otherprop	Objects							40	misc
+738	fluorescent light	fluorescent light	2	62	38	7	light	otherstructure	Objects							40	misc
+739	wash cabinet	wash cabinet	2	3	3	6	cabinet	cabinet	Furniture			cabinet	02933112	n02933112	cabinet.n.01	7	cabinet
+740	shower seat	shower seat	2		40	7		otherprop	Objects							40	misc
+741	trellis	trellis	2		40	7		otherprop	Objects					n04478512	trellis.n.01	40	misc
+742	patio	patio	2		40	7		otherprop	Objects					n03899768	patio.n.01	40	misc
+743	dart board	dartboard	2	408	38	7	board	otherstructure	Objects					n03162940	dartboard.n.01	39	objects
+744	comforter	comforter	2	484	40	7	comforter	otherprop	Objects					n04033995	quilt.n.01	39	objects
+745	table /w books	table /w books	2	85	23	2	books	books	Books							40	misc
+746	picture/other room	picture /otherroom	2	64	11	8	picture	picture	Picture					n03931044	picture.n.01	6	picture
+747	dirt	dirt	2		40	7		otherprop	Objects							40	misc
+748	base	base	2		40	7		otherprop	Objects							40	misc
+749	chemical tank	chemical tank	2		40	7		otherprop	Objects							40	misc
+750	step stool	step stool	2	276	40	7	step stool	otherprop	Objects	stool				n04315713	step_stool.n.01	19	stool
+751	misc	misc	2		40	7		otherprop	Objects							40	misc
+752	sink table	sink table	2	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+753	curved wall	wall	2	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+754	roof beam	beam	2		38	7		otherstructure	Objects					n02815950	beam.n.02	29	beam
+755	cover	cover	2	312	40	7	blanket	otherprop	Objects							40	misc
+756	reading table	reading table	2	19	7	10	table	table	Table	table	table	table	04379243	n04379243	table.n.02	5	table
+757	side steps wall	steps wall	2	21	1	12	wall	wall	Wall							40	misc
+758	sideboard	sideboard	2	7	12	6	counter	counter	Furniture							40	misc
+759	wall from another room	wall /otherroom	2	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+760	electric outlet	electric outlet	2	98	40	7	electrical outlet	otherprop	Objects					n04548771	wall_socket.n.01	39	objects
+761	stall door	stall door	2	28	8	12	door	door	Wall	door				n03221720	door.n.01	4	door
+762	separator	separator	2		40	7		otherprop	Objects					n02995998	centrifuge.n.01	39	objects
+763	toilet bowl brush holder	toilet bowl brush holder	2		40	7		otherprop	Objects							40	misc
+764	vessel	vessel	2	263	40	7	vessel	otherprop	Objects			watercraft	04530566	n04530566	vessel.n.02	39	objects
+765	table clutter	table clutter	2		40	7		otherprop	Objects							40	misc
+766	partition wall	wall	2	21	1	12	wall	wall	Wall					n04546855	wall.n.01	1	wall
+767	bed curtain	bed curtain	2	89	16	13	curtain	curtain	Window	curtain						40	misc
+768	stairs skirt	stairs skirt	2		40	7		otherprop	Objects							40	misc
+769	small chair	chair	2	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+770	ceiling window	ceiling window	2	59	9	13	window	window	Window							40	misc
+771	rocking chair	rocking chair	2	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n04099969	rocking_chair.n.01	3	chair
+772	window \other room	window /otherroom	2	59	9	13	window	window	Window					n04587648	window.n.01	9	window
+773	under stair	under stair	2		40	7		otherprop	Objects							40	misc
+774	unknown outside building	unknown /outside	2	20	40	7	unknown	otherprop	Objects					n08632096	unknown.n.01	41	unlabeled
+775	bath wall	bath wall	2	21	1	12	wall	wall	Wall							40	misc
+776	panel screen	panel screen	2		40	7		otherprop	Objects							40	misc
+777	doorfra,e	doorframe	2	615	38	7	door frame	otherstructure	Objects					n03222722	doorframe.n.01	4	door
+778	shower mat	shower mat	2	143	20	5	floor mat	floor mat	Floor					n03727837	mat.n.01	2	floor
+779	blackboard	blackboard	2	225	38	7	blackboard	otherstructure	Objects					n02846511	blackboard.n.01	39	objects
+780	drawer desk	drawer desk	2	36	14	10	desk	desk	Table	desk	desk					40	misc
+781	poster	picture	2	64	11	8	picture	picture	Picture					n03931044	picture.n.01	6	picture
+782	fireplace sconce	fireplace sconce	2		40	7		otherprop	Objects							40	misc
+783	table support	table support	2		40	7		otherprop	Objects							40	misc
+784	wall lamp	wall lamp	2	144	35	7	lamp	lamp	Objects	lamp		lamp	03636649	n03636649	lamp.n.02	28	lighting
+785	closet shelving	closet shelving	5		40	7		otherprop	Objects							40	misc
+786	closest area	closest area	2		40	7		otherprop	Objects							40	misc
+787	scroll	scroll	2		40	7		otherprop	Objects							40	misc
+788	foot stand	foot stand	2	50	39	6	stand	otherfurniture	Furniture							40	misc
+789	button	button	2	774	40	7	button	otherprop	Objects							40	misc
+790	art / clutter	art/clutter	2		40	7		otherprop	Objects							40	misc
+791	door arc	arch	2		40	7		otherprop	Objects					n02733524	arch.n.04	40	misc
+792	stairs railing	stairs railing	2	497	38	7	railing	otherstructure	Objects							40	misc
+793	floor /otherroom	floor /otherroom	2	11	2	5	floor	floor	Floor					n03365592	floor.n.01	2	floor
+794	shovel	shovel	2	607	40	7	shovel	otherprop	Objects							40	misc
+795	alarm controls	alarm control	2		40	7		otherprop	Objects							40	misc
+796	lamb	lamp	2	144	35	7	lamp	lamp	Objects	lamp		lamp	03636649	n03636649	lamp.n.02	28	lighting
+797	cluttered objects	clutter	2		40	7		otherprop	Objects							40	misc
+798	door/other room	door /otherroom	2	28	8	12	door	door	Wall	door				n03221720	door.n.01	4	door
+799	closet shelves	closet shelf	2		40	7		otherprop	Objects					n04190052	shelf.n.01	31	shelving
+800	scultpure	sculpture	2	294	40	7	sculpture	otherprop	Objects					n04157320	sculpture.n.01	39	objects
+801	arm chair	armchair	2	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n02738535	armchair.n.01	3	chair
+802	door behind	door /otherroom	2	28	8	12	door	door	Wall	door				n03221720	door.n.01	4	door
+803	exercise ball	exercise ball	2	457	39	6	excercise equipment	otherfurniture	Furniture					n04285146	sports_equipment.n.01	33	gym_equipment
+804	yard	yard	2		40	7		otherprop	Objects							40	misc
+805	semi chair	semi chair	2	5	5	4	chair	chair	Chair	chair	chair	chair	03001627	n03001627	chair.n.01	3	chair
+806	bouquet	bouquet	2		40	7		otherprop	Objects					n02879087	bouquet.n.01	39	objects
+807	garage door opener bar	garage door opener bar	2	51	38	7	bar	otherstructure	Objects							40	misc
+808	pots	pot	2	16	40	7	pot	otherprop	Objects					n03991062	pot.n.04	39	objects
+809	decorations	decoration	2		40	7		otherprop	Objects					n03169390	decoration.n.01	39	objects
+810	unkown	unknown	2	20	40	7	unknown	otherprop	Objects					n08632096	unknown.n.01	41	unlabeled
+811	kitchen decoration	kitchen decoration	2		40	7		otherprop	Objects					n03169390	decoration.n.01	39	objects
+812	archway corner	archway corner	2		40	7		otherprop	Objects							40	misc
