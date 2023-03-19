@@ -39,4 +39,14 @@ def get_release_scans(release_file):
 
 
 def download_release(release_scans, out_dir, file_types, use_v1_sens):
-    if l
+    if len(release_scans) == 0:
+        return
+    print('Downloading ScanNet ' + RELEASE_NAME + ' release to ' + out_dir + '...')
+    for scan_id in release_scans:
+        scan_out_dir = os.path.join(out_dir, scan_id)
+        download_scan(scan_id, scan_out_dir, file_types, use_v1_sens)
+    print('Downloaded ScanNet ' + RELEASE_NAME + ' release.')
+
+
+def download_file(url, out_file):
+    out_dir = os.path.dirname(out_
