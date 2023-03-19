@@ -61,4 +61,12 @@ def download_file(url, out_file):
         # urllib.urlretrieve(url, out_file_tmp)
         os.rename(out_file_tmp, out_file)
     else:
-      
+        print('WARNING: skipping download of existing file ' + out_file)
+
+def download_scan(scan_id, out_dir, file_types, use_v1_sens):
+    print('Downloading ScanNet ' + RELEASE_NAME + ' scan ' + scan_id + ' ...')
+    if not os.path.isdir(out_dir):
+        os.makedirs(out_dir)
+    for ft in file_types:
+        v1_sens = use_v1_sens and ft == '.sens'
+        url = BASE_URL + RELEASE + '/' + scan_id + '/'
