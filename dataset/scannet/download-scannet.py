@@ -49,4 +49,16 @@ def download_release(release_scans, out_dir, file_types, use_v1_sens):
 
 
 def download_file(url, out_file):
-    out_dir = os.path.dirname(out_
+    out_dir = os.path.dirname(out_file)
+    if not os.path.isdir(out_dir):
+        os.makedirs(out_dir)
+    if not os.path.isfile(out_file):
+        print('\t' + url + ' > ' + out_file)
+        fh, out_file_tmp = tempfile.mkstemp(dir=out_dir)
+        f = os.fdopen(fh, 'w')
+        f.close()
+        urllib.request.urlretrieve(url, out_file_tmp)
+        # urllib.urlretrieve(url, out_file_tmp)
+        os.rename(out_file_tmp, out_file)
+    else:
+      
