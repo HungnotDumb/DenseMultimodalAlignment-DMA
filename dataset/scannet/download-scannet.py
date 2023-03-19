@@ -25,4 +25,18 @@ RELEASE_TASKS = RELEASES_TASKS[0]
 RELEASE_NAME = RELEASES_NAMES[0]
 LABEL_MAP_FILE = LABEL_MAP_FILES[0]
 RELEASE_SIZE = '1.2TB'
-V1_IDX =
+V1_IDX = 1
+
+
+def get_release_scans(release_file):
+    scan_lines = urllib.request.urlopen(release_file)
+    # scan_lines = urllib.urlopen(release_file)
+    scans = []
+    for scan_line in scan_lines:
+        scan_id = scan_line.decode('utf8').rstrip('\n')
+        scans.append(scan_id)
+    return scans
+
+
+def download_release(release_scans, out_dir, file_types, use_v1_sens):
+    if l
