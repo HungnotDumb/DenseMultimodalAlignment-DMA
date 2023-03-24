@@ -79,4 +79,14 @@ def download_task_data(out_dir):
     print('Downloading ScanNet v1 task data...')
     files = [
         LABEL_MAP_FILES[V1_IDX], 'obj_classification/data.zip',
-        'obj_classif
+        'obj_classification/trained_models.zip', 'voxel_labeling/data.zip',
+        'voxel_labeling/trained_models.zip'
+    ]
+    for file in files:
+        url = BASE_URL + RELEASES_TASKS[V1_IDX] + '/' + file
+        localpath = os.path.join(out_dir, file)
+        localdir = os.path.dirname(localpath)
+        if not os.path.isdir(localdir):
+          os.makedirs(localdir)
+        download_file(url, localpath)
+    print('Downloade
