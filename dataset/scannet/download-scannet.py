@@ -69,4 +69,14 @@ def download_scan(scan_id, out_dir, file_types, use_v1_sens):
         os.makedirs(out_dir)
     for ft in file_types:
         v1_sens = use_v1_sens and ft == '.sens'
-        url = BASE_URL + RELEASE + '/' + scan_id + '/'
+        url = BASE_URL + RELEASE + '/' + scan_id + '/' + scan_id + ft if not v1_sens else BASE_URL + RELEASES[V1_IDX] + '/' + scan_id + '/' + scan_id + ft
+        out_file = out_dir + '/' + scan_id + ft
+        download_file(url, out_file)
+    print('Downloaded scan ' + scan_id)
+
+
+def download_task_data(out_dir):
+    print('Downloading ScanNet v1 task data...')
+    files = [
+        LABEL_MAP_FILES[V1_IDX], 'obj_classification/data.zip',
+        'obj_classif
