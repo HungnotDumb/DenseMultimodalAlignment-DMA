@@ -100,4 +100,13 @@ def download_tfrecords(in_dir, out_dir):
     for folder_name in ['hires_tfrecords', 'lores_tfrecords']:
         folder_dir = '%s/%s' % (in_dir, folder_name)
         save_dir = '%s/%s' % (out_dir, folder_name)
-        if not os.path.exists(
+        if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
+        for split, num_shards in split_to_num_shards.items():
+            for i in range(num_shards):
+                file_name = '%s-%05d-of-%05d.tfrecords' % (split, i, num_shards)
+                url = '%s/%s' % (folder_dir, file_name)
+                localpath = '%s/%s/%s' % (out_dir, folder_name, file_name)
+                download_file(url, localpath)
+
+def download_
