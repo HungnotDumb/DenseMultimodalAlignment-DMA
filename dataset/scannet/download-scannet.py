@@ -109,4 +109,14 @@ def download_tfrecords(in_dir, out_dir):
                 localpath = '%s/%s/%s' % (out_dir, folder_name, file_name)
                 download_file(url, localpath)
 
-def download_
+def download_label_map(out_dir):
+    print('Downloading ScanNet ' + RELEASE_NAME + ' label mapping file...')
+    files = [ LABEL_MAP_FILE ]
+    for file in files:
+        url = BASE_URL + RELEASE_TASKS + '/' + file
+        localpath = os.path.join(out_dir, file)
+        localdir = os.path.dirname(localpath)
+        if not os.path.isdir(localdir):
+          os.makedirs(localdir)
+        download_file(url, localpath)
+    print('D
