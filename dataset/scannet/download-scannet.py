@@ -89,4 +89,15 @@ def download_task_data(out_dir):
         if not os.path.isdir(localdir):
           os.makedirs(localdir)
         download_file(url, localpath)
-    print('Downloade
+    print('Downloaded task data.')
+
+def download_tfrecords(in_dir, out_dir):
+    print('Downloading tf records (302 GB)...')
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+    split_to_num_shards = {'train': 100, 'val': 25, 'test': 10}
+
+    for folder_name in ['hires_tfrecords', 'lores_tfrecords']:
+        folder_dir = '%s/%s' % (in_dir, folder_name)
+        save_dir = '%s/%s' % (out_dir, folder_name)
+        if not os.path.exists(
