@@ -126,4 +126,8 @@ def main():
     parser = argparse.ArgumentParser(description='Downloads ScanNet public data release.')
     parser.add_argument('-o', '--out_dir', required=True, help='directory in which to download')
     parser.add_argument('--task_data', action='store_true', help='download task data (v1)')
-    parser.add_argument('--label_map', action='stor
+    parser.add_argument('--label_map', action='store_true', help='download label map file')
+    parser.add_argument('--v1', action='store_true', help='download ScanNet v1 instead of v2')
+    parser.add_argument('--id', help='specific scan id to download')
+    parser.add_argument('--preprocessed_frames', action='store_true', help='download preprocessed subset of ScanNet frames (' + PREPROCESSED_FRAMES_FILE[1] + ')')
+    parser.add_argument('--test_frames_2d', action='store_t
