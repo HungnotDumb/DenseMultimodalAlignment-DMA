@@ -134,4 +134,15 @@ def main():
     parser.add_argument('--data_efficient', action='store_true', help='download data efficient task files; also included with whole dataset download)')
     parser.add_argument('--tf_semantic', action='store_true', help='download google tensorflow records for 3D segmentation / detection')
     parser.add_argument('--grit', action='store_true', help='download ScanNet files for General Robust Image Task')
-    parser.add_argument('--type', help='specific file type to download (.aggregation.json, .sens, .txt, _vh_clean.ply, _vh_clean_2.0.010000.segs.json, _vh_clean_2.ply, _vh_clean.segs.json, _vh_clean.aggregation.json, _vh_clean_2.labels.ply, _2d-instance.zip, _2d-instan
+    parser.add_argument('--type', help='specific file type to download (.aggregation.json, .sens, .txt, _vh_clean.ply, _vh_clean_2.0.010000.segs.json, _vh_clean_2.ply, _vh_clean.segs.json, _vh_clean.aggregation.json, _vh_clean_2.labels.ply, _2d-instance.zip, _2d-instance-filt.zip, _2d-label.zip, _2d-label-filt.zip)')
+    args = parser.parse_args()
+
+    print('By pressing any key to continue you confirm that you have agreed to the ScanNet terms of use as described at:')
+    print(TOS_URL)
+    print('***')
+    print('Press any key to continue, or CTRL-C to exit.')
+    key = 'aaaa'
+
+    if args.v1:
+        global RELEASE
+        global RELE
