@@ -130,4 +130,6 @@ def main():
     parser.add_argument('--v1', action='store_true', help='download ScanNet v1 instead of v2')
     parser.add_argument('--id', help='specific scan id to download')
     parser.add_argument('--preprocessed_frames', action='store_true', help='download preprocessed subset of ScanNet frames (' + PREPROCESSED_FRAMES_FILE[1] + ')')
-    parser.add_argument('--test_frames_2d', action='store_t
+    parser.add_argument('--test_frames_2d', action='store_true', help='download 2D test frames (' + TEST_FRAMES_FILE[1] + '; also included with whole dataset download)')
+    parser.add_argument('--data_efficient', action='store_true', help='download data efficient task files; also included with whole dataset download)')
+    parser.add_argument('--tf_semantic', action='store_true', help='download google tensorflow records for 3D segmentation / detection'
