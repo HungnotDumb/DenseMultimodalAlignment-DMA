@@ -119,4 +119,11 @@ def download_label_map(out_dir):
         if not os.path.isdir(localdir):
           os.makedirs(localdir)
         download_file(url, localpath)
-    print('D
+    print('Downloaded ScanNet ' + RELEASE_NAME + ' label mapping file.')
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Downloads ScanNet public data release.')
+    parser.add_argument('-o', '--out_dir', required=True, help='directory in which to download')
+    parser.add_argument('--task_data', action='store_true', help='download task data (v1)')
+    parser.add_argument('--label_map', action='stor
