@@ -132,4 +132,6 @@ def main():
     parser.add_argument('--preprocessed_frames', action='store_true', help='download preprocessed subset of ScanNet frames (' + PREPROCESSED_FRAMES_FILE[1] + ')')
     parser.add_argument('--test_frames_2d', action='store_true', help='download 2D test frames (' + TEST_FRAMES_FILE[1] + '; also included with whole dataset download)')
     parser.add_argument('--data_efficient', action='store_true', help='download data efficient task files; also included with whole dataset download)')
-    parser.add_argument('--tf_semantic', action='store_true', help='download google tensorflow records for 3D segmentation / detection'
+    parser.add_argument('--tf_semantic', action='store_true', help='download google tensorflow records for 3D segmentation / detection')
+    parser.add_argument('--grit', action='store_true', help='download ScanNet files for General Robust Image Task')
+    parser.add_argument('--type', help='specific file type to download (.aggregation.json, .sens, .txt, _vh_clean.ply, _vh_clean_2.0.010000.segs.json, _vh_clean_2.ply, _vh_clean.segs.json, _vh_clean.aggregation.json, _vh_clean_2.labels.ply, _2d-instance.zip, _2d-instan
