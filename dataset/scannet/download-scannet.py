@@ -155,4 +155,13 @@ def main():
         assert((not args.tf_semantic) and (not args.grit)), "Task files specified invalid for v1"
 
     release_file = BASE_URL + RELEASE + '.txt'
-    release_scans = get_release_scans(release
+    release_scans = get_release_scans(release_file)
+    file_types = FILETYPES;
+    release_test_file = BASE_URL + RELEASE + '_test.txt'
+    release_test_scans = get_release_scans(release_test_file)
+    file_types_test = FILETYPES_TEST;
+    out_dir_scans = os.path.join(args.out_dir, 'scans')
+    out_dir_test_scans = os.path.join(args.out_dir, 'scans_test')
+    out_dir_tasks = os.path.join(args.out_dir, 'tasks')
+
+    if args.type:  
