@@ -145,4 +145,14 @@ def main():
 
     if args.v1:
         global RELEASE
-        global RELE
+        global RELEASE_TASKS
+        global RELEASE_NAME
+        global LABEL_MAP_FILE
+        RELEASE = RELEASES[V1_IDX]
+        RELEASE_TASKS = RELEASES_TASKS[V1_IDX]
+        RELEASE_NAME = RELEASES_NAMES[V1_IDX]
+        LABEL_MAP_FILE = LABEL_MAP_FILES[V1_IDX]
+        assert((not args.tf_semantic) and (not args.grit)), "Task files specified invalid for v1"
+
+    release_file = BASE_URL + RELEASE + '.txt'
+    release_scans = get_release_scans(release
