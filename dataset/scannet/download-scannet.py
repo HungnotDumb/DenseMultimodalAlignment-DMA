@@ -182,4 +182,9 @@ def main():
         if args.v1:
             print('ERROR: Preprocessed frames only available for ScanNet v2')
         print('You are downloading the preprocessed subset of frames ' + PREPROCESSED_FRAMES_FILE[0] + ' which requires ' + PREPROCESSED_FRAMES_FILE[1] + ' of space.')
-        downlo
+        download_file(os.path.join(BASE_URL, RELEASE_TASKS, PREPROCESSED_FRAMES_FILE[0]), os.path.join(out_dir_tasks, PREPROCESSED_FRAMES_FILE[0]))
+    elif args.test_frames_2d:  # download test scannet_frames_test.zip file
+        if args.v1:
+            print('ERROR: 2D test frames only available for ScanNet v2')
+        print('You are downloading the 2D test set ' + TEST_FRAMES_FILE[0] + ' which requires ' + TEST_FRAMES_FILE[1] + ' of space.')
+       
