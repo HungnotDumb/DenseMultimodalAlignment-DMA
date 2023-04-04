@@ -164,4 +164,16 @@ def main():
     out_dir_test_scans = os.path.join(args.out_dir, 'scans_test')
     out_dir_tasks = os.path.join(args.out_dir, 'tasks')
 
-    if args.type:  
+    if args.type:  # download file type
+        file_type = args.type
+        if file_type not in FILETYPES:
+            print('ERROR: Invalid file type: ' + file_type)
+            return
+        file_types = [file_type]
+        if file_type in FILETYPES_TEST:
+            file_types_test = [file_type]
+        else:
+            file_types_test = []
+    if args.task_data:  # download task data
+        download_task_data(out_dir_tasks)
+    
