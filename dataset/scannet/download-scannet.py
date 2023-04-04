@@ -176,4 +176,10 @@ def main():
             file_types_test = []
     if args.task_data:  # download task data
         download_task_data(out_dir_tasks)
-    
+    elif args.label_map:  # download label map file
+        download_label_map(args.out_dir)
+    elif args.preprocessed_frames:  # download preprocessed scannet_frames_25k.zip file
+        if args.v1:
+            print('ERROR: Preprocessed frames only available for ScanNet v2')
+        print('You are downloading the preprocessed subset of frames ' + PREPROCESSED_FRAMES_FILE[0] + ' which requires ' + PREPROCESSED_FRAMES_FILE[1] + ' of space.')
+        downlo
