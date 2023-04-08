@@ -187,4 +187,8 @@ def main():
         if args.v1:
             print('ERROR: 2D test frames only available for ScanNet v2')
         print('You are downloading the 2D test set ' + TEST_FRAMES_FILE[0] + ' which requires ' + TEST_FRAMES_FILE[1] + ' of space.')
-       
+        download_file(os.path.join(BASE_URL, RELEASE_TASKS, TEST_FRAMES_FILE[0]), os.path.join(out_dir_tasks, TEST_FRAMES_FILE[0]))
+    elif args.data_efficient: # download data efficient task files
+        print('You are downloading the data efficient task files' + ' which requires ' + DATA_EFFICIENT_FILES[-1] + ' of space.')
+        for k in range(len(DATA_EFFICIENT_FILES)-1):
+            downloa
