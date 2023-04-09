@@ -208,4 +208,10 @@ def main():
             # if not is_test_scan and not args.v1 and '.sens' in scan_file_types:
                 # print('Note: ScanNet v2 uses the same .sens files as ScanNet v1: Press \'n\' to exclude downloading .sens files for each scan')
                 # key = input('')
-        
+                # if key.strip().lower() == 'n':
+                #     scan_file_types.remove('.sens')
+            download_scan(scan_id, out_dir, scan_file_types, use_v1_sens)
+    else:  # download entire release
+        if len(file_types) == len(FILETYPES):
+            print('WARNING: You are downloading the entire ScanNet ' + RELEASE_NAME + ' release which requires ' + RELEASE_SIZE + ' of space.')
+    
