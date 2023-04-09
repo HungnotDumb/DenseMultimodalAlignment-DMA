@@ -195,4 +195,11 @@ def main():
     elif args.tf_semantic: # download google tf records
         download_tfrecords(os.path.join(BASE_URL, RELEASE_TASKS, 'tf3d'), os.path.join(out_dir_tasks, 'tf3d'))
     elif args.grit: # download GRIT file
-        download_file(os.path.join(BASE_URL, RELEASE_TASKS, GRIT_FI
+        download_file(os.path.join(BASE_URL, RELEASE_TASKS, GRIT_FILES[0]), os.path.join(out_dir_tasks, GRIT_FILES[0]))
+    elif args.id:  # download single scan
+        scan_id = args.id
+        is_test_scan = scan_id in release_test_scans
+        if scan_id not in release_scans and (not is_test_scan or args.v1):
+            print('ERROR: Invalid scan id: ' + scan_id)
+        else:
+            out_dir = os.path.join(out_dir_scans, scan_id) if not is_test_scan else os.path.j
