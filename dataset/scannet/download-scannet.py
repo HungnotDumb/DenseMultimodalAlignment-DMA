@@ -202,4 +202,10 @@ def main():
         if scan_id not in release_scans and (not is_test_scan or args.v1):
             print('ERROR: Invalid scan id: ' + scan_id)
         else:
-            out_dir = os.path.join(out_dir_scans, scan_id) if not is_test_scan else os.path.j
+            out_dir = os.path.join(out_dir_scans, scan_id) if not is_test_scan else os.path.join(out_dir_test_scans, scan_id)
+            scan_file_types = file_types if not is_test_scan else file_types_test
+            use_v1_sens = not is_test_scan
+            # if not is_test_scan and not args.v1 and '.sens' in scan_file_types:
+                # print('Note: ScanNet v2 uses the same .sens files as ScanNet v1: Press \'n\' to exclude downloading .sens files for each scan')
+                # key = input('')
+        
