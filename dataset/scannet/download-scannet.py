@@ -191,4 +191,8 @@ def main():
     elif args.data_efficient: # download data efficient task files
         print('You are downloading the data efficient task files' + ' which requires ' + DATA_EFFICIENT_FILES[-1] + ' of space.')
         for k in range(len(DATA_EFFICIENT_FILES)-1):
-            downloa
+            download_file(os.path.join(BASE_URL, RELEASE_TASKS, DATA_EFFICIENT_FILES[k]), os.path.join(out_dir_tasks, DATA_EFFICIENT_FILES[k]))
+    elif args.tf_semantic: # download google tf records
+        download_tfrecords(os.path.join(BASE_URL, RELEASE_TASKS, 'tf3d'), os.path.join(out_dir_tasks, 'tf3d'))
+    elif args.grit: # download GRIT file
+        download_file(os.path.join(BASE_URL, RELEASE_TASKS, GRIT_FI
