@@ -221,4 +221,10 @@ def main():
         print('Press any key to continue, or CTRL-C to exit.')
         # key = input('')
         # if not args.v1 and '.sens' in file_types:
+        #     print('Note: ScanNet v2 uses the same .sens files as ScanNet v1: Press \'n\' to exclude downloading .sens files for each scan')
+        #     key = input('')
+        #     if key.strip().lower() == 'n':
+        #         file_types.remove('.sens')
+        download_release(release_scans, out_dir_scans, file_types, use_v1_sens=True)
+        if not args.v1:
      
