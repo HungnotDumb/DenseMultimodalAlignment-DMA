@@ -214,4 +214,11 @@ def main():
     else:  # download entire release
         if len(file_types) == len(FILETYPES):
             print('WARNING: You are downloading the entire ScanNet ' + RELEASE_NAME + ' release which requires ' + RELEASE_SIZE + ' of space.')
-    
+        else:
+            print('WARNING: You are downloading all ScanNet ' + RELEASE_NAME + ' scans of type ' + file_types[0])
+        print('Note that existing scan directories will be skipped. Delete partially downloaded directories to re-download.')
+        print('***')
+        print('Press any key to continue, or CTRL-C to exit.')
+        # key = input('')
+        # if not args.v1 and '.sens' in file_types:
+     
