@@ -227,4 +227,8 @@ def main():
         #         file_types.remove('.sens')
         download_release(release_scans, out_dir_scans, file_types, use_v1_sens=True)
         if not args.v1:
-     
+            download_label_map(args.out_dir)
+            download_release(release_test_scans, out_dir_test_scans, file_types_test, use_v1_sens=False)
+            download_file(os.path.join(BASE_URL, RELEASE_TASKS, TEST_FRAMES_FILE[0]), os.path.join(out_dir_tasks, TEST_FRAMES_FILE[0]))
+            for k in range(len(DATA_EFFICIENT_FILES)-1):
+                download_file(os.path.join(BASE_URL, RE
