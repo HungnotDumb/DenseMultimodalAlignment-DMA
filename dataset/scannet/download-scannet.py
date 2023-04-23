@@ -231,4 +231,7 @@ def main():
             download_release(release_test_scans, out_dir_test_scans, file_types_test, use_v1_sens=False)
             download_file(os.path.join(BASE_URL, RELEASE_TASKS, TEST_FRAMES_FILE[0]), os.path.join(out_dir_tasks, TEST_FRAMES_FILE[0]))
             for k in range(len(DATA_EFFICIENT_FILES)-1):
-                download_file(os.path.join(BASE_URL, RE
+                download_file(os.path.join(BASE_URL, RELEASE_TASKS, DATA_EFFICIENT_FILES[k]), os.path.join(out_dir_tasks, DATA_EFFICIENT_FILES[k]))
+
+
+if __name__ == "__main__": main()
