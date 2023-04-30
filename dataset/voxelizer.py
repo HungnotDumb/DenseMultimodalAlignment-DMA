@@ -19,4 +19,12 @@ class Voxelizer:
                  clip_bound=None,
                  use_augmentation=False,
                  scale_augmentation_bound=None,
-                 r
+                 rotation_augmentation_bound=None,
+                 translation_augmentation_ratio_bound=None,
+                 ignore_label=255):
+        '''
+        Args:
+          voxel_size: side length of a voxel
+          clip_bound: boundary of the voxelizer. Points outside the bound will be deleted
+            expects either None or an array like ((-100, 100), (-100, 100), (-100, 100)).
+          scale_augmentation_bound: None or (0.9, 1.1
