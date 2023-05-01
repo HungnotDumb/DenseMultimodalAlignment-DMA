@@ -27,4 +27,12 @@ class Voxelizer:
           voxel_size: side length of a voxel
           clip_bound: boundary of the voxelizer. Points outside the bound will be deleted
             expects either None or an array like ((-100, 100), (-100, 100), (-100, 100)).
-          scale_augmentation_bound: None or (0.9, 1.1
+          scale_augmentation_bound: None or (0.9, 1.1)
+          rotation_augmentation_bound: None or ((np.pi / 6, np.pi / 6), None, None) for 3 axis.
+            Use random order of x, y, z to prevent bias.
+          translation_augmentation_bound: ((-5, 5), (0, 0), (-10, 10))
+          ignore_label: label assigned for ignore (not a training label).
+        '''
+        self.voxel_size = voxel_size
+        self.clip_bound = clip_bound
+        self.ignore_label = ignor
