@@ -45,4 +45,12 @@ class Voxelizer:
 
     def get_transformation_matrix(self):
         voxelization_matrix, rotation_matrix = np.eye(4), np.eye(4)
-      
+        # Get clip boundary from config or pointcloud.
+        # Get inner clip bound to crop from.
+
+        # Transform pointcloud coordinate to voxel coordinate.
+        # 1. Random rotation
+        rot_mat = np.eye(3)
+        if self.use_augmentation and self.rotation_augmentation_bound is not None:
+            if isinstance(self.rotation_augmentation_bound, collections.Iterable):
+                rot_ma
