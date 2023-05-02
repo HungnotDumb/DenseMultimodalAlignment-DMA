@@ -35,4 +35,14 @@ class Voxelizer:
         '''
         self.voxel_size = voxel_size
         self.clip_bound = clip_bound
-        self.ignore_label = ignor
+        self.ignore_label = ignore_label
+
+        # Augmentation
+        self.use_augmentation = use_augmentation
+        self.scale_augmentation_bound = scale_augmentation_bound
+        self.rotation_augmentation_bound = rotation_augmentation_bound
+        self.translation_augmentation_ratio_bound = translation_augmentation_ratio_bound
+
+    def get_transformation_matrix(self):
+        voxelization_matrix, rotation_matrix = np.eye(4), np.eye(4)
+      
