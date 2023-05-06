@@ -62,4 +62,13 @@ class Voxelizer:
                         theta = np.random.uniform(*rot_bound)
                     rot_mats.append(M(axis, theta))
                 # Use random order
-                np.random.shuffle(
+                np.random.shuffle(rot_mats)
+                rot_mat = rot_mats[0] @ rot_mats[1] @ rot_mats[2]
+            else:
+                raise ValueError()
+        rotation_matrix[:3, :3] = rot_mat
+        # 2. Scale and translate to the voxel space.
+        scale = 1 / self.voxel_size
+        if self.use_augmentation and self.scale_augmentation_bound is not None:
+            scale *= np.random.uniform(*self.scale_augmentation_bound)
+        np.fill_dia
