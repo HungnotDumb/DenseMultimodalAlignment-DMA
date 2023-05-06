@@ -53,4 +53,13 @@ class Voxelizer:
         rot_mat = np.eye(3)
         if self.use_augmentation and self.rotation_augmentation_bound is not None:
             if isinstance(self.rotation_augmentation_bound, collections.Iterable):
-                rot_ma
+                rot_mats = []
+                for axis_ind, rot_bound in enumerate(self.rotation_augmentation_bound):
+                    theta = 0
+                    axis = np.zeros(3)
+                    axis[axis_ind] = 1
+                    if rot_bound is not None:
+                        theta = np.random.uniform(*rot_bound)
+                    rot_mats.append(M(axis, theta))
+                # Use random order
+                np.random.shuffle(
