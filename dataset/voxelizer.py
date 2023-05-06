@@ -80,4 +80,13 @@ class Voxelizer:
         bound_max = np.max(coords, 0).astype(float)
         bound_size = bound_max - bound_min
         if center is None:
-            center = bound_min + bound_s
+            center = bound_min + bound_size * 0.5
+        lim = self.clip_bound
+        if trans_aug_ratio is not None:
+            trans = np.multiply(trans_aug_ratio, bound_size)
+            center += trans
+        # Clip points outside the limit
+        clip_inds = ((coords[:, 0] >= (lim[0][0] + center[0])) &
+                     (coords[:, 0] < (lim[0][1] + center[0])) &
+                     (coords[:, 1] >= (lim[1][0] + center[1])) &
+       
