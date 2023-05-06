@@ -71,4 +71,13 @@ class Voxelizer:
         scale = 1 / self.voxel_size
         if self.use_augmentation and self.scale_augmentation_bound is not None:
             scale *= np.random.uniform(*self.scale_augmentation_bound)
-        np.fill_dia
+        np.fill_diagonal(voxelization_matrix[:3, :3], scale)
+        # Get final transformation matrix.
+        return voxelization_matrix, rotation_matrix
+
+    def clip(self, coords, center=None, trans_aug_ratio=None):
+        bound_min = np.min(coords, 0).astype(float)
+        bound_max = np.max(coords, 0).astype(float)
+        bound_size = bound_max - bound_min
+        if center is None:
+            center = bound_min + bound_s
