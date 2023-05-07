@@ -89,4 +89,10 @@ class Voxelizer:
         clip_inds = ((coords[:, 0] >= (lim[0][0] + center[0])) &
                      (coords[:, 0] < (lim[0][1] + center[0])) &
                      (coords[:, 1] >= (lim[1][0] + center[1])) &
-       
+                     (coords[:, 1] < (lim[1][1] + center[1])) &
+                     (coords[:, 2] >= (lim[2][0] + center[2])) &
+                     (coords[:, 2] < (lim[2][1] + center[2])))
+        return clip_inds
+
+    def voxelize(self, coords, feats, labels, paint_labels=None, center=None, link=None, return_ind=False):
+        assert coords.shape[1] == 3 and coords.shape[0] == feats.shape[0
