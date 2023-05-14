@@ -112,4 +112,14 @@ class Voxelizer:
 
 
         # Get rotation and scale
-        M_v, M_r = self.get_transformation_matr
+        M_v, M_r = self.get_transformation_matrix()
+        # Apply transformations
+        rigid_transformation = M_v
+        if self.use_augmentation:
+            rigid_transformation = M_r @ rigid_transformation
+
+        homo_coords = np.hstack((coords, np.ones((coords.shape[0], 1), dtype=coords.dtype)))
+        coords_aug = np.floor(homo_coords @ rigid_transformation.T[:, :3])
+
+        # Align all coordinates to the origin.
+        min_coords = coord
