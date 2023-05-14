@@ -102,4 +102,14 @@ class Voxelizer:
                 for axis_ind, trans_ratio_bound in enumerate(self.translation_augmentation_ratio_bound):
                     trans_aug_ratio[axis_ind] = np.random.uniform(*trans_ratio_bound)
 
-            clip_inds =
+            clip_inds = self.clip(coords, center, trans_aug_ratio)
+            if clip_inds.sum():
+                coords, feats = coords[clip_inds], feats[clip_inds]
+                if labels is not None:
+                    labels = labels[clip_inds]
+                if paint_labels is not None:
+                    paint_labels = paint_labels[clip_inds]
+
+
+        # Get rotation and scale
+        M_v, M_r = self.get_transformation_matr
