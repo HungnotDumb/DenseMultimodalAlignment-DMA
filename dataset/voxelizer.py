@@ -95,4 +95,11 @@ class Voxelizer:
         return clip_inds
 
     def voxelize(self, coords, feats, labels, paint_labels=None, center=None, link=None, return_ind=False):
-        assert coords.shape[1] == 3 and coords.shape[0] == feats.shape[0
+        assert coords.shape[1] == 3 and coords.shape[0] == feats.shape[0] and coords.shape[0]
+        if self.clip_bound is not None:
+            trans_aug_ratio = np.zeros(3)
+            if self.use_augmentation and self.translation_augmentation_ratio_bound is not None:
+                for axis_ind, trans_ratio_bound in enumerate(self.translation_augmentation_ratio_bound):
+                    trans_aug_ratio[axis_ind] = np.random.uniform(*trans_ratio_bound)
+
+            clip_inds =
