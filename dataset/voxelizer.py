@@ -122,4 +122,12 @@ class Voxelizer:
         coords_aug = np.floor(homo_coords @ rigid_transformation.T[:, :3])
 
         # Align all coordinates to the origin.
-        min_coords = coord
+        min_coords = coords_aug.min(0)
+        M_t = np.eye(4)
+        M_t[:3, -1] = -min_coords
+        rigid_transformation = M_t @ rigid_transformation
+        coords_aug = np.floor(coords_aug - min_coords)
+
+        inds, inds_reconstruct = sparse_quantize(coords_aug, return_index=True)
+        if paint_labels is not None:
+            coords_aug, feats, labels, paint_labels = coords_aug[inds], feats[inds], labels[i
