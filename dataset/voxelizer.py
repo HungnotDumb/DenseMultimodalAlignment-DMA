@@ -141,4 +141,6 @@ class Voxelizer:
         if return_ind:
             return coords_aug, feats, labels, paint_labels, np.array(inds_reconstruct), inds
         if link is not None:
-            return coords_aug
+            return coords_aug, feats, labels, paint_labels, np.array(inds_reconstruct), link[inds]
+
+        return coords_aug, feats, labels, paint_labels, np.array(inds_reconstruct)
