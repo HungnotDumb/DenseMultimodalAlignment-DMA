@@ -130,4 +130,15 @@ class Voxelizer:
 
         inds, inds_reconstruct = sparse_quantize(coords_aug, return_index=True)
         if paint_labels is not None:
-            coords_aug, feats, labels, paint_labels = coords_aug[inds], feats[inds], labels[i
+            coords_aug, feats, labels, paint_labels = coords_aug[inds], feats[inds], labels[inds], paint_labels[inds]
+        else:
+            coords_aug, feats, labels = coords_aug[inds], feats[inds], labels[inds]
+
+        # Normal rotation
+        if feats.shape[1] > 6:
+            feats[:, 3:6] = feats[:, 3:6] @ (M_r[:3, :3].T)
+
+        if return_ind:
+            return coords_aug, feats, labels, paint_labels, np.array(inds_reconstruct), inds
+        if link is not None:
+            return coords_aug
