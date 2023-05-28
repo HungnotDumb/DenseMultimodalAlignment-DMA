@@ -432,3 +432,110 @@ def evaluate(model, val_data_loader, labelset_name='scannet_3d', class_split=Non
                     np.save(os.path.join(saved_feature_folder, '{}_openscene_feat_{}.npy'.format(scene_name, feature_type)), predictions.cpu().numpy())
                 
                 # special case for nuScenes, evaluation points are only a subset of input
+                if 'nuscenes' in labelset_name:
+                    label_mask = (label!=255)
+                    label = label[label_mask]
+                    logits_pred = logits_pred[label_mask]
+                    pred = pred[label_mask]
+                    if vis_pred:
+                        pcl = torch.load(val_data_loader.dataset.data_paths[i])[0][label_mask]
+
+                # label_mask = (label!=255)
+                # label = label[label_mask]
+                # logits_pred = logits_pred[label_mask]
+                # pred = pred[label_mask]
+
+                if vis_input:
+                    input_color = torch.load(val_data_loader.dataset.data_paths[i])[1]
+                    export_pointcloud(os.path.join(save_folder, '{}_input.ply'.format(i)), pcl)
+                    # export_pointcloud(os.path.join(save_folder, '{}_input.ply'.format(i)), pcl, colors=(input_color+1)/2)
+
+                if vis_pred:
+                    if mapper is not None:
+                        pred_label_color = convert_labels_with_palette(mapper[logits_pred].numpy(), palette)
+                        export_pointcloud(os.path.join(save_folder, '{}_{}.ply'.format(i, feature_type)), pcl, colors=pred_label_color)
+                    else:
+                        pred_label_color = convert_labels_with_palette(logits_pred.numpy(), palette)
+                        export_pointcloud(os.path.join(save_folder, '{}_{}.ply'.format(i, feature_type)), pcl, colors=pred_label_color)
+                        visualize_labels(list(np.unique(logits_pred.numpy())),
+                                    labelset,
+                                    palette,
+                                    os.path.join(save_folder, '{}_labels_{}.jpg'.format(i, feature_type)), ncol=5)
+
+                # Visualize GT labels
+                if vis_gt:
+                    # for points not evaluating
+                    label[label==255] = len(labelset)-1
+                    gt_label_color = convert_labels_with_palette(label.cpu().numpy(), palette)
+                    export_pointcloud(os.path.join(save_folder, '{}_gt.ply'.format(i)), pcl, colors=gt_label_color)
+                    visualize_labels(list(np.unique(label.cpu().numpy())),
+                                labelset,
+                                palette,
+                                os.path.join(save_folder, '{}_labels_gt.jpg'.format(i)), ncol=5)
+
+                    # if 'nuscenes' in labelset_name:
+                    #     all_digits = np.unique(np.concatenate([np.unique(mapper[logits_pred].numpy()), np.unique(label)]))
+                    #     labelset = list(NUSCENES_LABELS_16)
+                    #     labelset[4] = 'construct. vehicle'
+                    #     labelset[10] = 'road'
+                    #     visualize_labels(list(all_digits), labelset, 
+                    #         palette, os.path.join(save_folder, '{}_label.jpg'.format(i)), ncol=all_digits.shape[0])
+
+                if eval_iou:
+                    if mark_no_feature_to_unknown:
+                        if "nuscenes" in labelset_name: # special case
+                            masks.append(mask[inds_reverse][label_mask])
+                        else:
+                            masks.append(mask[inds_reverse])
+
+                    if args.test_repeats==1:
+                        # save directly the logits
+                        preds.append(logits_pred)
+                    else:
+                        # only save the dot-product results, for repeat prediction
+                        preds.append(pred.cpu())
+                    gts.append(label.cpu())
+
+            if eval_iou:
+                gt = torch.cat(gts)
+                pred = torch.cat(preds)
+
+                pred_logit = pred
+                if args.test_repeats>1:
+                    pred_logit = pred.float().max(1)[1]
+
+                if mapper is not None:
+                    pred_logit = mapper[pred_logit]
+
+                if mark_no_feature_to_unknown:
+                    mask = torch.cat(masks)
+                    pred_logit[~mask] = 256
+
+                if args.test_repeats==1:
+                    current_iou = metric.evaluate(pred_logit.numpy(),
+                                                gt.numpy(),
+                                                dataset=labelset_name,
+                                                stdout=True)
+                if args.test_repeats > 1:
+                    store = pred + store
+                    store_logit = store.float().max(1)[1]
+                    if mapper is not None:
+                        store_logit = mapper[store_logit]
+
+                    if mark_no_feature_to_unknown:
+                        store_logit[~mask] = 256
+
+                    if class_split:
+                        accumu_iou = metric.evaluate_scannet200(store_logit.numpy(),
+                                                gt.numpy(),
+                                                stdout=True,
+                                                dataset=labelset_name+class_split)
+                    else:
+                        accumu_iou = metric.evaluate(store_logit.numpy(),
+                                                gt.numpy(),
+                                                stdout=True,
+                                                dataset=labelset_name)
+                    
+
+if __name__ == '__main__':
+    main()
