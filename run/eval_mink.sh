@@ -10,4 +10,7 @@ result_dir=${exp_dir}/result_eval
 
 export PYTHONPATH=.
 python -u run/eval_mink.py \
-  --conf
+  --config=${config} \
+  save_folder ${result_dir}/best \
+  model_path ${model_dir}/model_best.pth.tar
+  2>&1 | tee -a ${exp_dir}/eval-mink-$(date +"%Y%m%d_%H%M").log
