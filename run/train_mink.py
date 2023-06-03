@@ -358,3 +358,41 @@ def validate(val_loader, model, criterion):
 
     model.eval()
     with torch.no_grad():
+        for batch_data in val_loader:
+            (coords, feat, label, inds_reverse) = batch_data
+            sinput = SparseTensor(
+                feat.cuda(non_blocking=True), coords.cuda(non_blocking=True))
+            label = label.cuda(non_blocking=True)
+            output = model(sinput)
+            # pdb.set_trace()
+            output = output[inds_reverse, :]
+            loss = criterion(output, label)
+
+            output = output.detach().max(1)[1]
+            intersection, union, target = intersectionAndUnionGPU(output, label.detach(),
+                                                                  args.classes, args.ignore_label)
+            if args.multiprocessing_distributed:
+                dist.all_reduce(intersection)
+                dist.all_reduce(union)
+                dist.all_reduce(target)
+            intersection, union, target = intersection.cpu(
+            ).numpy(), union.cpu().numpy(), target.cpu().numpy()
+            intersection_meter.update(intersection)
+            union_meter.update(union)
+            target_meter.update(target)
+
+            loss_meter.update(loss.item(), args.batch_size)
+
+    iou_class = intersection_meter.sum / (union_meter.sum + 1e-10)
+    accuracy_class = intersection_meter.sum / (target_meter.sum + 1e-10)
+    miou = np.mean(iou_class)
+    macc = np.mean(accuracy_class)
+    allacc = sum(intersection_meter.sum) / (sum(target_meter.sum) + 1e-10)
+    if main_process():
+        logger.info(
+            'Val result: mIoU/mAcc/allAcc {:.4f}/{:.4f}/{:.4f}.'.format(miou, macc, allacc))
+    return loss_meter.avg, miou, macc, allacc
+
+
+if __name__ == '__main__':
+    main()
