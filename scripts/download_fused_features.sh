@@ -24,4 +24,15 @@ then
 elif [ $ds_id == 1 ]
 then
     echo "You chose 1: ScanNet - Multi-view fused LSeg features"
-    mkdir -p
+    mkdir -p data
+    cd data
+    echo "Start downloading ..."
+    wget https://cvg-data.inf.ethz.ch/openscene/data/scannet_multiview_lseg.zip
+    echo "Done! Start unzipping ..."
+    unzip scannet_multiview_lseg.zip
+    echo "Done!"
+elif [ $ds_id == 2 ]
+then
+    echo "You chose 2: Matterport - Multi-view fused OpenSeg features, train/val"
+    echo "This is used only for 3D distillation"
+    mkdir
