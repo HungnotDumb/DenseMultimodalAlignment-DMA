@@ -13,4 +13,15 @@ read -p "Enter dataset ID you want to download: " ds_id
 
 if [ $ds_id == 0 ]
 then
-    echo "You chose 0: 
+    echo "You chose 0: ScanNet - Multi-view fused OpenSeg features"
+    mkdir -p data
+    cd data
+    echo "Start downloading ..."
+    wget https://cvg-data.inf.ethz.ch/openscene/data/scannet_multiview_openseg.zip
+    echo "Done! Start unzipping ..."
+    unzip scannet_multiview_openseg.zip
+    echo "Done!"
+elif [ $ds_id == 1 ]
+then
+    echo "You chose 1: ScanNet - Multi-view fused LSeg features"
+    mkdir -p
