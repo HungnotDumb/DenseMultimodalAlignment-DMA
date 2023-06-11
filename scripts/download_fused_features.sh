@@ -58,4 +58,15 @@ then
     echo "You chose 4: Replica - Multi-view fused OpenSeg features"
     mkdir -p data
     cd data
-    echo "Start
+    echo "Start downloading ..."
+    wget https://cvg-data.inf.ethz.ch/openscene/data/replica_multiview_openseg.zip
+    echo "Done! Start unzipping ..."
+    unzip replica_multiview_openseg.zip
+    echo "Done!"
+elif [ $ds_id == 5 ]
+then
+    echo "You chose 5: Matterport - Multi-view fused LSeg features"
+    mkdir -p data
+    cd data
+    echo "Start downloading ..."
+    wget https://cvg-data.inf.ethz.ch/openscene/data/matterport_multi
