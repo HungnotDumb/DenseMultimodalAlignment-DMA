@@ -47,4 +47,15 @@ then
     echo "You chose 3: Matterport - Multi-view fused OpenSeg features, test set"
     echo "This is used for evaluation"
     mkdir -p data
-   
+    cd data
+    echo "Start downloading ..."
+    wget https://cvg-data.inf.ethz.ch/openscene/data/matterport_multiview_openseg_test.zip
+    echo "Done! Start unzipping ..."
+    unzip matterport_multiview_openseg_test.zip
+    echo "Done!"
+elif [ $ds_id == 4 ]
+then
+    echo "You chose 4: Replica - Multi-view fused OpenSeg features"
+    mkdir -p data
+    cd data
+    echo "Start
