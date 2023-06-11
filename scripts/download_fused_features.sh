@@ -35,4 +35,16 @@ elif [ $ds_id == 2 ]
 then
     echo "You chose 2: Matterport - Multi-view fused OpenSeg features, train/val"
     echo "This is used only for 3D distillation"
-    mkdir
+    mkdir -p data
+    cd data
+    echo "Start downloading ..."
+    wget https://cvg-data.inf.ethz.ch/openscene/data/matterport_multiview_openseg.zip
+    echo "Done! Start unzipping ..."
+    unzip matterport_multiview_openseg.zip
+    echo "Done!"
+elif [ $ds_id == 3 ]
+then
+    echo "You chose 3: Matterport - Multi-view fused OpenSeg features, test set"
+    echo "This is used for evaluation"
+    mkdir -p data
+   
