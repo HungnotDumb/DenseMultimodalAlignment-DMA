@@ -81,4 +81,17 @@ then
     echo "Start downloading ..."
     wget https://cvg-data.inf.ethz.ch/openscene/data/nuscenes_multiview_openseg.zip
     echo "Done! Start unzipping ..."
-    unzip nu
+    unzip nuscenes_multiview_openseg.zip
+    echo "Done!"
+elif [ $ds_id == 7 ]
+then
+    echo "You chose 7: nuScenes - Multi-view fused LSeg features"
+    mkdir -p data
+    cd data
+    echo "Start downloading ..."
+    wget https://cvg-data.inf.ethz.ch/openscene/data/nuscenes_multiview_lseg.zip
+    echo "Done! Start unzipping ..."
+    unzip nuscenes_multiview_lseg.zip
+    echo "Done!"
+else
+    ech
