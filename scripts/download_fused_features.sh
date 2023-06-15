@@ -69,4 +69,16 @@ then
     mkdir -p data
     cd data
     echo "Start downloading ..."
-    wget https://cvg-data.inf.ethz.ch/openscene/data/matterport_multi
+    wget https://cvg-data.inf.ethz.ch/openscene/data/matterport_multiview_lseg.zip
+    echo "Done! Start unzipping ..."
+    unzip matterport_multiview_lseg.zip
+    echo "Done!"
+elif [ $ds_id == 6 ]
+then
+    echo "You chose 6: nuScenes - Multi-view fused OpenSeg features"
+    mkdir -p data
+    cd data
+    echo "Start downloading ..."
+    wget https://cvg-data.inf.ethz.ch/openscene/data/nuscenes_multiview_openseg.zip
+    echo "Done! Start unzipping ..."
+    unzip nu
