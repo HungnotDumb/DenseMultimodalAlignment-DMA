@@ -94,4 +94,5 @@ then
     unzip nuscenes_multiview_lseg.zip
     echo "Done!"
 else
-    ech
+    echo "You entered an invalid ID!"
+fi
