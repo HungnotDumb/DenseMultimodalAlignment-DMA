@@ -11,3 +11,15 @@ Here we provide instructions for multi-view feature fusion on different dataset,
 
 ### Data preprocessing
 Follow [this instruction](../preprocess/README.md) to obtain the processed 2D and 3D data.
+- **3D**: Point clouds in the pytorch format `.pth`
+- **2D**: RGB-D images with their intrinsic and extrinsic parameters
+
+### Envinroment
+You can simply activate the `openscene` conda environment, or alternatively, make sure the following package installed:
+- `torch`
+- `tensorflow v2` (for OpenSeg feature extraction)
+- `numpy`
+- `imageio`
+- `tqdm`
+
+To use **OpenSeg** as the
