@@ -22,4 +22,8 @@ You can simply activate the `openscene` conda environment, or alternatively, mak
 - `imageio`
 - `tqdm`
 
-To use **OpenSeg** as the
+To use **OpenSeg** as the feature extractor, you can either take the demo model inside the jupyter notebook from their [official repo](https://github.com/tensorflow/tpu/tree/master/models/official/detection/projects/openseg), or download from [here](https://drive.google.com/file/d/1DgyH-1124Mo8p6IUJ-ikAiwVZDDfteak/view?usp=sharing).
+
+## Run the code
+
+Take ScanNet as an example, to perform multi-view feature fusion your can 
