@@ -26,4 +26,17 @@ To use **OpenSeg** as the feature extractor, you can either take the demo model 
 
 ## Run the code
 
-Take ScanNet as an example, to perform multi-view feature fusion your can 
+Take ScanNet as an example, to perform multi-view feature fusion your can run:
+```bash
+python scannet_openseg.py \
+            --data_dir PATH/TO/scannet_processed \
+            --output_dir PATH/TO/OUTPUT_DIR \
+            --openseg_model PATH/TO/OPENSEG_MODEL \
+            --process_id_range 0,100\
+            --split train
+```
+
+where:
+- `data_dir`: path to the pre-processed 2D&3D data from [here](../../openscene#datasets)
+- `output_dir`: output directory to save your fused features
+- `openseg_model`
