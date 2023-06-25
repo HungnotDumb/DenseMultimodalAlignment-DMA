@@ -7,4 +7,15 @@ import numpy as np
 from glob import glob
 from tqdm import tqdm, trange
 import tensorflow as tf2
-import tensorfl
+import tensorflow.compat.v1 as tf
+from fusion_util import extract_openseg_img_feature, PointCloudToImageMapper, save_fused_feature, get_matterport_camera_data
+import torch.nn.functional as F
+import open3d as o3d
+os.environ["CUDA_VISIBLE_DEVICES"] = "8"
+
+def get_args():
+    '''Command line arguments.'''
+
+    parser = argparse.ArgumentParser(
+        description='Multi-view feature fusion of OpenSeg on Matterport3D.')
+    parser.add_ar
