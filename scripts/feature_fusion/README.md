@@ -39,4 +39,11 @@ python scannet_openseg.py \
 where:
 - `data_dir`: path to the pre-processed 2D&3D data from [here](../../openscene#datasets)
 - `output_dir`: output directory to save your fused features
-- `openseg_model`
+- `openseg_model`: path to the OpenSeg model
+- `process_id_range`: only process scenes within the range
+- `split`: choose from `train`/`val`/`test` data to process
+
+[`replica_openseg.py`](./replica_openseg.py) does not have `process_id_range` and `split`.
+
+## Customized Dataset
+For your own customized dataset, one can use the provided codes as a reference. We recommend you to modify [`replica_openseg.py`](./replica_open
