@@ -46,4 +46,11 @@ where:
 [`replica_openseg.py`](./replica_openseg.py) does not have `process_id_range` and `split`.
 
 ## Customized Dataset
-For your own customized dataset, one can use the provided codes as a reference. We recommend you to modify [`replica_openseg.py`](./replica_open
+For your own customized dataset, one can use the provided codes as a reference. We recommend you to modify [`replica_openseg.py`](./replica_openseg.py), especially if you only care about inferecing your own point clouds without 3D distillation. If you want to do 3D distillation, please check and modify [`scannet_openseg.py`](./scannet_openseg.py).
+
+
+## Suggestions & Troubleshooting
+
+- For using the OpenSeg model, you need to make sure you have an NVIDIA GPU with **>30G memory**.
+
+For additional help, please refer to the code documentation or contact the author.
