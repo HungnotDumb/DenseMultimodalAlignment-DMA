@@ -18,4 +18,7 @@ def get_args():
 
     parser = argparse.ArgumentParser(
         description='Multi-view feature fusion of OpenSeg on Matterport3D.')
-    parser.add_ar
+    parser.add_argument('--data_dir', type=str, default='/home/liruihuang/openscene/data_matterport', help='Where is the base logging directory')
+    parser.add_argument('--output_dir', type=str, default='./output', help='Where is the base logging directory')
+    parser.add_argument('--split', type=str, default='train', help='split: "train"| "val" | "test" ')
+    parser.add_argument('--openseg_model', type=str, def
