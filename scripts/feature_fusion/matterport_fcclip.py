@@ -43,4 +43,16 @@ def process_one_scene(data_path, out_dir, args):
 
     # load 3D data (point cloud, color and the corresponding labels)
     locs_in = torch.load(data_path)[0]
-    labels_in = torch.load(data_p
+    labels_in = torch.load(data_path)[2]
+    n_points = locs_in.shape[0]
+
+    # obtain all camera views related information (specificially for Matterport)
+    intrinsics, poses, img_dirs, scene_id, num_img = \
+            get_matterport_camera_data(data_path, locs_in, args)
+    if num_img == 0:
+        print('no views inside {}'.format(scene_id))
+        return 1
+
+    device = 'cuda'
+
+    n_points_cur = n_po
