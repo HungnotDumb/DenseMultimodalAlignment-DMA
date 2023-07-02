@@ -28,4 +28,19 @@ def get_args():
     # Hyper parameters
     parser.add_argument('--hparams', default=[], nargs="+")
     args = parser.parse_args()
-    return ar
+    return args
+
+
+def process_one_scene(data_path, out_dir, args):
+    '''Process one scene.'''
+
+    # short hand
+    num_rand_file_per_scene = args.num_rand_file_per_scene
+    feat_dim = args.feat_dim
+    point2img_mapper = args.point2img_mapper
+    depth_scale = args.depth_scale
+
+
+    # load 3D data (point cloud, color and the corresponding labels)
+    locs_in = torch.load(data_path)[0]
+    labels_in = torch.load(data_p
