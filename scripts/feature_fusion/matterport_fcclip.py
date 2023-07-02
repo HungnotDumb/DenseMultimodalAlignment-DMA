@@ -21,4 +21,11 @@ def get_args():
     parser.add_argument('--data_dir', type=str, default='/home/liruihuang/openscene/data_matterport', help='Where is the base logging directory')
     parser.add_argument('--output_dir', type=str, default='./output', help='Where is the base logging directory')
     parser.add_argument('--split', type=str, default='train', help='split: "train"| "val" | "test" ')
-    parser.add_argument('--openseg_model', type=str, def
+    parser.add_argument('--openseg_model', type=str, default='', help='Where is the exported OpenSeg model')
+    parser.add_argument('--process_id_range', nargs='+', default=None, help='the id range to process')
+    parser.add_argument('--img_feat_dir', type=str, default='', help='the id range to process')
+
+    # Hyper parameters
+    parser.add_argument('--hparams', default=[], nargs="+")
+    args = parser.parse_args()
+    return ar
