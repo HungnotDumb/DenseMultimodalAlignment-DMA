@@ -55,4 +55,16 @@ def process_one_scene(data_path, out_dir, args):
 
     device = 'cuda'
 
-    n_points_cur = n_po
+    n_points_cur = n_points
+
+    n_classes = 160
+    pred_cls_num = torch.zeros((n_points_cur, n_classes), device=device)
+
+    ################ Feature Fusion ###################
+    vis_id = torch.zeros((n_points_cur, num_img), dtype=int, device=device)
+    for img_id, img_dir in enumerate(tqdm(img_dirs)):
+        # load pose
+        pose = poses[img_id]
+
+        # load per-image intrinsic
+        intr = intrinsics[img_id
