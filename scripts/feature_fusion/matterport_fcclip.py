@@ -67,4 +67,13 @@ def process_one_scene(data_path, out_dir, args):
         pose = poses[img_id]
 
         # load per-image intrinsic
-        intr = intrinsics[img_id
+        intr = intrinsics[img_id]
+
+        # load depth and convert to meter
+        depth_dir = img_dir.replace('color', 'depth')
+        _, img_type, yaw_id = img_dir.split('/')[-1].split('_')
+        depth_dir = depth_dir[:-8] + 'd'+img_type[1] + '_' + yaw_id[0] + '.png'
+        depth = imageio.v2.imread(depth_dir) / depth_scale
+
+        # calculate the 3d-2d mapping based on the depth
+        mapping = np.one
