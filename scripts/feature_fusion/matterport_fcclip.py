@@ -84,4 +84,10 @@ def process_one_scene(data_path, out_dir, args):
         mask = mapping[:, 3]
         vis_id[:, img_id] = mask
 
-        semantic_mask = torch.from_numpy(np.load(img_dir.replace('matterport_2d', 'matterport_semantic_label_fccl
+        semantic_mask = torch.from_numpy(np.load(img_dir.replace('matterport_2d', 'matterport_semantic_label_fcclip').replace('color/','').replace('jpg', 'npy'))).to(device)
+
+        label_one_hot = F.one_hot(semantic_mask.long(), n_classes)
+        # img = imageio.v2.imread(img_dir)
+        # visualize_2d(img, semantic_mask.numpy(), semantic_mask.shape, './semantic_mask.png')
+        # visualize_partition_2d(semantic_sam_mask)
+        # visualize_2d(img, semantic_sam_mask*(semantic_sam_m
