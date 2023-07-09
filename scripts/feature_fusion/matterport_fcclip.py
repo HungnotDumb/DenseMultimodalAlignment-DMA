@@ -76,4 +76,12 @@ def process_one_scene(data_path, out_dir, args):
         depth = imageio.v2.imread(depth_dir) / depth_scale
 
         # calculate the 3d-2d mapping based on the depth
-        mapping = np.one
+        mapping = np.ones([n_points, 4], dtype=int)
+        mapping[:, 1:4] = point2img_mapper.compute_mapping(pose, locs_in, depth, intr)
+        if mapping[:, 3].sum() == 0: # no points corresponds to this image, skip
+            continue
+        mapping = torch.from_numpy(mapping).to(device)
+        mask = mapping[:, 3]
+        vis_id[:, img_id] = mask
+
+        semantic_mask = torch.from_numpy(np.load(img_dir.replace('matterport_2d', 'matterport_semantic_label_fccl
