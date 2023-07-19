@@ -99,4 +99,11 @@ def process_one_scene(data_path, out_dir, args):
     label_3d = label_3d.cpu().numpy()
 
     save_path = data_path.replace('matterport_3d', 'matterport_3d_fcclip_paint')
-    torch.save(label_3d, save
+    torch.save(label_3d, save_path)
+    # labels_in[value.cpu().numpy()==0] = 255
+    visualize_partition(locs_in, label_3d, save_path.replace('.pth', '.pc.ply'))
+
+
+def visualize_partition(coord, group_id, save_path):
+    SCANNET_COLOR_MAP_20 = {-1: (0., 0., 0.), 0: (174., 199., 232.), 1: (152., 223., 138.), 2: (31., 119., 180.), 3: (255., 187., 120.), 4: (188., 189., 34.), 5: (140., 86., 75.),
+                    6: (255., 152.,
