@@ -90,4 +90,13 @@ def process_one_scene(data_path, out_dir, args):
         # img = imageio.v2.imread(img_dir)
         # visualize_2d(img, semantic_mask.numpy(), semantic_mask.shape, './semantic_mask.png')
         # visualize_partition_2d(semantic_sam_mask)
-        # visualize_2d(img, semantic_sam_mask*(semantic_sam_m
+        # visualize_2d(img, semantic_sam_mask*(semantic_sam_mask==6), semantic_mask.shape, './semantic_sam_mask.png')
+        label_2d_3d = label_one_hot[mapping[:, 1], mapping[:, 2], :] 
+        pred_cls_num[mask!=0] += label_2d_3d[mask!=0]
+
+    value, label_3d = torch.max(pred_cls_num, dim=-1)
+    label_3d[value==0] = 255
+    label_3d = label_3d.cpu().numpy()
+
+    save_path = data_path.replace('matterport_3d', 'matterport_3d_fcclip_paint')
+    torch.save(label_3d, save
