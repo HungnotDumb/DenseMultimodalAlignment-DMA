@@ -159,4 +159,14 @@ def main(args):
     data_dir = args.data_dir
 
     data_root = join(data_dir, 'matterport_3d')
-    data_root_2d = join
+    data_root_2d = join(data_dir,'matterport_2d')
+    args.data_root_2d = data_root_2d
+    out_dir = args.output_dir
+    os.makedirs(out_dir, exist_ok=True)
+    process_id_range = args.process_id_range
+
+
+    if split== 'train': # for training set, export a chunk of point cloud
+        args.n_split_points = 20000
+        args.num_rand_file_per_scene = 5
+    else: # for the validation set, export the entire point cloud instead of 
