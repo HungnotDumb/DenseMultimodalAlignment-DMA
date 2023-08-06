@@ -132,4 +132,21 @@ def save_point_cloud(coord, color=None, file_path="pc.ply", logger=None):
     pcd = o3d.geometry.PointCloud()
     pcd.points = o3d.utility.Vector3dVector(coord)
     pcd.colors = o3d.utility.Vector3dVector(np.ones_like(coord) if color is None else color)
-    o3d.io.write_point_
+    o3d.io.write_point_cloud(file_path, pcd)
+    if logger is not None:
+        logger.info(f"Save Point Cloud to: {file_path}")    
+
+
+
+
+def main(args):
+    seed = 1457
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+
+    #### Dataset specific parameters #####
+    img_dim = (640, 512)
+    depth_scale = 4000.0
+    #######################################
+    visibility_threshold = 0.02 # threshold for the visibilit
