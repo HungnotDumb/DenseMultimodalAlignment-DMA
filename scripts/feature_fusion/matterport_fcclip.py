@@ -149,4 +149,14 @@ def main(args):
     img_dim = (640, 512)
     depth_scale = 4000.0
     #######################################
-    visibility_threshold = 0.02 # threshold for the visibilit
+    visibility_threshold = 0.02 # threshold for the visibility check
+
+    args.depth_scale = depth_scale
+    args.cut_num_pixel_boundary = 10 # do not use the features on the image boundary
+    args.keep_features_in_memory = False # keep image features in the memory, very expensive
+    args.feat_dim = 768 # CLIP feature dimension
+    split = args.split
+    data_dir = args.data_dir
+
+    data_root = join(data_dir, 'matterport_3d')
+    data_root_2d = join
