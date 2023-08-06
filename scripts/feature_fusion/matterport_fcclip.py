@@ -169,4 +169,14 @@ def main(args):
     if split== 'train': # for training set, export a chunk of point cloud
         args.n_split_points = 20000
         args.num_rand_file_per_scene = 5
-    else: # for the validation set, export the entire point cloud instead of 
+    else: # for the validation set, export the entire point cloud instead of chunks
+        args.n_split_points = 2000000
+        args.num_rand_file_per_scene = 1
+
+    # calculate image pixel-3D points correspondances
+    args.point2img_mapper = PointCloudToImageMapper(
+            image_dim=img_dim,
+            visibility_threshold=visibility_threshold,
+            cut_bound=args.cut_num_pixel_boundary)
+
+    data_paths = sorted(glob(join(data_root, sp
