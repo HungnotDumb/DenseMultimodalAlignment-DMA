@@ -190,4 +190,14 @@ def main(args):
         if id_range is not None and \
            (i<id_range[0] or i>id_range[1]):
             print('skip ', i, data_paths[i])
-            contin
+            continue
+
+        process_one_scene(data_paths[i], out_dir, args)
+
+if __name__ == "__main__":
+    args = get_args()
+    print("Arguments:")
+    print(args)
+
+    main(args)
+## python matterport_openseg.py --data_dir ../../data --output_dir ../../data/matterport_multiview_openseg --openseg_model ~/workspace/openseg_exported_clip --split train
