@@ -15,4 +15,15 @@ from fusion_util import extract_openseg_img_feature, PointCloudToImageMapper, sa
 import torch.nn.functional as F
 from PIL import Image
 import copy
-import open3d as 
+import open3d as o3d
+
+from util.util import extract_clip_feature
+
+def get_args():
+    '''Command line arguments.'''
+
+    parser = argparse.ArgumentParser(
+        description='Multi-view feature fusion of OpenSeg on ScanNet.')
+    parser.add_argument('--data_dir', type=str, help='Where is the base logging directory')
+    parser.add_argument('--split', type=str, default='train', help='split: "train"| "val"')
+    parser.ad
