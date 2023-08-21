@@ -26,4 +26,7 @@ def get_args():
         description='Multi-view feature fusion of OpenSeg on ScanNet.')
     parser.add_argument('--data_dir', type=str, help='Where is the base logging directory')
     parser.add_argument('--split', type=str, default='train', help='split: "train"| "val"')
-    parser.ad
+    parser.add_argument('--output_dir', type=str, help='Where is the base logging directory')
+    parser.add_argument('--openseg_model', type=str, default='', help='Where is the exported OpenSeg model')
+    parser.add_argument('--process_id_range', nargs='+', default=None, help='the id range to process')
+    parser.add_argument('--img_feat_dir', type=str, default='', help='the id range to
