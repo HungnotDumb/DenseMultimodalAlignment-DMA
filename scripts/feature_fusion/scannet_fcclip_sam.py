@@ -44,4 +44,19 @@ def process_one_scene(data_path, out_dir, args):
 
     num_rand_file_per_scene = args.num_rand_file_per_scene
     feat_dim = args.feat_dim
-    point2img_mapper = args.p
+    point2img_mapper = args.point2img_mapper
+    depth_scale = args.depth_scale
+    openseg_model = args.openseg_model
+    text_emb = args.text_emb
+    keep_features_in_memory = args.keep_features_in_memory
+
+    # load 3D data (point cloud)
+    locs_in = torch.load(data_path)[0]
+    n_points = locs_in.shape[0]
+
+    n_interval = num_rand_file_per_scene
+    n_finished = 0
+
+
+    # short hand for processing 2D features
+    scene = join(args.data_
