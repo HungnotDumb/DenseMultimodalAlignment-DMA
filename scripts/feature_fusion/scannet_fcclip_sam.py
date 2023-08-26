@@ -59,4 +59,10 @@ def process_one_scene(data_path, out_dir, args):
 
 
     # short hand for processing 2D features
-    scene = join(args.data_
+    scene = join(args.data_root_2d, scene_id)
+    img_dirs = sorted(glob(join(scene, 'color/*')), key=lambda x: int(os.path.basename(x)[:-4]))
+    num_img = len(img_dirs)
+    device = torch.device('cpu')
+    
+    # load the text descriptions and extract the features
+    # labelset = list(np.load(join('/home/liruihuang/openscene/data/tags_output_new', scene_id + '.npy'), allow_pickle=True).item()['true_list'])
