@@ -66,3 +66,14 @@ def process_one_scene(data_path, out_dir, args):
     
     # load the text descriptions and extract the features
     # labelset = list(np.load(join('/home/liruihuang/openscene/data/tags_output_new', scene_id + '.npy'), allow_pickle=True).item()['true_list'])
+    
+    # print(labelset)
+    # labelset.append('other')
+    # args.text_features = extract_clip_feature(labelset, model_name="ViT-L/14@336px").cpu()
+    # text_path = scene.replace('scannet_2d', 'scannet_clip_openseg_gpt_tag2text_labels/train') + '.pt'
+    # torch.save(args.text_features, text_path)
+
+    if torch.isnan(args.text_features).any():
+        import pdb; pdb.set_trace()
+  
+    # extra
