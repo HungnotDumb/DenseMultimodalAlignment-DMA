@@ -76,4 +76,13 @@ def process_one_scene(data_path, out_dir, args):
     if torch.isnan(args.text_features).any():
         import pdb; pdb.set_trace()
   
-    # extra
+    # extract image features and keep them in the memory
+    # default: False (extract image on the fly)
+    if keep_features_in_memory and openseg_model is not None:
+        img_features = []
+        for img_dir in tqdm(img_dirs):
+            img_features.append(extract_openseg_img_feature(img_dir, openseg_model, text_emb, img_size=[240, 320]))
+
+    n_points_cur = n_points
+    counter = torch.zeros((n_points_cur, 1), device=device)
+    su
