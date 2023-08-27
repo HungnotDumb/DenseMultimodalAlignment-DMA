@@ -85,4 +85,11 @@ def process_one_scene(data_path, out_dir, args):
 
     n_points_cur = n_points
     counter = torch.zeros((n_points_cur, 1), device=device)
-    su
+    sum_features = torch.zeros((n_points_cur, feat_dim), device=device)
+    n_classes = len(args.text_features)
+    pred_cls_num = torch.zeros((n_points_cur, n_classes), device=device)
+
+    ################ Feature Fusion ###################
+    vis_id = torch.zeros((n_points_cur, num_img), dtype=int, device=device)
+    for img_id, img_dir in enumerate(tqdm(img_dirs)):
+        # load pose
