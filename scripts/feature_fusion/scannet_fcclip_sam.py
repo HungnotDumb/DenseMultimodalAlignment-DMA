@@ -114,4 +114,11 @@ def process_one_scene(data_path, out_dir, args):
         sam_mask = np.array(Image.open(img_dir.replace('scannet_2d', 'scannet_2d_paint').replace('color/', '').replace('jpg', 'png')), dtype=np.int16)
         sam_mask = num_to_natural(F.interpolate(torch.from_numpy(sam_mask).unsqueeze(0).unsqueeze(1).float(), scale_factor=0.5).int().squeeze().numpy())
         
-        sema
+        semantic_sam_mask = semantic_mask.clone()
+        num_sam_mask = len(np.unique(sam_mask))
+        for i in range(num_sam_mask):
+            cls_tmp, cls_num = np.unique(semantic_mask[sam_mask==i], return_counts=True)
+            # print(f'cls_num of the {i}-th mask is {cls_num}')
+            if len(cls_num)>0:
+                semantic_sam_mask[sam_mask==i] = cls_tmp[np.argmax(cls_num)]            
+        labe
