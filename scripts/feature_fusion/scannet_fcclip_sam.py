@@ -109,4 +109,9 @@ def process_one_scene(data_path, out_dir, args):
         mask = mapping[:, 3]
         vis_id[:, img_id] = mask
 
-        semantic_mask = torch.from_numpy(np.load(img_dir.r
+        semantic_mask = torch.from_numpy(np.load(img_dir.replace('scannet_2d', 'scannet_2d_fcclip').replace('jpg', 'npy')))
+
+        sam_mask = np.array(Image.open(img_dir.replace('scannet_2d', 'scannet_2d_paint').replace('color/', '').replace('jpg', 'png')), dtype=np.int16)
+        sam_mask = num_to_natural(F.interpolate(torch.from_numpy(sam_mask).unsqueeze(0).unsqueeze(1).float(), scale_factor=0.5).int().squeeze().numpy())
+        
+        sema
