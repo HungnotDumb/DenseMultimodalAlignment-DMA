@@ -127,4 +127,14 @@ def process_one_scene(data_path, out_dir, args):
         # visualize_partition_2d(semantic_sam_mask)
         # visualize_2d(img, semantic_sam_mask*(semantic_sam_mask==6), semantic_mask.shape, './semantic_sam_mask.png')
         # import pdb; pdb.set_trace()
-   
+        label_2d_3d = label_one_hot[mapping[:, 1], mapping[:, 2], :] 
+        pred_cls_num[mask!=0] += label_2d_3d[mask!=0]
+        
+        # feat_2d_3d = feat_2d[:, mapping[:, 1], mapping[:, 2]].permute(1, 0)
+
+        # counter[mask!=0]+= 1
+        # sum_features[mask!=0] += feat_2d_3d[mask!=0]
+    value, label_3d = torch.max(pred_cls_num, dim=-1)
+    label_3d[value==0] = -1
+    
+    save_path = sc
