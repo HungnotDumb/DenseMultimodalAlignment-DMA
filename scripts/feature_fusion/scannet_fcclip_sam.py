@@ -121,4 +121,10 @@ def process_one_scene(data_path, out_dir, args):
             # print(f'cls_num of the {i}-th mask is {cls_num}')
             if len(cls_num)>0:
                 semantic_sam_mask[sam_mask==i] = cls_tmp[np.argmax(cls_num)]            
-        labe
+        label_one_hot = F.one_hot(semantic_sam_mask, n_classes)
+        # img = imageio.v2.imread(img_dir)
+        # visualize_2d(img, semantic_mask.numpy(), semantic_mask.shape, './semantic_mask.png')
+        # visualize_partition_2d(semantic_sam_mask)
+        # visualize_2d(img, semantic_sam_mask*(semantic_sam_mask==6), semantic_mask.shape, './semantic_sam_mask.png')
+        # import pdb; pdb.set_trace()
+   
