@@ -145,4 +145,8 @@ def process_one_scene(data_path, out_dir, args):
     feat_bank = sum_features/counter
     point_ids = torch.unique(vis_id.nonzero(as_tuple=False)[:, 0])
 
-    # save_fused_feature(feat_bank, point_ids, n_points, out_dir, s
+    # save_fused_feature(feat_bank, point_ids, n_points, out_dir, scene_id, args)
+
+def visualize_partition(coord, group_id, save_path):
+    SCANNET_COLOR_MAP_20 = {-1: (0., 0., 0.), 0: (174., 199., 232.), 1: (152., 223., 138.), 2: (31., 119., 180.), 3: (255., 187., 120.), 4: (188., 189., 34.), 5: (140., 86., 75.),
+                    6: (255., 152., 150.), 7: (214., 39., 40.), 8: (197., 176., 213.), 9: (148., 103., 189.), 10: (196., 156., 148.), 11: (23., 1
