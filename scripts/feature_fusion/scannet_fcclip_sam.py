@@ -137,4 +137,12 @@ def process_one_scene(data_path, out_dir, args):
     value, label_3d = torch.max(pred_cls_num, dim=-1)
     label_3d[value==0] = -1
     
-    save_path = sc
+    save_path = scene.replace('scannet_2d', 'scannet_3d_fcclip_sam_paint/'+args.split) + '.pth'
+    torch.save(label_3d, save_path)
+    visualize_partition(locs_in, label_3d, save_path.replace('.pth', '.pc.ply'))
+
+    counter[counter==0] = 1e-5
+    feat_bank = sum_features/counter
+    point_ids = torch.unique(vis_id.nonzero(as_tuple=False)[:, 0])
+
+    # save_fused_feature(feat_bank, point_ids, n_points, out_dir, s
