@@ -157,4 +157,15 @@ def visualize_partition(coord, group_id, save_path):
     num_groups = group_id.max() + 1
     group_colors = np.random.rand(num_groups, 3)
     segmentation_color = np.zeros((len(coord), 3))
- 
+    for i, color in enumerate(group_colors):
+        segmentation_color[group_id == i] = color
+    save_point_cloud(coord, segmentation_color, save_path)
+
+def to_numpy(x):
+    if isinstance(x, torch.Tensor):
+        x = x.clone().detach().cpu().numpy()
+    assert isinstance(x, np.ndarray)
+    return x
+
+def save_point_cloud(coord, color=None, file_path="pc.ply", logger=None):
+    os.makedir
