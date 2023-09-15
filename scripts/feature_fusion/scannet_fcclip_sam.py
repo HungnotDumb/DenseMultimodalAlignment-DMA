@@ -168,4 +168,13 @@ def to_numpy(x):
     return x
 
 def save_point_cloud(coord, color=None, file_path="pc.ply", logger=None):
-    os.makedir
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    coord = to_numpy(coord)
+    if color is not None:
+        color = to_numpy(color)
+    pcd = o3d.geometry.PointCloud()
+    pcd.points = o3d.utility.Vector3dVector(coord)
+    pcd.colors = o3d.utility.Vector3dVector(np.ones_like(coord) if color is None else color)
+    o3d.io.write_point_cloud(file_path, pcd)
+    if logger is not None:
+        logger.info(f"S
