@@ -177,4 +177,15 @@ def save_point_cloud(coord, color=None, file_path="pc.ply", logger=None):
     pcd.colors = o3d.utility.Vector3dVector(np.ones_like(coord) if color is None else color)
     o3d.io.write_point_cloud(file_path, pcd)
     if logger is not None:
-        logger.info(f"S
+        logger.info(f"Save Point Cloud to: {file_path}")    
+
+def visualize_partition_2d(group_id):
+    h, w = group_id.shape[:2]
+    output = np.zeros((h,w,3), dtype=np.uint8)
+    
+    num_groups = group_id.max() + 1
+    group_colors = np.random.rand(num_groups, 3)
+    # group_colors = np.vstack((group_colors, np.array([0,0,0])))
+    
+    for id in range(num_groups):
+        output[np.where(group_id==id)] = group_colors[id]
