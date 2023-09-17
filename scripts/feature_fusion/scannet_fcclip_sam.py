@@ -188,4 +188,17 @@ def visualize_partition_2d(group_id):
     # group_colors = np.vstack((group_colors, np.array([0,0,0])))
     
     for id in range(num_groups):
-        output[np.where(group_id==id)] = group_colors[id]
+        output[np.where(group_id==id)] = group_colors[id]*255
+    output[np.where(group_id==-1)] = np.array([0,0,0])
+    img = Image.fromarray(output)
+    img.save('sam_mask.png')
+    return output
+
+def num_to_natural(group_ids):
+    '''
+    Change the group number to natural number arrangement
+    '''
+    if np.all(group_ids == -1):
+        return group_ids
+    array = copy.deepcopy(group_ids)
+    unique_values = np.unique(array[
