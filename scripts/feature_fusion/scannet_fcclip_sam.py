@@ -201,4 +201,14 @@ def num_to_natural(group_ids):
     if np.all(group_ids == -1):
         return group_ids
     array = copy.deepcopy(group_ids)
-    unique_values = np.unique(array[
+    unique_values = np.unique(array[array != -1])
+    mapping = np.full(np.max(unique_values) + 2, -1)
+    mapping[unique_values + 1] = np.arange(len(unique_values))
+    array = mapping[array + 1]
+    return array
+
+def visualize_2d(img_color, labels, img_size, save_path):
+    import matplotlib.pyplot as plt
+    # from skimage.segmentation import mark_boundaries
+    # from skimage.color import label2rgb
+    label_names = ["wall", "floor", "cabinet", "bed", "c
