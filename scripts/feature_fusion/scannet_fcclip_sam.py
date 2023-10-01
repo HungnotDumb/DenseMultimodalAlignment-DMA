@@ -230,4 +230,12 @@ def visualize_2d(img_color, labels, img_size, save_path):
     #     patches.append(red_patch)
     # plt.figure()
     # plt.axis('off')
-    # legend = plt.legend(frameon=False, handles=patches, loc='lower left', ncol=7, bbox_to_anchor=
+    # legend = plt.legend(frameon=False, handles=patches, loc='lower left', ncol=7, bbox_to_anchor=(0, -0.3), prop={'size': 5}, handlelength=0.7)
+    # fig  = legend.figure
+    # fig.canvas.draw()
+    # bbox  = legend.get_window_extent()
+    # bbox = bbox.from_extents(*(bbox.extents + np.array([-5,-5,5,5])))
+    # bbox = bbox.transformed(fig.dpi_scale_trans.inverted())
+    # plt.savefig("scannet_bar", bbox_inches=bbox, dpi=300)        
+
+    segmentation_color = np.zeros((img_size[0], img_siz
