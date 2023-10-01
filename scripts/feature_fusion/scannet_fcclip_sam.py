@@ -221,4 +221,13 @@ def visualize_2d(img_color, labels, img_size, save_path):
 
     colors = np.array(list(SCANNET_COLOR_MAP_20.values()))[1:]
 
-    # import matp
+    # import matplotlib.patches as mpatches
+    # patches = []
+    # for i in range(20):
+    #     label=label_names[i]
+    #     cur_color = colors[i]/255.0
+    #     red_patch = mpatches.Patch(color=cur_color, label=label)
+    #     patches.append(red_patch)
+    # plt.figure()
+    # plt.axis('off')
+    # legend = plt.legend(frameon=False, handles=patches, loc='lower left', ncol=7, bbox_to_anchor=
