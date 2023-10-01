@@ -211,4 +211,9 @@ def visualize_2d(img_color, labels, img_size, save_path):
     import matplotlib.pyplot as plt
     # from skimage.segmentation import mark_boundaries
     # from skimage.color import label2rgb
-    label_names = ["wall", "floor", "cabinet", "bed", "c
+    label_names = ["wall", "floor", "cabinet", "bed", "chair",
+        "sofa", "table", "door", "window", "bookshelf",
+        "picture", "counter", "desk", "curtain", "refridgerator",
+        "shower curtain", "toilet", "sink", "bathtub", "other"]
+    SCANNET_COLOR_MAP_20 = {-1: (0., 0., 0.), 0: (174., 199., 232.), 1: (152., 223., 138.), 2: (31., 119., 180.), 3: (255., 187., 120.), 4: (188., 189., 34.), 5: (140., 86., 75.),
+                    6: (255., 152
