@@ -238,4 +238,13 @@ def visualize_2d(img_color, labels, img_size, save_path):
     # bbox = bbox.transformed(fig.dpi_scale_trans.inverted())
     # plt.savefig("scannet_bar", bbox_inches=bbox, dpi=300)        
 
-    segmentation_color = np.zeros((img_size[0], img_siz
+    segmentation_color = np.zeros((img_size[0], img_size[1], 3))
+    for i, color in enumerate(colors):
+        segmentation_color[labels == i] = color
+    alpha = 0.8
+
+    overlay = (img_color * (1-alpha) + segmentation_color * alpha).astype(np.uint8)
+    fig, ax = plt.subplots()
+    ax.imshow(overlay)
+    patches = [plt.plot([], [], 's', color=np.array(color)/255, label=label)[0] for label, color in zip(label_names, colors)]
+    plt.legend(handles=patches, bbox_to_anchor=(0.5, -0.
