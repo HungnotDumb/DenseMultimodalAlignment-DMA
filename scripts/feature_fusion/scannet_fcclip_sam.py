@@ -247,4 +247,18 @@ def visualize_2d(img_color, labels, img_size, save_path):
     fig, ax = plt.subplots()
     ax.imshow(overlay)
     patches = [plt.plot([], [], 's', color=np.array(color)/255, label=label)[0] for label, color in zip(label_names, colors)]
-    plt.legend(handles=patches, bbox_to_anchor=(0.5, -0.
+    plt.legend(handles=patches, bbox_to_anchor=(0.5, -0.1), loc='upper center', ncol=4, fontsize='small')
+    plt.savefig(save_path)
+    plt.show()
+
+def main(args):
+    seed = 1457
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+
+    #!### Dataset specific parameters #####
+    img_dim = (320, 240)
+    depth_scale = 1000.0
+    #######################################
+    visibility_threshold = 0.25 # threshold for the 
