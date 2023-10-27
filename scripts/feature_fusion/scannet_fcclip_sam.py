@@ -305,4 +305,14 @@ def main(args):
             visibility_threshold=visibility_threshold,
             cut_bound=args.cut_num_pixel_boundary)
 
-   
+    data_paths = sorted(glob(join(data_root, split, '*.pth')))
+    total_num = len(data_paths)
+
+    id_range = None
+    if process_id_range is not None:
+        id_range = [int(process_id_range[0].split(',')[0]), int(process_id_range[0].split(',')[1])]
+
+    clip_file_name = 'saved_text_embeddings/clip_scannet_200_labels_768.pt'
+    args.text_features = torch.load(clip_file_name).cpu()
+
+    for i in trang
