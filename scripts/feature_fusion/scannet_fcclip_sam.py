@@ -293,4 +293,16 @@ def main(args):
         args.openseg_model = tf2.saved_model.load(saved_model_path,
                     tags=[tf.saved_model.tag_constants.SERVING],)
         args.text_emb = tf.zeros([1, 1, args.feat_dim])
-    else
+    else:
+        args.openseg_model = None
+
+    # load intrinsic parameter
+    intrinsics=np.loadtxt(os.path.join(args.data_root_2d, 'intrinsics.txt'))
+
+    # calculate image pixel-3D points correspondances
+    args.point2img_mapper = PointCloudToImageMapper(
+            image_dim=img_dim, intrinsics=intrinsics,
+            visibility_threshold=visibility_threshold,
+            cut_bound=args.cut_num_pixel_boundary)
+
+   
