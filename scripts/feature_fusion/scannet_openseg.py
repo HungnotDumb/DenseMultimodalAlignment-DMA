@@ -4,4 +4,16 @@ import imageio
 import argparse
 import numpy as np
 from glob import glob
-fr
+from tqdm import tqdm, trange
+import tensorflow as tf2
+import tensorflow.compat.v1 as tf
+from os.path import join, exists
+from fusion_util import extract_openseg_img_feature, PointCloudToImageMapper, save_fused_feature
+
+
+def get_args():
+    '''Command line arguments.'''
+
+    parser = argparse.ArgumentParser(
+        description='Multi-view feature fusion of OpenSeg on ScanNet.')
+    parser.add_argumen
