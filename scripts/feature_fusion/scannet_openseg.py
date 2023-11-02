@@ -16,4 +16,8 @@ def get_args():
 
     parser = argparse.ArgumentParser(
         description='Multi-view feature fusion of OpenSeg on ScanNet.')
-    parser.add_argumen
+    parser.add_argument('--data_dir', type=str, help='Where is the base logging directory')
+    parser.add_argument('--split', type=str, default='train', help='split: "train"| "val"')
+    parser.add_argument('--output_dir', type=str, help='Where is the base logging directory')
+    parser.add_argument('--openseg_model', type=str, default='', help='Where is the exported OpenSeg model')
+    parser.add_argument('--
