@@ -59,4 +59,12 @@ def process_one_scene(data_path, out_dir, args):
         return 1
 
     # short hand for processing 2D features
-    scene = joi
+    scene = join(args.data_root_2d, scene_id)
+    img_dirs = sorted(glob(join(scene, 'color/*')), key=lambda x: int(os.path.basename(x)[:-4]))
+    num_img = len(img_dirs)
+    device = torch.device('cpu')
+
+    # extract image features and keep them in the memory
+    # default: False (extract image on the fly)
+    if keep_features_in_memory and openseg_model is not None:
+        img_features
