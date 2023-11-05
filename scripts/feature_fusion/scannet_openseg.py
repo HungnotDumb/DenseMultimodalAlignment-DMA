@@ -44,4 +44,19 @@ def process_one_scene(data_path, out_dir, args):
     keep_features_in_memory = args.keep_features_in_memory
 
     # load 3D data (point cloud)
-    locs_in = torch.load(data_path)[0
+    locs_in = torch.load(data_path)[0]
+    n_points = locs_in.shape[0]
+
+    n_interval = num_rand_file_per_scene
+    n_finished = 0
+    for n in range(n_interval):
+
+        if exists(join(out_dir, scene_id +'_%d.pt'%(n))):
+            n_finished += 1
+            print(scene_id +'_%d.pt'%(n) + ' already done!')
+            continue
+    if n_finished == n_interval:
+        return 1
+
+    # short hand for processing 2D features
+    scene = joi
