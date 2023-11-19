@@ -76,4 +76,13 @@ def process_one_scene(data_path, out_dir, args):
     sum_features = torch.zeros((n_points_cur, feat_dim), device=device)
 
     ################ Feature Fusion ###################
-    vis_id = torch.zeros((n_points_cur, num_im
+    vis_id = torch.zeros((n_points_cur, num_img), dtype=int, device=device)
+    for img_id, img_dir in enumerate(tqdm(img_dirs)):
+        # load pose
+        posepath = img_dir.replace('color', 'pose').replace('.jpg', '.txt')
+        pose = np.loadtxt(posepath)
+
+        # load depth and convert to meter
+        depth = imageio.v2.imread(img_dir.replace('color', 'depth').replace('jpg', 'png')) / depth_scale
+
+        # calculate the 3d-2d mapping based 
