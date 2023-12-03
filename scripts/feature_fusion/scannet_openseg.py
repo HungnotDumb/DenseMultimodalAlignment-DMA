@@ -94,4 +94,14 @@ def process_one_scene(data_path, out_dir, args):
         mapping = torch.from_numpy(mapping).to(device)
         mask = mapping[:, 3]
         vis_id[:, img_id] = mask
-        if keep_
+        if keep_features_in_memory:
+            feat_2d = img_features[img_id].to(device)
+        else:
+            feat_2d = extract_openseg_img_feature(img_dir, openseg_model, text_emb, img_size=[240, 320]).to(device)
+
+        feat_2d_3d = feat_2d[:, mapping[:, 1], mapping[:, 2]].permute(1, 0)
+
+        counter[mask!=0]+= 1
+        sum_features[mask!=0] += feat_2d_3d[mask!=0]
+
+    counter[counter==0] = 1e
