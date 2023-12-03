@@ -104,4 +104,17 @@ def process_one_scene(data_path, out_dir, args):
         counter[mask!=0]+= 1
         sum_features[mask!=0] += feat_2d_3d[mask!=0]
 
-    counter[counter==0] = 1e
+    counter[counter==0] = 1e-5
+    feat_bank = sum_features/counter
+    point_ids = torch.unique(vis_id.nonzero(as_tuple=False)[:, 0])
+
+    save_fused_feature(feat_bank, point_ids, n_points, out_dir, scene_id, args)
+
+def main(args):
+    seed = 1457
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    np.random.seed(seed)
+
+    #!### Dataset specific parameters #####
+    img_dim = 
