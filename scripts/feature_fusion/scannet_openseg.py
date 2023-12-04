@@ -117,4 +117,12 @@ def main(args):
     np.random.seed(seed)
 
     #!### Dataset specific parameters #####
-    img_dim = 
+    img_dim = (320, 240)
+    depth_scale = 1000.0
+    #######################################
+    visibility_threshold = 0.25 # threshold for the visibility check
+
+    args.depth_scale = depth_scale
+    args.cut_num_pixel_boundary = 10 # do not use the features on the image boundary
+    args.keep_features_in_memory = False # keep image features in the memory, very expensive
+    args.feat_dim = 768 # CLI
