@@ -125,4 +125,18 @@ def main(args):
     args.depth_scale = depth_scale
     args.cut_num_pixel_boundary = 10 # do not use the features on the image boundary
     args.keep_features_in_memory = False # keep image features in the memory, very expensive
-    args.feat_dim = 768 # CLI
+    args.feat_dim = 768 # CLIP feature dimension
+
+    split = args.split
+    data_dir = args.data_dir
+
+    data_root = join(data_dir, 'scannet_3d')
+    data_root_2d = join(data_dir,'scannet_2d')
+    args.data_root_2d = data_root_2d
+    out_dir = args.output_dir
+    os.makedirs(out_dir, exist_ok=True)
+    process_id_range = args.process_id_range
+
+
+    if split== 'train': # for training set, export a chunk of point cloud
+        args.
