@@ -160,3 +160,13 @@ def main(args):
 
     # calculate image pixel-3D points correspondances
     args.point2img_mapper = PointCloudToImageMapper(
+            image_dim=img_dim, intrinsics=intrinsics,
+            visibility_threshold=visibility_threshold,
+            cut_bound=args.cut_num_pixel_boundary)
+
+    data_paths = sorted(glob(join(data_root, split, '*.pth')))
+    total_num = len(data_paths)
+
+    id_range = None
+    if process_id_range is not None:
+        id_range = [int(process_id_range[0].split(',')[0]), int(process_id_range[0].split(',')[1])]
