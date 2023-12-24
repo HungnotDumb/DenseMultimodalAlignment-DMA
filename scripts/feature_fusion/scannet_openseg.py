@@ -170,3 +170,20 @@ def main(args):
     id_range = None
     if process_id_range is not None:
         id_range = [int(process_id_range[0].split(',')[0]), int(process_id_range[0].split(',')[1])]
+
+    for i in trange(total_num):
+        if id_range is not None and \
+           (i<id_range[0] or i>id_range[1]):
+            print('skip ', i, data_paths[i])
+            continue
+
+        process_one_scene(data_paths[i], out_dir, args)
+
+
+
+if __name__ == "__main__":
+    args = get_args()
+    print("Arguments:")
+    print(args)
+    main(args)
+
