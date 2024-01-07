@@ -29,4 +29,13 @@ def process_one_sequence(scene):
     out_dir_color = os.path.join(out_dir, scene, 'color')
     out_dir_pose = os.path.join(out_dir, scene, 'pose')
     out_dir_K = os.path.join(out_dir, scene, 'K')
-    os.makedirs(o
+    os.makedirs(out_dir_color, exist_ok=True)
+    os.makedirs(out_dir_pose, exist_ok=True)
+    os.makedirs(out_dir_K, exist_ok=True)
+
+    timestamp = sorted(os.listdir(os.path.join(data_path, scene, 'frames')))[-1] # take only the last timestamp
+    for cam in cam_locs:
+        img_name = os.path.join(data_path, scene, 'frames', timestamp, cam, 'color_image.jpg')
+        img = imageio.v3.imread(img_name)
+        img = cv2.resize(img, img_size)
+    
