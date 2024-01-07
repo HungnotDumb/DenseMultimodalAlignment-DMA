@@ -19,4 +19,14 @@ def adjust_intrinsic(intrinsic, intrinsic_image_dim, image_dim):
     intrinsic[0, 0] *= float(resize_width) / float(intrinsic_image_dim[0])
     intrinsic[1, 1] *= float(image_dim[1]) / float(intrinsic_image_dim[1])
     # account for cropping here
-    intrinsic[0, 2] *= float(image_dim[0] - 1) / float(intrinsic_image
+    intrinsic[0, 2] *= float(image_dim[0] - 1) / float(intrinsic_image_dim[0] - 1)
+    intrinsic[1, 2] *= float(image_dim[1] - 1) / float(intrinsic_image_dim[1] - 1)
+    return intrinsic
+
+def process_one_sequence(scene):
+    '''process one sequence.'''
+
+    out_dir_color = os.path.join(out_dir, scene, 'color')
+    out_dir_pose = os.path.join(out_dir, scene, 'pose')
+    out_dir_K = os.path.join(out_dir, scene, 'K')
+    os.makedirs(o
