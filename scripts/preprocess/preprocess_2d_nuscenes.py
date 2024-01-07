@@ -12,4 +12,11 @@ def process_txt(filename):
     return lines
 
 def adjust_intrinsic(intrinsic, intrinsic_image_dim, image_dim):
-    if intrinsic_ima
+    if intrinsic_image_dim == image_dim:
+        return intrinsic
+    resize_width = int(math.floor(
+        image_dim[1] * float(intrinsic_image_dim[0]) / float(intrinsic_image_dim[1])))
+    intrinsic[0, 0] *= float(resize_width) / float(intrinsic_image_dim[0])
+    intrinsic[1, 1] *= float(image_dim[1]) / float(intrinsic_image_dim[1])
+    # account for cropping here
+    intrinsic[0, 2] *= float(image_dim[0] - 1) / float(intrinsic_image
