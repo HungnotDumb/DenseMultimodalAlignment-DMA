@@ -98,3 +98,30 @@ os.makedirs(out_dir, exist_ok=True)
 ####### Meta Data #######
 img_dim = (640, 512)
 original_img_dim = (1280, 1024)
+
+
+for scene in tqdm(scene_list):
+    out_dir_color = os.path.join(out_dir, scene, 'color')
+    out_dir_depth = os.path.join(out_dir, scene, 'depth')
+    out_dir_pose = os.path.join(out_dir, scene, 'pose')
+    out_dir_intrinsic = os.path.join(out_dir, scene, 'intrinsic')
+    if not os.path.exists(out_dir_color):
+        os.makedirs(out_dir_color)
+    if not os.path.exists(out_dir_depth):
+        os.makedirs(out_dir_depth)
+    if not os.path.exists(out_dir_pose):
+        os.makedirs(out_dir_pose)
+    if not os.path.exists(out_dir_intrinsic):
+        os.makedirs(out_dir_intrinsic)
+
+    # save the camera parameters to the folder
+    camera_dir = os.path.join(in_path,
+            scene, 'undistorted_camera_parameters', '{}.conf'.format(scene))
+    img_names, intr_list, pose_list = obtain_intr_extr_matterport(open(camera_dir))
+    # out_dir_camera = os.path.join(out_dir, scene, 'camera.conf')
+    # shutil.copyfile(camera_dir, out_dir_camera)
+
+    files = glob.glob(os.path.join(in_path, scene, 'undistorted_color_images', '*.jpg'))
+    p = mp.Pool(processes=mp.cpu_count())
+    p.map(process_one_scene, files)
+    p.close()
