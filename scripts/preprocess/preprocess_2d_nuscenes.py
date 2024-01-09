@@ -38,4 +38,9 @@ def process_one_sequence(scene):
         img_name = os.path.join(data_path, scene, 'frames', timestamp, cam, 'color_image.jpg')
         img = imageio.v3.imread(img_name)
         img = cv2.resize(img, img_size)
-    
+        imageio.imwrite(os.path.join(out_dir_color, cam + '.jpg'), img)
+        # copy the camera parameters to the folder
+        pose_dir = os.path.join(data_path, scene, 'frames', timestamp, cam, 'cam2scene.txt')
+        pose = np.asarray([[float(x[0]), float(x[1]), float(x[2]), float(x[3])] for x in
+                    (x.split(" ") for x in open(pose_dir).read().splitlines())])
+        np.save(os.path.join(out
