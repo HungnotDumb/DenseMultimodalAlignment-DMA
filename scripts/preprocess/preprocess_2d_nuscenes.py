@@ -43,4 +43,9 @@ def process_one_sequence(scene):
         pose_dir = os.path.join(data_path, scene, 'frames', timestamp, cam, 'cam2scene.txt')
         pose = np.asarray([[float(x[0]), float(x[1]), float(x[2]), float(x[3])] for x in
                     (x.split(" ") for x in open(pose_dir).read().splitlines())])
-        np.save(os.path.join(out
+        np.save(os.path.join(out_dir_pose, cam+'.npy'), pose)
+        # shutil.copyfile(pose_dir, os.path.join(out_dir_pose, cam+'.txt'))
+        K_dir = os.path.join(data_path, scene, 'frames', timestamp, cam, 'K.txt')
+        K = np.asarray([[float(x[0]), float(x[1]), float(x[2])] for x in
+                    (x.split(" ") for x in open(K_dir).read().splitlines())])
+        K = adjust_intrinsic(K, intrinsic_image_dim=(1600,
