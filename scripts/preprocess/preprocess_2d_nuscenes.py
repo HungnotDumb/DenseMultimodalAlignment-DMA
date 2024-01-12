@@ -48,4 +48,15 @@ def process_one_sequence(scene):
         K_dir = os.path.join(data_path, scene, 'frames', timestamp, cam, 'K.txt')
         K = np.asarray([[float(x[0]), float(x[1]), float(x[2])] for x in
                     (x.split(" ") for x in open(K_dir).read().splitlines())])
-        K = adjust_intrinsic(K, intrinsic_image_dim=(1600,
+        K = adjust_intrinsic(K, intrinsic_image_dim=(1600, 900), image_dim=img_size)
+        np.save(os.path.join(out_dir_K, cam+'.npy'), K)
+
+        # shutil.copyfile(pose_dir, os.path.join(out_dir_K, cam+'.txt'))
+    print(scene, ' done')
+
+
+#! YOU NEED TO MODIFY THE FOLLOWING
+#####################################
+split = 'train' # 'train' | 'val'
+out_dir = 'data/nuscenes_2d/{}'.format(split)
+data_path = '/PATH_TO/nuscenes/{}'.format(split) # downloaded orig
