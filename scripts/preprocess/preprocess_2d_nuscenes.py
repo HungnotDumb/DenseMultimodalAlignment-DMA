@@ -59,4 +59,16 @@ def process_one_sequence(scene):
 #####################################
 split = 'train' # 'train' | 'val'
 out_dir = 'data/nuscenes_2d/{}'.format(split)
-data_path = '/PATH_TO/nuscenes/{}'.format(split) # downloaded orig
+data_path = '/PATH_TO/nuscenes/{}'.format(split) # downloaded original nuscenes data
+scene_list = os.listdir(data_path)
+#####################################
+
+os.makedirs(out_dir, exist_ok=True)
+
+cam_locs = ['back', 'back_left', 'back_right', 'front', 'front_left', 'front_right']
+img_size = (800, 450)
+
+p = mp.Pool(processes=mp.cpu_count())
+p.map(process_one_sequence, scene_list)
+p.close()
+p.join()
