@@ -6,4 +6,17 @@
 # which is renamed to scannet_sensordata.py under this directory
 
 # Example usage:
-#    python prepare_2d_scannet.py --sc
+#    python prepare_2d_scannet.py --scannet_path /PATH_TO/scannet/scans \
+#                             --output_path ../../data/scannet_2d \
+#                             --export_label_images \
+#                             --label_map_file /PATH_TO_TSV_FILE/scannetv2-labels.combined.tsv
+
+import argparse
+import os
+import sys
+import csv
+import numpy as np
+import skimage.transform as sktf
+import imageio
+from scannet_sensordata import SensorData
+from p
