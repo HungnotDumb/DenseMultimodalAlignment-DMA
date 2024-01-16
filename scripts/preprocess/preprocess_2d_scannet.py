@@ -19,4 +19,11 @@ import numpy as np
 import skimage.transform as sktf
 import imageio
 from scannet_sensordata import SensorData
-from p
+from preprocess_util import make_intrinsic, adjust_intrinsic
+
+# params
+parser = argparse.ArgumentParser()
+parser.add_argument('--scannet_path', required=True, help='path to scannet data')
+parser.add_argument('--output_path', required=True, help='where to output 2d data')
+parser.add_argument('--export_label_images', dest='export_label_images', action='store_true')
+parser.add_argument('--label_t
