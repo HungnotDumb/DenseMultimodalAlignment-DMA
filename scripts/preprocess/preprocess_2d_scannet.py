@@ -45,4 +45,20 @@ def print_error(message):
     sys.exit(-1)
 
 def map_label_image(image, label_mapping):
-    mapped = np.
+    mapped = np.copy(image)
+    for k, v in label_mapping.items():
+        mapped[image == k] = v
+    return mapped.astype(np.uint8)
+
+def represents_int(s):
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
+
+def read_label_mapping(filename, label_from='raw_category', label_to='nyu40id'):
+    assert os.path.isfile(filename)
+    mapping = dict()
+    with open(filename) as csvfile:
+        reader = csv.Dic
