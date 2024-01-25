@@ -74,4 +74,12 @@ def main():
     if not os.path.exists(opt.output_path):
         os.makedirs(opt.output_path)
 
-    label_mapping = 
+    label_mapping = None
+    if opt.export_label_images:
+        label_map = read_label_mapping(opt.label_map_file, label_from='id', label_to='nyu40id')
+
+    # save the global intrinsic parameters of resized images
+    img_dim = (320, 240)
+    original_img_dim = (640, 480)
+    intrinsics = make_intrinsic(fx=577.870605, fy=577.870605, mx=319.5, my=239.5)
+    intrinsics = adjust_intrinsic(intrin
