@@ -89,4 +89,9 @@ def main():
     print('Found %d scenes' % len(scenes))
     for i in range(0,len(scenes)):
         sens_file = os.path.join(opt.scannet_path, scenes[i], scenes[i] + '.sens')
-        label_path = os
+        label_path = os.path.join(opt.scannet_path, scenes[i], opt.label_type)
+        if opt.export_label_images and not os.path.isdir(label_path):
+            print_error('Error: using export_label_images option but label path %s does not exist' % label_path)
+        output_color_path = os.path.join(opt.output_path, scenes[i], 'color')
+        
+        if os.path.exists(os.path.join(opt.output_pa
