@@ -82,4 +82,11 @@ def main():
     img_dim = (320, 240)
     original_img_dim = (640, 480)
     intrinsics = make_intrinsic(fx=577.870605, fy=577.870605, mx=319.5, my=239.5)
-    intrinsics = adjust_intrinsic(intrin
+    intrinsics = adjust_intrinsic(intrinsics, original_img_dim, img_dim)
+    np.savetxt(os.path.join(opt.output_path, 'intrinsics.txt'), intrinsics)
+
+    scenes = sorted([d for d in os.listdir(opt.scannet_path) if os.path.isdir(os.path.join(opt.scannet_path, d))])
+    print('Found %d scenes' % len(scenes))
+    for i in range(0,len(scenes)):
+        sens_file = os.path.join(opt.scannet_path, scenes[i], scenes[i] + '.sens')
+        label_path = os
