@@ -103,4 +103,12 @@ def main():
         output_depth_path = os.path.join(opt.output_path, scenes[i], 'depth')
         if not os.path.isdir(output_depth_path):
             os.makedirs(output_depth_path)
-  
+        output_pose_path = os.path.join(opt.output_path, scenes[i], 'pose')
+        if not os.path.isdir(output_pose_path):
+            os.makedirs(output_pose_path)
+        output_label_path = os.path.join(opt.output_path, scenes[i], 'label')
+        if opt.export_label_images and not os.path.isdir(output_label_path):
+            os.makedirs(output_label_path)
+
+        # read and export
+        sys.stdout.write('\r
