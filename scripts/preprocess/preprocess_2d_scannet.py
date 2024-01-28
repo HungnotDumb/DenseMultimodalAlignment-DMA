@@ -111,4 +111,12 @@ def main():
             os.makedirs(output_label_path)
 
         # read and export
-        sys.stdout.write('\r
+        sys.stdout.write('\r[ %d | %d ] %s\tloading...' % ((i + 1), len(scenes), scenes[i]))
+        sys.stdout.flush()
+        if os.path.exists(sens_file):
+            sd = SensorData(sens_file)
+        else:
+            print(scenes[i] + " does not exist!")
+            os.system('python ~/disk2/download-scannet.py -o ~/disk2/scannet --type .sens --id '+ scenes[i])
+            sd = SensorData(sens_file)
+        sys.stdout.write('\r[ %d | 
