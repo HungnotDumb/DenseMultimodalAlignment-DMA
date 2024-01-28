@@ -94,4 +94,13 @@ def main():
             print_error('Error: using export_label_images option but label path %s does not exist' % label_path)
         output_color_path = os.path.join(opt.output_path, scenes[i], 'color')
         
-        if os.path.exists(os.path.join(opt.output_pa
+        if os.path.exists(os.path.join(opt.output_path, scenes[i])) and os.path.exists(output_color_path + '/0.jpg'):
+            print(scenes[i] + ' already extracted!')
+            continue
+
+        if not os.path.isdir(output_color_path):
+            os.makedirs(output_color_path)
+        output_depth_path = os.path.join(opt.output_path, scenes[i], 'depth')
+        if not os.path.isdir(output_depth_path):
+            os.makedirs(output_depth_path)
+  
