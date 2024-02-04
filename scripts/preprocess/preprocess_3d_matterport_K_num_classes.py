@@ -15,4 +15,13 @@ def process_one_scene(fn):
     a = plyfile.PlyData().read(fn)
     v = np.array([list(x) for x in a.elements[0]])
     coords = np.ascontiguousarray(v[:, :3])
-  
+    colors = np.ascontiguousarray(v[:, -3:]) / 127.5 - 1
+
+    category_id = a['face']['category_id']
+    category_id[category_id==-1] = 0
+    mapped_labels = mapping[category_id]
+
+    triangles = a['face']['vertex_indices']
+    vertex_labels = np.zeros((coords.shape[0], num_classes+1), dtype=np.int32)
+    # calculate per-vertex labels
+    for row_id in range(triangles.shape
