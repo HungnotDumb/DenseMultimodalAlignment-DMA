@@ -124,4 +124,12 @@ def main():
         sd.export_color_images(output_color_path, image_size=[opt.output_image_height, opt.output_image_width],
                                frame_skip=opt.frame_skip)
         sd.export_depth_images(output_depth_path, image_size=[opt.output_image_height, opt.output_image_width],
-                            
+                               frame_skip=opt.frame_skip)
+        sd.export_poses(output_pose_path, frame_skip=opt.frame_skip)
+
+        if opt.export_label_images:
+
+            for f in range(0, len(sd.frames), opt.frame_skip):
+                label_file = os.path.join(label_path, str(f) + '.png')
+                image = np.array(imageio.imread(label_file))
+                image = sktf.resize(image, [opt.output_
