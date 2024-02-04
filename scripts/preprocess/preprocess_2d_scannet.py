@@ -119,4 +119,9 @@ def main():
             print(scenes[i] + " does not exist!")
             os.system('python ~/disk2/download-scannet.py -o ~/disk2/scannet --type .sens --id '+ scenes[i])
             sd = SensorData(sens_file)
-        sys.stdout.write('\r[ %d | 
+        sys.stdout.write('\r[ %d | %d ] %s\texporting...' % ((i + 1), len(scenes), scenes[i]))
+        sys.stdout.flush()
+        sd.export_color_images(output_color_path, image_size=[opt.output_image_height, opt.output_image_width],
+                               frame_skip=opt.frame_skip)
+        sd.export_depth_images(output_depth_path, image_size=[opt.output_image_height, opt.output_image_width],
+                            
