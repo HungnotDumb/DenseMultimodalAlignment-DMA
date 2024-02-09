@@ -24,4 +24,14 @@ def process_one_scene(fn):
     triangles = a['face']['vertex_indices']
     vertex_labels = np.zeros((coords.shape[0], num_classes+1), dtype=np.int32)
     # calculate per-vertex labels
-    for row_id in range(triangles.shape
+    for row_id in range(triangles.shape[0]):
+        for i in range(3):
+            vertex_labels[triangles[row_id][i],
+                            mapped_labels[row_id]] += 1
+
+    vertex_labels = np.argmax(vertex_labels, axis=1)
+    vertex_labels[vertex_labels==0] = 256
+    vertex_labels -= 1
+
+    torch.save((coords, colors, vertex_labels),
+            os.path.join(out_dir,  scene_name+'_' + region_name +
