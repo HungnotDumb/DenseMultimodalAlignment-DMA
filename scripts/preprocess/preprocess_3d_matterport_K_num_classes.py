@@ -34,4 +34,18 @@ def process_one_scene(fn):
     vertex_labels -= 1
 
     torch.save((coords, colors, vertex_labels),
-            os.path.join(out_dir,  scene_name+'_' + region_name +
+            os.path.join(out_dir,  scene_name+'_' + region_name + '.pth'))
+    print(fn)
+
+
+def process_txt(filename):
+    with open(filename) as file:
+        lines = file.readlines()
+        lines = [line.rstrip() for line in lines]
+    return lines
+
+#! YOU NEED TO MODIFY THE FOLLOWING
+#####################################
+split = 'test' # 'train' | 'val' | 'test'
+num_classes = 160 # 40 | 80 | 160 # define the number of classes
+out_dir = '..
