@@ -48,4 +48,11 @@ def process_txt(filename):
 #####################################
 split = 'test' # 'train' | 'val' | 'test'
 num_classes = 160 # 40 | 80 | 160 # define the number of classes
-out_dir = '..
+out_dir = '../../data/matterport_3d_{}/{}'.format(num_classes, split)
+matterport_path = '/PATH_TO/matterport/scans' # downloaded original matterport data
+tsv_file = '../../dataset/matterport/category_mapping.tsv'
+scene_list = process_txt('../../dataset/matterport/scenes_{}.txt'.format(split))
+#####################################
+
+os.makedirs(out_dir, exist_ok=True)
+category_mapping 
