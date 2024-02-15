@@ -55,4 +55,16 @@ scene_list = process_txt('../../dataset/matterport/scenes_{}.txt'.format(split))
 #####################################
 
 os.makedirs(out_dir, exist_ok=True)
-category_mapping 
+category_mapping = pd.read_csv(tsv_file, sep='\t', header=0)
+
+# obtain label mapping for new number of classes
+label_name = []
+label_id = []
+label_all = category_mapping['nyuClass'].tolist()
+eliminated_list = ['void', 'unknown']
+mapping = np.zeros(len(label_all)+1, dtype=int) # mapping from category id
+instance_count = category_mapping['count'].tolist()
+ins_count_list = []
+counter = 1
+flag_stop = False
+for i, x in enumerate(
