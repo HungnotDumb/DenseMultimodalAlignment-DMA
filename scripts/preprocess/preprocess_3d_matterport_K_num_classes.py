@@ -77,4 +77,14 @@ for i, x in enumerate(label_all):
         if counter == num_classes+1:
             flag_stop = True
     elif isinstance(x, str) and x in label_name:
-        # find the index of the 
+        # find the index of the previously appeared object name
+        mapping[i+1] = label_name.index(x)+1
+
+files = []
+for scene in scene_list:
+    files = files + glob.glob(os.path.join(matterport_path, scene, 'region_segmentations', '*.ply'))
+
+p = mp.Pool(processes=mp.cpu_count())
+p.map(process_one_scene, files)
+p.close()
+p.join()
