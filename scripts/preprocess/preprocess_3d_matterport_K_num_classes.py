@@ -67,4 +67,14 @@ instance_count = category_mapping['count'].tolist()
 ins_count_list = []
 counter = 1
 flag_stop = False
-for i, x in enumerate(
+for i, x in enumerate(label_all):
+    if not flag_stop and isinstance(x, str) and x not in label_name and x not in eliminated_list:
+        label_name.append(x)
+        label_id.append(counter)
+        mapping[i+1] = counter
+        counter += 1
+        ins_count_list.append(instance_count[i])
+        if counter == num_classes+1:
+            flag_stop = True
+    elif isinstance(x, str) and x in label_name:
+        # find the index of the 
