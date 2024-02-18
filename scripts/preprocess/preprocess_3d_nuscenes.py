@@ -17,4 +17,17 @@ NUSCENES_FULL_CLASSES = ( # 32 classes
     'human.pedestrian.stroller',
     'human.pedestrian.wheelchair',
     'movable_object.barrier',
-    'movable_objec
+    'movable_object.debris',
+    'movable_object.pushable_pullable',
+    'movable_object.trafficcone',
+    'static_object.bicycle_rack',
+    'vehicle.bicycle',
+    'vehicle.bus.bendy',
+    'vehicle.bus.rigid',
+    'vehicle.car',
+    'vehicle.construction',
+    'vehicle.emergency.ambulance',
+    'vehicle.emergency.police',
+    'vehicle.motorcycle',
+    'vehicle.trailer',
+    'vehic
