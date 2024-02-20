@@ -30,4 +30,21 @@ NUSCENES_FULL_CLASSES = ( # 32 classes
     'vehicle.emergency.police',
     'vehicle.motorcycle',
     'vehicle.trailer',
-    'vehic
+    'vehicle.truck',
+    'flat.driveable_surface',
+    'flat.other',
+    'flat.sidewalk',
+    'flat.terrain',
+    'static.manmade',
+    'static.other',
+    'static.vegetation',
+    'vehicle.ego',
+    'unlabeled',
+)
+
+VALID_NUSCENES_CLASS_IDS = ()
+
+NUSCENES_CLASS_REMAP = 256*np.ones(32) # map from 32 classes to 16 classes
+NUSCENES_CLASS_REMAP[2] = 7 # person
+NUSCENES_CLASS_REMAP[3] = 7
+NUSCEN
