@@ -58,4 +58,17 @@ NUSCENES_CLASS_REMAP[17] = 4 # car
 NUSCENES_CLASS_REMAP[18] = 5 # construction vehicle
 NUSCENES_CLASS_REMAP[21] = 6 # motorcycle
 NUSCENES_CLASS_REMAP[22] = 9 # trailer ???
-NUSCENES_CLASS_REMAP[2
+NUSCENES_CLASS_REMAP[23] = 10 # truck
+NUSCENES_CLASS_REMAP[24] = 11 # drivable surface
+NUSCENES_CLASS_REMAP[25] = 12 # other flat??
+NUSCENES_CLASS_REMAP[26] = 13 # sidewalk
+NUSCENES_CLASS_REMAP[27] = 14 # terrain
+NUSCENES_CLASS_REMAP[28] = 15 # manmade
+NUSCENES_CLASS_REMAP[30] = 16 # vegetation
+
+
+def process_one_sequence(fn):
+    '''process one sequence.'''
+
+    scene_name = fn.split('/')[-2]
+    a = plyfile.
