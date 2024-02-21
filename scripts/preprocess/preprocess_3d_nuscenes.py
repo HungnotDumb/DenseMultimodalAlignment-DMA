@@ -71,4 +71,12 @@ def process_one_sequence(fn):
     '''process one sequence.'''
 
     scene_name = fn.split('/')[-2]
-    a = plyfile.
+    a = plyfile.PlyData().read(fn)
+    v = np.array([list(x) for x in a.elements[0]])
+    coords = np.ascontiguousarray(v[:, :3])
+    category_id = np.ascontiguousarray(v[:, -1]).astype(int)
+
+    if not export_all_points: # we only consider points with annotations
+        dir_timestamp = fn[:-9] + 'scene-timestamps.npy'
+        timestamp = np.load(dir_timestamp)
+        mask = (timestamp==timestamp.max())[:, 0] # mask for points with ann
