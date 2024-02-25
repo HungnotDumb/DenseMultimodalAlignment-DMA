@@ -79,4 +79,19 @@ def process_one_sequence(fn):
     if not export_all_points: # we only consider points with annotations
         dir_timestamp = fn[:-9] + 'scene-timestamps.npy'
         timestamp = np.load(dir_timestamp)
-        mask = (timestamp==timestamp.max())[:, 0] # mask for points with ann
+        mask = (timestamp==timestamp.max())[:, 0] # mask for points with annotations
+        coords = coords[mask]
+        category_id = category_id[mask]
+
+    category_id[category_id==-1] = 0
+    remapped_labels = NUSCENES_CLASS_REMAP[category_id]
+    remapped_labels -= 1
+
+    torch.save((coords, 0, remapped_labels),
+            os.path.join(out_dir,  scene_name + '.pth'))
+    print(fn)
+
+
+def process_txt(filename):
+    with open(filename) as file:
+        
