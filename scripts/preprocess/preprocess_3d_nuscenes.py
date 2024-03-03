@@ -94,4 +94,14 @@ def process_one_sequence(fn):
 
 def process_txt(filename):
     with open(filename) as file:
-        
+        lines = file.readlines()
+        lines = [line.rstrip() for line in lines]
+    return lines
+
+#! YOU NEED TO MODIFY THE FOLLOWING
+#####################################
+split = 'val' # 'train' | 'val'
+out_dir = 'data/nuscenes_3d/{}'.format(split)
+in_path = '/PATH_TO/nuscenes/{}'.format(split) # downloaded original nuscenes data
+export_all_points = True # default we export all points within 0.5 sec
+scene_li
