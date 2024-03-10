@@ -104,4 +104,15 @@ split = 'val' # 'train' | 'val'
 out_dir = 'data/nuscenes_3d/{}'.format(split)
 in_path = '/PATH_TO/nuscenes/{}'.format(split) # downloaded original nuscenes data
 export_all_points = True # default we export all points within 0.5 sec
-scene_li
+scene_list = os.listdir(in_path)
+################
+
+os.makedirs(out_dir, exist_ok=True)
+files = []
+for scene in scene_list:
+    files.append(os.path.join(in_path, scene, 'scene.ply'))
+
+p = mp.Pool(processes=mp.cpu_count())
+p.map(process_one_sequence, files)
+p.close()
+p.join()
