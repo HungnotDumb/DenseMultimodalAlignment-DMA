@@ -17,4 +17,18 @@ def process_one_scene(fn):
 
     # no GT labels are provided, set all to 255
     labels = 255*np.ones((coords.shape[0], ), dtype=np.int32)
-    torch.s
+    torch.save((coords, colors, labels),
+            os.path.join(out_dir,  scene_name + '.pth'))
+    print(fn)
+
+
+def process_txt(filename):
+    with open(filename) as file:
+        lines = file.readlines()
+        lines = [line.rstrip() for line in lines]
+    return lines
+
+#! YOU NEED TO MODIFY THE FOLLOWING
+scene_list = ['office0', 'office1', 'office2', 'office3',
+              'office4', 'room0', 'room1', 'room2']
+####################
