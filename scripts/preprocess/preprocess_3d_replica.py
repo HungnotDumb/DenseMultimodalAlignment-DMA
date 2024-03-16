@@ -31,4 +31,18 @@ def process_txt(filename):
 #! YOU NEED TO MODIFY THE FOLLOWING
 scene_list = ['office0', 'office1', 'office2', 'office3',
               'office4', 'room0', 'room1', 'room2']
-####################
+#####################################
+out_dir = '../../data/replica_processed/replica_3d'
+in_path = '../../data/Replica/' # downloaded original replica data
+#####################################
+
+os.makedirs(out_dir, exist_ok=True)
+
+files = []
+for scene in scene_list:
+    files.append(os.path.join(in_path, '{}_mesh.ply'.format(scene)))
+
+p = mp.Pool(processes=mp.cpu_count())
+p.map(process_one_scene, files)
+p.close()
+p.join()
