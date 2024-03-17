@@ -12,4 +12,17 @@ for i, x in enumerate([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 24, 28, 33
 
 
 def process_one_scene(fn):
-    '''process one sc
+    '''process one scene.'''
+
+    fn2 = fn[:-3] + 'labels.ply'
+    a = plyfile.PlyData().read(fn)
+    v = np.array([list(x) for x in a.elements[0]])
+    coords = np.ascontiguousarray(v[:, :3])
+    
+    # colors = np.ascontiguousarray(v[:, 3:6]) / 127.5 - 1
+    colors = np.ascontiguousarray(v[:, 3:6]).astype(np.uint8)
+
+    a = plyfile.PlyData().read(fn2)
+    w = remapper[np.array(a.elements[0]['label'])]
+
+    fiel
