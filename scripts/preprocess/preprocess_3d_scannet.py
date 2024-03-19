@@ -25,4 +25,16 @@ def process_one_scene(fn):
     a = plyfile.PlyData().read(fn2)
     w = remapper[np.array(a.elements[0]['label'])]
 
-    fiel
+    field_names = ['x', 'y', 'z', 'red', 'green', 'blue', 'values']
+
+    write_ply(os.path.join(out_dir, fn[:-4].split('/')[-1] + '.ply'), [coords, colors, w], field_names)
+
+    # torch.save((coords, colors, w),
+    #         os.path.join(out_dir, fn[:-4].split('/')[-1] + '.pth'))
+    print(fn, fn2)
+
+
+def process_txt(filename):
+    with open(filename) as file:
+        lines = file.readlines()
+      
