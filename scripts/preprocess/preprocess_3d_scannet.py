@@ -37,4 +37,13 @@ def process_one_scene(fn):
 def process_txt(filename):
     with open(filename) as file:
         lines = file.readlines()
-      
+        lines = [line.rstrip() for line in lines]
+    return lines
+
+
+#! YOU NEED TO MODIFY THE FOLLOWING
+#####################################
+split = 'train' # choose between 'train' | 'val'
+out_dir = '../../data/scannet_3d_ply/{}'.format(split)
+in_path = '/data1/liruihuang/dataset/ScanNetv2/scans' # downloaded original scannet data
+scene_list = process_txt('../../dataset/scannet/scannetv2_{}.txt'.forma
