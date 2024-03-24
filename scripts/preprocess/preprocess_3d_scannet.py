@@ -46,4 +46,16 @@ def process_txt(filename):
 split = 'train' # choose between 'train' | 'val'
 out_dir = '../../data/scannet_3d_ply/{}'.format(split)
 in_path = '/data1/liruihuang/dataset/ScanNetv2/scans' # downloaded original scannet data
-scene_list = process_txt('../../dataset/scannet/scannetv2_{}.txt'.forma
+scene_list = process_txt('../../dataset/scannet/scannetv2_{}.txt'.format(split))
+#####################################
+
+os.makedirs(out_dir, exist_ok=True)
+files = []
+files2 = []
+for scene in scene_list:
+
+    files.append(glob.glob(os.path.join(in_path,
+                    scene, '*_vh_clean_2.ply'))[0])
+    files2.append(glob.glob(os.path.join(in_path,
+                    scene,'*_vh_clean_2.labels.ply'))[0])
+    assert len(fi
