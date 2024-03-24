@@ -58,4 +58,9 @@ for scene in scene_list:
                     scene, '*_vh_clean_2.ply'))[0])
     files2.append(glob.glob(os.path.join(in_path,
                     scene,'*_vh_clean_2.labels.ply'))[0])
-    assert len(fi
+    assert len(files) == len(files2)
+
+p = mp.Pool(processes=mp.cpu_count())
+p.map(process_one_scene, files)
+p.close()
+p.join()
