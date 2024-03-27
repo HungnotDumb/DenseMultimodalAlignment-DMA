@@ -25,4 +25,7 @@ def main():
                 pcd0, pcd1, op = line.strip().split()
                 if float(op) >= 0.3:
                     print('{} {} {}'.format(pcd0, pcd1, op), file=f)
-    pr
+    print('done')
+
+if __name__ == '__main__':
+    main()
