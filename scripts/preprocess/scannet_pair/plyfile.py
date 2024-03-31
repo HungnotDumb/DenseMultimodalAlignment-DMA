@@ -74,4 +74,19 @@ _byte_order_reverse = {
     '>': 'binary_big_endian'
 }
 
-_native_
+_native_byte_order = {'little': '<', 'big': '>'}[_byteorder]
+
+
+def _lookup_type(type_str):
+    if type_str not in _data_type_reverse:
+        try:
+            type_str = _data_types[type_str]
+        except KeyError:
+            raise ValueError("field type %r not in %r" %
+                             (type_str, _types_list))
+
+    return _data_type_reverse[type_str]
+
+
+def _split_line(line, n):
+    fields = line.sp
