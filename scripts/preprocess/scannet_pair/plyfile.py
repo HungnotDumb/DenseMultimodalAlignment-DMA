@@ -14,4 +14,27 @@
 #
 #   You should have received a copy of the GNU General Public License
 #   along with python-plyfile.  If not, see
-#       <http://www.gnu.org/l
+#       <http://www.gnu.org/licenses/>.
+
+from itertools import islice as _islice
+
+import numpy as _np
+from sys import byteorder as _byteorder
+
+
+try:
+    _range = xrange
+except NameError:
+    _range = range
+
+
+# Many-many relation
+_data_type_relation = [
+    ('int8', 'i1'),
+    ('char', 'i1'),
+    ('uint8', 'u1'),
+    ('uchar', 'b1'),
+    ('uchar', 'u1'),
+    ('int16', 'i2'),
+    ('short', 'i2'),
+    ('uint16', 'u2'
