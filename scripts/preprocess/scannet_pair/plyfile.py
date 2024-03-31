@@ -55,4 +55,23 @@ _data_type_reverse = dict((b, a) for (a, b) in _data_type_relation)
 _types_list = []
 _types_set = set()
 for (_a, _b) in _data_type_relation:
-    if _a not in _
+    if _a not in _types_set:
+        _types_list.append(_a)
+        _types_set.add(_a)
+    if _b not in _types_set:
+        _types_list.append(_b)
+        _types_set.add(_b)
+
+
+_byte_order_map = {
+    'ascii': '=',
+    'binary_little_endian': '<',
+    'binary_big_endian': '>'
+}
+
+_byte_order_reverse = {
+    '<': 'binary_little_endian',
+    '>': 'binary_big_endian'
+}
+
+_native_
