@@ -37,4 +37,22 @@ _data_type_relation = [
     ('uchar', 'u1'),
     ('int16', 'i2'),
     ('short', 'i2'),
-    ('uint16', 'u2'
+    ('uint16', 'u2'),
+    ('ushort', 'u2'),
+    ('int32', 'i4'),
+    ('int', 'i4'),
+    ('uint32', 'u4'),
+    ('uint', 'u4'),
+    ('float32', 'f4'),
+    ('float', 'f4'),
+    ('float64', 'f8'),
+    ('double', 'f8')
+]
+
+_data_types = dict(_data_type_relation)
+_data_type_reverse = dict((b, a) for (a, b) in _data_type_relation)
+
+_types_list = []
+_types_set = set()
+for (_a, _b) in _data_type_relation:
+    if _a not in _
