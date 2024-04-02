@@ -123,4 +123,19 @@ class PlyParseError(Exception):
     '''
     Raised when a PLY file cannot be parsed.
 
-    The attributes `element', `row', `prope
+    The attributes `element', `row', `property', and `message' give
+    additional information.
+
+    '''
+
+    def __init__(self, message, element=None, row=None, prop=None):
+        self.message = message
+        self.element = element
+        self.row = row
+        self.prop = prop
+
+        s = ''
+        if self.element:
+            s += 'element %r: ' % self.element.name
+        if self.row is not None:
+            
