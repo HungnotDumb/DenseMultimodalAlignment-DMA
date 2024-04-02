@@ -89,4 +89,20 @@ def _lookup_type(type_str):
 
 
 def _split_line(line, n):
-    fields = line.sp
+    fields = line.split(None, n)
+    if len(fields) == n:
+        fields.append('')
+
+    assert len(fields) == n + 1
+
+    return fields
+
+
+def make2d(array, cols=None, dtype=None):
+    '''
+    Make a 2D array from an array of arrays.  The `cols' and `dtype'
+    arguments can be omitted if the array is not empty.
+
+    '''
+    if (cols is None or dtype is None) and not len(array):
+        raise RuntimeError("cols and d
