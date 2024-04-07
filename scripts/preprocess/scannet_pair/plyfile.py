@@ -138,4 +138,21 @@ class PlyParseError(Exception):
         if self.element:
             s += 'element %r: ' % self.element.name
         if self.row is not None:
-            
+            s += 'row %d: ' % self.row
+        if self.prop:
+            s += 'property %r: ' % self.prop.name
+        s += self.message
+
+        Exception.__init__(self, s)
+
+    def __repr__(self):
+        return ('PlyParseError(%r, element=%r, row=%r, prop=%r)' %
+                self.message, self.element, self.row, self.prop)
+
+
+class PlyData(object):
+
+    '''
+    PLY file header and data.
+
+    A PlyData instance is crea
