@@ -167,4 +167,13 @@ class PlyData(object):
         '''
         elements: sequence of PlyElement instances.
 
-       
+        text: whether the resulting PLY file will be text (True) or
+            binary (False).
+
+        byte_order: '<' for little-endian, '>' for big-endian, or '='
+            for native.  This is only relevant if `text' is False.
+
+        comments: sequence of strings that will be placed in the header
+            between the 'ply' and 'format ...' lines.
+
+        obj_info: like comments, but will be place
