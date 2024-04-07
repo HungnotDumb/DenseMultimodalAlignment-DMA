@@ -155,4 +155,16 @@ class PlyData(object):
     '''
     PLY file header and data.
 
-    A PlyData instance is crea
+    A PlyData instance is created in one of two ways: by the static
+    method PlyData.read (to read a PLY file), or directly from __init__
+    given a sequence of elements (which can then be written to a PLY
+    file).
+
+    '''
+
+    def __init__(self, elements=[], text=False, byte_order='=',
+                 comments=[], obj_info=[]):
+        '''
+        elements: sequence of PlyElement instances.
+
+       
