@@ -176,4 +176,19 @@ class PlyData(object):
         comments: sequence of strings that will be placed in the header
             between the 'ply' and 'format ...' lines.
 
-        obj_info: like comments, but will be place
+        obj_info: like comments, but will be placed in the header with
+            "obj_info ..." instead of "comment ...".
+
+        '''
+        if byte_order == '=' and not text:
+            byte_order = _native_byte_order
+
+        self.byte_order = byte_order
+        self.text = text
+
+        self.comments = list(comments)
+        self.obj_info = list(obj_info)
+        self.elements = elements
+
+    def _get_elements(self):
+        return self._elements
