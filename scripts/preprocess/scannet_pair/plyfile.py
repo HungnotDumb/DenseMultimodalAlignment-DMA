@@ -192,3 +192,18 @@ class PlyData(object):
 
     def _get_elements(self):
         return self._elements
+
+    def _set_elements(self, elements):
+        self._elements = tuple(elements)
+        self._index()
+
+    elements = property(_get_elements, _set_elements)
+
+    def _get_byte_order(self):
+        return self._byte_order
+
+    def _set_byte_order(self, byte_order):
+        if byte_order not in ['<', '>', '=']:
+            raise ValueError("byte order must be '<', '>', or '='")
+
+        self._byte_order = byte
