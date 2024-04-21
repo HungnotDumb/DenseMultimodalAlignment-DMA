@@ -217,4 +217,19 @@ class PlyData(object):
             raise ValueError("two elements with same name")
 
     @staticmethod
-    def _parse_header(stream)
+    def _parse_header(stream):
+        '''
+        Parse a PLY header from a readable file-like stream.
+
+        '''
+        lines = []
+        comments = {'comment': [], 'obj_info': []}
+        while True:
+            line = stream.readline().decode('ascii').strip()
+            fields = _split_line(line, 1)
+
+            if fields[0] == 'end_header':
+                break
+
+            elif fields[0] in comments.keys():
+                lines.append
