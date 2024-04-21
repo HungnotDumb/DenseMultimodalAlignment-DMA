@@ -206,4 +206,15 @@ class PlyData(object):
         if byte_order not in ['<', '>', '=']:
             raise ValueError("byte order must be '<', '>', or '='")
 
-        self._byte_order = byte
+        self._byte_order = byte_order
+
+    byte_order = property(_get_byte_order, _set_byte_order)
+
+    def _index(self):
+        self._element_lookup = dict((elt.name, elt) for elt in
+                                    self._elements)
+        if len(self._element_lookup) != len(self._elements):
+            raise ValueError("two elements with same name")
+
+    @staticmethod
+    def _parse_header(stream)
