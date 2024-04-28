@@ -248,4 +248,19 @@ class PlyData(object):
         if lines[a][0] != 'format':
             raise PlyParseError("expected 'format'")
 
-        if lines[a][2
+        if lines[a][2] != '1.0':
+            raise PlyParseError("expected version '1.0'")
+
+        if len(lines[a]) != 3:
+            raise PlyParseError("too many fields after 'format'")
+
+        fmt = lines[a][1]
+
+        if fmt not in _byte_order_map:
+            raise PlyParseError("don't understand format %r" % fmt)
+
+        byte_order = _byte_order_map[fmt]
+        text = fmt == 'ascii'
+
+        a += 1
+   
