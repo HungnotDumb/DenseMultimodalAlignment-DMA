@@ -232,4 +232,20 @@ class PlyData(object):
                 break
 
             elif fields[0] in comments.keys():
-                lines.append
+                lines.append(fields)
+            else:
+                lines.append(line.split())
+
+        a = 0
+        if lines[a] != ['ply']:
+            raise PlyParseError("expected 'ply'")
+
+        a += 1
+        while lines[a][0] in comments.keys():
+            comments[lines[a][0]].append(lines[a][1])
+            a += 1
+
+        if lines[a][0] != 'format':
+            raise PlyParseError("expected 'format'")
+
+        if lines[a][2
