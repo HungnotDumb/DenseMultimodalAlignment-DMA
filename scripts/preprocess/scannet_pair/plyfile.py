@@ -263,4 +263,18 @@ class PlyData(object):
         text = fmt == 'ascii'
 
         a += 1
-   
+        while a < len(lines) and lines[a][0] in comments.keys():
+            comments[lines[a][0]].append(lines[a][1])
+            a += 1
+
+        return PlyData(PlyElement._parse_multi(lines[a:]),
+                       text, byte_order,
+                       comments['comment'], comments['obj_info'])
+
+    @staticmethod
+    def read(stream):
+        '''
+        Read PLY data from a readable file-like object or filename.
+
+        '''
+    
