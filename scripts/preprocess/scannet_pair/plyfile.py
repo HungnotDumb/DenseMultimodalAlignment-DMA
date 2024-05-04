@@ -290,4 +290,19 @@ class PlyData(object):
 
     def write(self, stream):
         '''
-        Write PLY data to a writeable file-lik
+        Write PLY data to a writeable file-like object or filename.
+
+        '''
+        (must_close, stream) = _open_stream(stream, 'write')
+        try:
+            stream.write(self.header.encode('ascii'))
+            stream.write(b'\r\n')
+            for elt in self:
+                elt._write(stream, self.text, self.byte_order)
+        finally:
+            if must_close:
+                stream.close()
+
+    @property
+    def header(self):
+     
