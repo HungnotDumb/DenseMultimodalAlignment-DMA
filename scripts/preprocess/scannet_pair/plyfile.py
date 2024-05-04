@@ -277,4 +277,17 @@ class PlyData(object):
         Read PLY data from a readable file-like object or filename.
 
         '''
-    
+        (must_close, stream) = _open_stream(stream, 'read')
+        try:
+            data = PlyData._parse_header(stream)
+            for elt in data:
+                elt._read(stream, data.text, data.byte_order)
+        finally:
+            if must_close:
+                stream.close()
+
+        return data
+
+    def write(self, stream):
+        '''
+        Write PLY data to a writeable file-lik
