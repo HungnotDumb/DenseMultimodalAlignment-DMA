@@ -305,4 +305,18 @@ class PlyData(object):
 
     @property
     def header(self):
-     
+        '''
+        Provide PLY-formatted metadata for the instance.
+
+        '''
+        lines = ['ply']
+
+        if self.text:
+            lines.append('format ascii 1.0')
+        else:
+            lines.append('format ' +
+                         _byte_order_reverse[self.byte_order] +
+                         ' 1.0')
+
+        # Some information is lost here, since all comments are placed
+        # be
