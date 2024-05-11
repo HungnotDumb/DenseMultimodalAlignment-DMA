@@ -319,4 +319,16 @@ class PlyData(object):
                          ' 1.0')
 
         # Some information is lost here, since all comments are placed
-        # be
+        # between the 'format' line and the first element.
+        for c in self.comments:
+            lines.append('comment ' + c)
+
+        for c in self.obj_info:
+            lines.append('obj_info ' + c)
+
+        lines.extend(elt.header for elt in self.elements)
+        lines.append('end_header')
+        return '\r\n'.join(lines)
+
+    def __iter__(self):
+        return iter(self.elements
