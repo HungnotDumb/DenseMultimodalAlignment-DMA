@@ -331,4 +331,20 @@ class PlyData(object):
         return '\r\n'.join(lines)
 
     def __iter__(self):
-        return iter(self.elements
+        return iter(self.elements)
+
+    def __len__(self):
+        return len(self.elements)
+
+    def __contains__(self, name):
+        return name in self._element_lookup
+
+    def __getitem__(self, name):
+        return self._element_lookup[name]
+
+    def __str__(self):
+        return self.header
+
+    def __repr__(self):
+        return ('PlyData(%r, text=%r, byte_order=%r, '
+                'comments=%r, obj_i
