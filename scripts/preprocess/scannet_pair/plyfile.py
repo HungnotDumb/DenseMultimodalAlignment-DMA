@@ -347,4 +347,18 @@ class PlyData(object):
 
     def __repr__(self):
         return ('PlyData(%r, text=%r, byte_order=%r, '
-                'comments=%r, obj_i
+                'comments=%r, obj_info=%r)' %
+                (self.elements, self.text, self.byte_order,
+                 self.comments, self.obj_info))
+
+
+def _open_stream(stream, read_or_write):
+    if hasattr(stream, read_or_write):
+        return (False, stream)
+    try:
+        return (True, open(stream, read_or_write[0] + 'b'))
+    except TypeError:
+        raise RuntimeError("expected open file or filename")
+
+
+class PlyElement(o
