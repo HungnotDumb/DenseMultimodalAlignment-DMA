@@ -361,4 +361,15 @@ def _open_stream(stream, read_or_write):
         raise RuntimeError("expected open file or filename")
 
 
-class PlyElement(o
+class PlyElement(object):
+
+    '''
+    PLY file element.
+
+    A client of this library doesn't normally need to instantiate this
+    directly, so the following is only for the sake of documenting the
+    internals.
+
+    Creating a PlyElement instance is generally done in one of two ways:
+    as a byproduct of PlyData.read (when reading a PLY file) and by
+    PlyElement.describe (before writing a PLY fi
