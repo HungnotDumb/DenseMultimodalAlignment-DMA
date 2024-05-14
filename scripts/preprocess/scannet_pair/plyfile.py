@@ -372,4 +372,18 @@ class PlyElement(object):
 
     Creating a PlyElement instance is generally done in one of two ways:
     as a byproduct of PlyData.read (when reading a PLY file) and by
-    PlyElement.describe (before writing a PLY fi
+    PlyElement.describe (before writing a PLY file).
+
+    '''
+
+    def __init__(self, name, properties, count, comments=[]):
+        '''
+        This is not part of the public interface.  The preferred methods
+        of obtaining PlyElement instances are PlyData.read (to read from
+        a file) and PlyElement.describe (to construct from a numpy
+        array).
+
+        '''
+        self._name = str(name)
+        self._check_name()
+       
