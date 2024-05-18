@@ -404,4 +404,18 @@ class PlyElement(object):
         return self._data
 
     def _set_data(self, data):
-        self._data 
+        self._data = data
+        self._count = len(data)
+        self._check_sanity()
+
+    data = property(_get_data, _set_data)
+
+    def _check_sanity(self):
+        for prop in self.properties:
+            if prop.name not in self._data.dtype.fields:
+                raise ValueError("dangling property %r" % prop.name)
+
+    def _get_properties(self):
+        return self._properties
+
+    def _set_properties(self, properties)
