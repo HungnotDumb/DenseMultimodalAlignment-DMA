@@ -418,4 +418,15 @@ class PlyElement(object):
     def _get_properties(self):
         return self._properties
 
-    def _set_properties(self, properties)
+    def _set_properties(self, properties):
+        self._properties = tuple(properties)
+        self._check_sanity()
+        self._index()
+
+    properties = property(_get_properties, _set_properties)
+
+    def _index(self):
+        self._property_lookup = dict((prop.name, prop)
+                                     for prop in self._properties)
+        if len(self._property_lookup) != len(self._properties):
+         
