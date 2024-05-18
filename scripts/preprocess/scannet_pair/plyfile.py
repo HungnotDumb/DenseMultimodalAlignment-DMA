@@ -429,4 +429,19 @@ class PlyElement(object):
         self._property_lookup = dict((prop.name, prop)
                                      for prop in self._properties)
         if len(self._property_lookup) != len(self._properties):
-         
+            raise ValueError("two properties with same name")
+
+    def ply_property(self, name):
+        return self._property_lookup[name]
+
+    @property
+    def name(self):
+        return self._name
+
+    def _check_name(self):
+        if any(c.isspace() for c in self._name):
+            msg = "element name %r contains spaces" % self._name
+            raise ValueError(msg)
+
+    def dtype(self, byte_order='='):
+        '
