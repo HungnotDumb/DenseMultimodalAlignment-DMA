@@ -386,4 +386,22 @@ class PlyElement(object):
         '''
         self._name = str(name)
         self._check_name()
-       
+        self._count = count
+
+        self._properties = tuple(properties)
+        self._index()
+
+        self.comments = list(comments)
+
+        self._have_list = any(isinstance(p, PlyListProperty)
+                              for p in self.properties)
+
+    @property
+    def count(self):
+        return self._count
+
+    def _get_data(self):
+        return self._data
+
+    def _set_data(self, data):
+        self._data 
