@@ -444,4 +444,15 @@ class PlyElement(object):
             raise ValueError(msg)
 
     def dtype(self, byte_order='='):
-        '
+        '''
+        Return the numpy dtype of the in-memory representation of the
+        data.  (If there are no list properties, and the PLY format is
+        binary, then this also accurately describes the on-disk
+        representation of the element.)
+
+        '''
+        return [(prop.name, prop.dtype(byte_order))
+                for prop in self.properties]
+
+    @staticmethod
+    def _parse_
