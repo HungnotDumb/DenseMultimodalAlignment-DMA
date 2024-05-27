@@ -455,4 +455,20 @@ class PlyElement(object):
                 for prop in self.properties]
 
     @staticmethod
-    def _parse_
+    def _parse_multi(header_lines):
+        '''
+        Parse a list of PLY element definitions.
+
+        '''
+        elements = []
+        while header_lines:
+            (elt, header_lines) = PlyElement._parse_one(header_lines)
+            elements.append(elt)
+
+        return elements
+
+    @staticmethod
+    def _parse_one(lines):
+        '''
+        Consume one element definition.  The unconsumed input is
+        returned alon
