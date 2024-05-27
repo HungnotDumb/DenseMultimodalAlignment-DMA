@@ -471,4 +471,19 @@ class PlyElement(object):
     def _parse_one(lines):
         '''
         Consume one element definition.  The unconsumed input is
-        returned alon
+        returned along with a PlyElement instance.
+
+        '''
+        a = 0
+        line = lines[a]
+
+        if line[0] != 'element':
+            raise PlyParseError("expected 'element'")
+        if len(line) > 3:
+            raise PlyParseError("too many fields after 'element'")
+        if len(line) < 3:
+            raise PlyParseError("too few fields after 'element'")
+
+        (name, count) = (line[1], int(line[2]))
+
+        
