@@ -500,4 +500,15 @@ class PlyElement(object):
             else:
                 break
 
-        return (PlyElement(name, properti
+        return (PlyElement(name, properties, count, comments),
+                lines[a:])
+
+    @staticmethod
+    def describe(data, name, len_types={}, val_types={},
+                 comments=[]):
+        '''
+        Construct a PlyElement from an array's metadata.
+
+        len_types and val_types can be given as mappings from list
+        property names to type strings (like 'u1', 'f4', etc., or
+        'int8', 'float32', etc.). These can
