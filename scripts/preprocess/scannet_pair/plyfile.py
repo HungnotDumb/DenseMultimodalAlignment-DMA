@@ -486,4 +486,18 @@ class PlyElement(object):
 
         (name, count) = (line[1], int(line[2]))
 
-        
+        comments = []
+        properties = []
+        while True:
+            a += 1
+            if a >= len(lines):
+                break
+
+            if lines[a][0] == 'comment':
+                comments.append(lines[a][1])
+            elif lines[a][0] == 'property':
+                properties.append(PlyProperty._parse_one(lines[a]))
+            else:
+                break
+
+        return (PlyElement(name, properti
