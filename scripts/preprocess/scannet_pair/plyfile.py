@@ -511,4 +511,14 @@ class PlyElement(object):
 
         len_types and val_types can be given as mappings from list
         property names to type strings (like 'u1', 'f4', etc., or
-        'int8', 'float32', etc.). These can
+        'int8', 'float32', etc.). These can be used to define the length
+        and value types of list properties.  List property lengths
+        always default to type 'u1' (8-bit unsigned integer), and value
+        types default to 'i4' (32-bit integer).
+
+        '''
+        if not isinstance(data, _np.ndarray):
+            raise TypeError("only numpy arrays are supported")
+
+        if len(data.shape) != 1:
+            raise ValueError("only 
