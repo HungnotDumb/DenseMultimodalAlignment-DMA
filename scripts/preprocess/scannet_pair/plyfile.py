@@ -521,4 +521,20 @@ class PlyElement(object):
             raise TypeError("only numpy arrays are supported")
 
         if len(data.shape) != 1:
-            raise ValueError("only 
+            raise ValueError("only one-dimensional arrays are "
+                             "supported")
+
+        count = len(data)
+
+        properties = []
+        descr = data.dtype.descr
+
+        for t in descr:
+            if not isinstance(t[1], str):
+                raise ValueError("nested records not supported")
+
+            if not t[0]:
+                raise ValueError("field with empty name")
+
+            if len(t) != 2 or t[1][1] == 'O':
+                # non-scalar fiel
