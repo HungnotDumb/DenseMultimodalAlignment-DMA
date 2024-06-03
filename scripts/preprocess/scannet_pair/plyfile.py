@@ -547,4 +547,16 @@ class PlyElement(object):
 
                 len_str = _data_type_reverse[len_types.get(t[0], 'u1')]
                 if t[1][1] == 'O':
-              
+                    val_type = val_types.get(t[0], 'i4')
+                    val_str = _lookup_type(val_type)
+                else:
+                    val_str = _lookup_type(t[1][1:])
+
+                prop = PlyListProperty(t[0], len_str, val_str)
+            else:
+                val_str = _lookup_type(t[1][1:])
+                prop = PlyProperty(t[0], val_str)
+
+            properties.append(prop)
+
+        elt = PlyElement(name
