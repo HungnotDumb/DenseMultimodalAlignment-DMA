@@ -559,4 +559,20 @@ class PlyElement(object):
 
             properties.append(prop)
 
-        elt = PlyElement(name
+        elt = PlyElement(name, properties, count, comments)
+        elt.data = data
+
+        return elt
+
+    def _read(self, stream, text, byte_order):
+        '''
+        Read the actual data from a PLY file.
+
+        '''
+        if text:
+            self._read_txt(stream)
+        else:
+            if self._have_list:
+                # There are list properties, so a simple load is
+                # impossible.
+                se
