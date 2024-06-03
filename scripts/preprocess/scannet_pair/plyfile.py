@@ -537,4 +537,14 @@ class PlyElement(object):
                 raise ValueError("field with empty name")
 
             if len(t) != 2 or t[1][1] == 'O':
-                # non-scalar fiel
+                # non-scalar field, which corresponds to a list
+                # property in PLY.
+
+                if t[1][1] == 'O':
+                    if len(t) != 2:
+                        raise ValueError("non-scalar object fields not "
+                                         "supported")
+
+                len_str = _data_type_reverse[len_types.get(t[0], 'u1')]
+                if t[1][1] == 'O':
+              
