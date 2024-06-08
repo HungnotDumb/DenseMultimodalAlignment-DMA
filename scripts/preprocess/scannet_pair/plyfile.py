@@ -585,4 +585,19 @@ class PlyElement(object):
 
         if len(self._data) < self.count:
             k = len(self._data)
-   
+            del self._data
+            raise PlyParseError("early end-of-file", self, k)
+
+        self._check_sanity()
+
+    def _write(self, stream, text, byte_order):
+        '''
+        Write the data to a PLY file.
+
+        '''
+        if text:
+            self._write_txt(stream)
+        else:
+            if self._have_list:
+                # There are list properties, so serialization is
+  
