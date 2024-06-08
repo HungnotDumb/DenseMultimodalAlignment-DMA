@@ -600,4 +600,14 @@ class PlyElement(object):
         else:
             if self._have_list:
                 # There are list properties, so serialization is
-  
+                # slightly complicated.
+                self._write_bin(stream, byte_order)
+            else:
+                # no list properties, so serialization is
+                # straightforward.
+                self.data.astype(self.dtype(byte_order),
+                                 copy=False).tofile(stream)
+
+    def _read_txt(self, stream):
+        '''
+        Load a PLY element fr
