@@ -610,4 +610,15 @@ class PlyElement(object):
 
     def _read_txt(self, stream):
         '''
-        Load a PLY element fr
+        Load a PLY element from an ASCII-format PLY file.  The element
+        may contain list properties.
+
+        '''
+        self._data = _np.empty(self.count, dtype=self.dtype())
+
+        k = 0
+        for line in _islice(iter(stream.readline, b''), self.count):
+            fields = iter(line.strip().split())
+            for prop in self.properties:
+                try:
+                    self._data[prop.name][k] = prop._from_fi
