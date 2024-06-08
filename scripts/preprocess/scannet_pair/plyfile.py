@@ -575,4 +575,14 @@ class PlyElement(object):
             if self._have_list:
                 # There are list properties, so a simple load is
                 # impossible.
-                se
+                self._read_bin(stream, byte_order)
+            else:
+                # There are no list properties, so loading the data is
+                # much more straightforward.
+                self._data = _np.fromfile(stream,
+                                          self.dtype(byte_order),
+                                          self.count)
+
+        if len(self._data) < self.count:
+            k = len(self._data)
+   
