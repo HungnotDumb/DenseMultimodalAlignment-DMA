@@ -646,4 +646,17 @@ class PlyElement(object):
         contain list properties.
 
         '''
-        fo
+        for rec in self.data:
+            fields = []
+            for prop in self.properties:
+                fields.extend(prop._to_fields(rec[prop.name]))
+
+            _np.savetxt(stream, [fields], '%.18g', newline='\r\n')
+
+    def _read_bin(self, stream, byte_order):
+        '''
+        Load a PLY element from a binary PLY file.  The element may
+        contain list properties.
+
+        '''
+        self.
