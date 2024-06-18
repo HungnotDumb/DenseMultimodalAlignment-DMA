@@ -659,4 +659,15 @@ class PlyElement(object):
         contain list properties.
 
         '''
-        self.
+        self._data = _np.empty(self.count, dtype=self.dtype(byte_order))
+
+        for k in _range(self.count):
+            for prop in self.properties:
+                try:
+                    self._data[prop.name][k] = \
+                        prop._read_bin(stream, byte_order)
+                except StopIteration:
+                    raise PlyParseError("early end-of-file",
+                                        self, k, prop)
+
+    def _w
