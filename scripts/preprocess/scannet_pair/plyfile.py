@@ -631,4 +631,19 @@ class PlyElement(object):
             try:
                 next(fields)
             except StopIteration:
-       
+                pass
+            else:
+                raise PlyParseError("expected end-of-line", self, k)
+            k += 1
+
+        if k < self.count:
+            del self._data
+            raise PlyParseError("early end-of-file", self, k)
+
+    def _write_txt(self, stream):
+        '''
+        Save a PLY element to an ASCII-format PLY file.  The element may
+        contain list properties.
+
+        '''
+        fo
