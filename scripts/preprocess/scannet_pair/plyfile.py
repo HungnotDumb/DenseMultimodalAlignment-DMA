@@ -670,4 +670,17 @@ class PlyElement(object):
                     raise PlyParseError("early end-of-file",
                                         self, k, prop)
 
-    def _w
+    def _write_bin(self, stream, byte_order):
+        '''
+        Save a PLY element to a binary PLY file.  The element may
+        contain list properties.
+
+        '''
+        for rec in self.data:
+            for prop in self.properties:
+                prop._write_bin(rec[prop.name], stream, byte_order)
+
+    @property
+    def header(self):
+        '''
+        Format this element's me
