@@ -683,4 +683,17 @@ class PlyElement(object):
     @property
     def header(self):
         '''
-        Format this element's me
+        Format this element's metadata as it would appear in a PLY
+        header.
+
+        '''
+        lines = ['element %s %d' % (self.name, self.count)]
+
+        # Some information is lost here, since all comments are placed
+        # between the 'element' line and the first property definition.
+        for c in self.comments:
+            lines.append('comment ' + c)
+
+        lines.extend(list(map(str, self.properties)))
+
+        retur
