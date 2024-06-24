@@ -716,4 +716,18 @@ class PlyElement(object):
 class PlyProperty(object):
 
     '''
-    PLY proper
+    PLY property description.  This class is pure metadata; the data
+    itself is contained in PlyElement instances.
+
+    '''
+
+    def __init__(self, name, val_dtype):
+        self._name = str(name)
+        self._check_name()
+        self.val_dtype = val_dtype
+
+    def _get_val_dtype(self):
+        return self._val_dtype
+
+    def _set_val_dtype(self, val_dtype):
+        self._val_dtype = _data_typ
