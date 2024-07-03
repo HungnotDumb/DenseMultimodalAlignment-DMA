@@ -730,4 +730,19 @@ class PlyProperty(object):
         return self._val_dtype
 
     def _set_val_dtype(self, val_dtype):
-        self._val_dtype = _data_typ
+        self._val_dtype = _data_types[_lookup_type(val_dtype)]
+
+    val_dtype = property(_get_val_dtype, _set_val_dtype)
+
+    @property
+    def name(self):
+        return self._name
+
+    def _check_name(self):
+        if any(c.isspace() for c in self._name):
+            msg = "Error: property name %r contains spaces" % self._name
+            raise RuntimeError(msg)
+
+    @staticmethod
+    def _parse_one(line):
+        a
