@@ -745,4 +745,16 @@ class PlyProperty(object):
 
     @staticmethod
     def _parse_one(line):
-        a
+        assert line[0] == 'property'
+
+        if line[1] == 'list':
+            if len(line) > 5:
+                raise PlyParseError("too many fields after "
+                                    "'property list'")
+            if len(line) < 5:
+                raise PlyParseError("too few fields after "
+                                    "'property list'")
+
+            return PlyListProperty(line[4], line[2], line[3])
+
+        
