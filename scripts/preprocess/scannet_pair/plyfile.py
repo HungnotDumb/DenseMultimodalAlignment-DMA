@@ -785,4 +785,20 @@ class PlyProperty(object):
 
     def _to_fields(self, data):
         '''
-        Return generator over one it
+        Return generator over one item.
+
+        '''
+        yield _np.dtype(self.dtype()).type(data)
+
+    def _read_bin(self, stream, byte_order):
+        '''
+        Read data from a binary stream.  Raise StopIteration if the
+        property could not be read.
+
+        '''
+        try:
+            return _np.fromfile(stream, self.dtype(byte_order), 1)[0]
+        except IndexError:
+            raise StopIteration
+
+    def _
