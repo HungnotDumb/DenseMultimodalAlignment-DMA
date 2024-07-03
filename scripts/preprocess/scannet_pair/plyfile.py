@@ -757,4 +757,16 @@ class PlyProperty(object):
 
             return PlyListProperty(line[4], line[2], line[3])
 
-        
+        else:
+            if len(line) > 3:
+                raise PlyParseError("too many fields after "
+                                    "'property'")
+            if len(line) < 3:
+                raise PlyParseError("too few fields after "
+                                    "'property'")
+
+            return PlyProperty(line[2], line[1])
+
+    def dtype(self, byte_order='='):
+        '''
+        Return the numpy dtype de
