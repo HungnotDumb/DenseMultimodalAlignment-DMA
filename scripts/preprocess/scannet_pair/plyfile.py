@@ -769,4 +769,20 @@ class PlyProperty(object):
 
     def dtype(self, byte_order='='):
         '''
-        Return the numpy dtype de
+        Return the numpy dtype description for this property (as a tuple
+        of strings).
+
+        '''
+        return byte_order + self.val_dtype
+
+    def _from_fields(self, fields):
+        '''
+        Parse from generator.  Raise StopIteration if the property could
+        not be read.
+
+        '''
+        return _np.dtype(self.dtype()).type(next(fields))
+
+    def _to_fields(self, data):
+        '''
+        Return generator over one it
