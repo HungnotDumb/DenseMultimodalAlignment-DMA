@@ -846,4 +846,20 @@ class PlyListProperty(PlyProperty):
 
     def list_dtype(self, byte_order='='):
         '''
-        Return the pair (len_dtype, val_dtype) (both numpy-friendl
+        Return the pair (len_dtype, val_dtype) (both numpy-friendly
+        strings).
+
+        '''
+        return (byte_order + self.len_dtype,
+                byte_order + self.val_dtype)
+
+    def _from_fields(self, fields):
+        (len_t, val_t) = self.list_dtype()
+
+        n = int(_np.dtype(len_t).type(next(fields)))
+
+        data = _np.loadtxt(list(_islice(fields, n)), val_t, ndmin=1)
+        if len(data) < n:
+            raise StopIteration
+
+       
