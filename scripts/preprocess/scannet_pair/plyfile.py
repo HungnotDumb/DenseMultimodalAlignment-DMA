@@ -814,4 +814,22 @@ class PlyProperty(object):
 
     def __repr__(self):
         return 'PlyProperty(%r, %r)' % (self.name,
-                     
+                                        _lookup_type(self.val_dtype))
+
+
+class PlyListProperty(PlyProperty):
+
+    '''
+    PLY list property description.
+
+    '''
+
+    def __init__(self, name, len_dtype, val_dtype):
+        PlyProperty.__init__(self, name, val_dtype)
+
+        self.len_dtype = len_dtype
+
+    def _get_len_dtype(self):
+        return self._len_dtype
+
+    def _set_len_dtype(self,
