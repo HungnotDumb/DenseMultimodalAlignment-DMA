@@ -801,4 +801,17 @@ class PlyProperty(object):
         except IndexError:
             raise StopIteration
 
-    def _
+    def _write_bin(self, data, stream, byte_order):
+        '''
+        Write data to a binary stream.
+
+        '''
+        _np.dtype(self.dtype(byte_order)).type(data).tofile(stream)
+
+    def __str__(self):
+        val_str = _data_type_reverse[self.val_dtype]
+        return 'property %s %s' % (val_str, self.name)
+
+    def __repr__(self):
+        return 'PlyProperty(%r, %r)' % (self.name,
+                     
