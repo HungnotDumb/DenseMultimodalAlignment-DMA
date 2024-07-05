@@ -832,4 +832,18 @@ class PlyListProperty(PlyProperty):
     def _get_len_dtype(self):
         return self._len_dtype
 
-    def _set_len_dtype(self,
+    def _set_len_dtype(self, len_dtype):
+        self._len_dtype = _data_types[_lookup_type(len_dtype)]
+
+    len_dtype = property(_get_len_dtype, _set_len_dtype)
+
+    def dtype(self, byte_order='='):
+        '''
+        List properties always have a numpy dtype of "object".
+
+        '''
+        return '|O'
+
+    def list_dtype(self, byte_order='='):
+        '''
+        Return the pair (len_dtype, val_dtype) (both numpy-friendl
