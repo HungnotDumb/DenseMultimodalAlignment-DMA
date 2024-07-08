@@ -878,4 +878,20 @@ class PlyListProperty(PlyProperty):
         for x in data:
             yield x
 
-    def _read_bin(self, 
+    def _read_bin(self, stream, byte_order):
+        (len_t, val_t) = self.list_dtype(byte_order)
+
+        try:
+            n = _np.fromfile(stream, len_t, 1)[0]
+        except IndexError:
+            raise StopIteration
+
+        data = _np.fromfile(stream, val_t, n)
+        if len(data) < n:
+            raise StopIteration
+
+        return data
+
+    def _write_bin(self, data, stream, byte_order):
+        '''
+        Write data to a bi
