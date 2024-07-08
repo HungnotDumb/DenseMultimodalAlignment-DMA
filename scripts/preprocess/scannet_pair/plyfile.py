@@ -862,4 +862,20 @@ class PlyListProperty(PlyProperty):
         if len(data) < n:
             raise StopIteration
 
-       
+        return data
+
+    def _to_fields(self, data):
+        '''
+        Return generator over the (numerical) PLY representation of the
+        list data (length followed by actual data).
+
+        '''
+        (len_t, val_t) = self.list_dtype()
+
+        data = _np.asarray(data, dtype=val_t).ravel()
+
+        yield _np.dtype(len_t).type(data.size)
+        for x in data:
+            yield x
+
+    def _read_bin(self, 
