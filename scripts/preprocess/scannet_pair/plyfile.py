@@ -894,4 +894,19 @@ class PlyListProperty(PlyProperty):
 
     def _write_bin(self, data, stream, byte_order):
         '''
-        Write data to a bi
+        Write data to a binary stream.
+
+        '''
+        (len_t, val_t) = self.list_dtype(byte_order)
+
+        data = _np.asarray(data, dtype=val_t).ravel()
+
+        _np.array(data.size, dtype=len_t).tofile(stream)
+        data.tofile(stream)
+
+    def __str__(self):
+        len_str = _data_type_reverse[self.len_dtype]
+        val_str = _data_type_reverse[self.val_dtype]
+        return 'property list %s %s %s' % (len_str, val_str, self.name)
+
+    def __
