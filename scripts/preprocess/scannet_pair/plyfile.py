@@ -909,4 +909,8 @@ class PlyListProperty(PlyProperty):
         val_str = _data_type_reverse[self.val_dtype]
         return 'property list %s %s %s' % (len_str, val_str, self.name)
 
-    def __
+    def __repr__(self):
+        return ('PlyListProperty(%r, %r, %r)' %
+                (self.name,
+                 _lookup_type(self.len_dtype),
+                 _lookup_type(self.val_dtype)))
