@@ -20,4 +20,13 @@ parser.add_argument('--save_npz', action='store_true')
 opt = parser.parse_args()
 print(opt)
 
-if not os.path.exists(opt.output_pat
+if not os.path.exists(opt.output_path):
+    os.mkdir(opt.output_path)
+
+# Load Depth Camera Intrinsic
+depth_intrinsic = np.loadtxt(opt.input_path + '/intrinsic/intrinsic_depth.txt')
+print('Depth intrinsic: ')
+print(depth_intrinsic)
+
+# Compute Camrea Distance (just for demo, so you can choose the camera distance in frame sampling)
+poses = sorted(glob.glob(opt.input_path + '/pose/*.txt'), key=lambda a: int(os.path.basename(a).
