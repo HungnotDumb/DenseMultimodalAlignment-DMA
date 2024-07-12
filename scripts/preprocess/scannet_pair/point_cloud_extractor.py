@@ -35,4 +35,15 @@ colors = sorted(glob.glob(opt.input_path + '/color/*.png'), key=lambda a: int(os
 
 # # Get Aligned Point Clouds.
 for ind, (pose, depth, color) in enumerate(zip(poses, depths, colors)):
-    name = o
+    name = os.path.basename(pose).split('.')[0]
+
+    if os.path.exists(opt.output_path + '/{}.npz'.format(name)):
+        continue
+
+    try:
+        print('='*50, ': {}'.format(pose))
+        depth_img = cv2.imread(depth, -1) # read 16bit grayscale image
+        mask = (depth_img != 0)
+        color_image = cv2.imread(color)
+        color_image = cv2.resize(color_image, (640, 480))
+        color_image = np.reshape(color_imag
