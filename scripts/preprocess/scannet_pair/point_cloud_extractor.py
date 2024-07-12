@@ -46,4 +46,15 @@ for ind, (pose, depth, color) in enumerate(zip(poses, depths, colors)):
         mask = (depth_img != 0)
         color_image = cv2.imread(color)
         color_image = cv2.resize(color_image, (640, 480))
-        color_image = np.reshape(color_imag
+        color_image = np.reshape(color_image[mask], [-1,3])
+        colors = np.zeros_like(color_image)
+        colors[:,0] = color_image[:,2]
+        colors[:,1] = color_image[:,1]
+        colors[:,2] = color_image[:,0]
+
+        pose = np.loadtxt(poses[ind])
+        print('Camera pose: ')
+        print(pose)
+        
+        depth_shift = 1000.0
+        x,y = np.meshgrid(np.linspace(0,depth_img.shape[1]-1,depth_img.shape[1]), np.linspace(0,dept
