@@ -29,4 +29,10 @@ print('Depth intrinsic: ')
 print(depth_intrinsic)
 
 # Compute Camrea Distance (just for demo, so you can choose the camera distance in frame sampling)
-poses = sorted(glob.glob(opt.input_path + '/pose/*.txt'), key=lambda a: int(os.path.basename(a).
+poses = sorted(glob.glob(opt.input_path + '/pose/*.txt'), key=lambda a: int(os.path.basename(a).split('.')[0]))
+depths = sorted(glob.glob(opt.input_path + '/depth/*.png'), key=lambda a: int(os.path.basename(a).split('.')[0]))
+colors = sorted(glob.glob(opt.input_path + '/color/*.png'), key=lambda a: int(os.path.basename(a).split('.')[0]))
+
+# # Get Aligned Point Clouds.
+for ind, (pose, depth, color) in enumerate(zip(poses, depths, colors)):
+    name = o
