@@ -57,4 +57,12 @@ for ind, (pose, depth, color) in enumerate(zip(poses, depths, colors)):
         print(pose)
         
         depth_shift = 1000.0
-        x,y = np.meshgrid(np.linspace(0,depth_img.shape[1]-1,depth_img.shape[1]), np.linspace(0,dept
+        x,y = np.meshgrid(np.linspace(0,depth_img.shape[1]-1,depth_img.shape[1]), np.linspace(0,depth_img.shape[0]-1,depth_img.shape[0]))
+        uv_depth = np.zeros((depth_img.shape[0], depth_img.shape[1], 3))
+        uv_depth[:,:,0] = x
+        uv_depth[:,:,1] = y
+        uv_depth[:,:,2] = depth_img/depth_shift
+        uv_depth = np.reshape(uv_depth, [-1,3])
+        uv_depth = uv_depth[np.where(uv_depth[:,2]!=0),:].squeeze()
+        
+        intrinsic_inv = np.linalg.inv(de
