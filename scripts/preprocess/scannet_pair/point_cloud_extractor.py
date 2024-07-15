@@ -65,4 +65,17 @@ for ind, (pose, depth, color) in enumerate(zip(poses, depths, colors)):
         uv_depth = np.reshape(uv_depth, [-1,3])
         uv_depth = uv_depth[np.where(uv_depth[:,2]!=0),:].squeeze()
         
-        intrinsic_inv = np.linalg.inv(de
+        intrinsic_inv = np.linalg.inv(depth_intrinsic)
+        fx = depth_intrinsic[0,0]
+        fy = depth_intrinsic[1,1]
+        cx = depth_intrinsic[0,2]
+        cy = depth_intrinsic[1,2]
+        bx = depth_intrinsic[0,3]
+        by = depth_intrinsic[1,3]
+        point_list = []
+        n = uv_depth.shape[0]
+        points = np.ones((n,4))
+        X = (uv_depth[:,0]-cx)*uv_depth[:,2]/fx + bx
+        Y = (uv_depth[:,1]-cy)*uv_depth[:,2]/fy + by
+        points[:,0] = X
+   
