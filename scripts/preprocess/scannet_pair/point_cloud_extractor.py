@@ -78,4 +78,16 @@ for ind, (pose, depth, color) in enumerate(zip(poses, depths, colors)):
         X = (uv_depth[:,0]-cx)*uv_depth[:,2]/fx + bx
         Y = (uv_depth[:,1]-cy)*uv_depth[:,2]/fy + by
         points[:,0] = X
-   
+        points[:,1] = Y
+        points[:,2] = uv_depth[:,2]
+        points_world = np.dot(points, np.transpose(pose))
+        print(points_world.shape)
+
+        pcd_save = np.zeros((points_world.shape[0], 7))
+        pcd_save[:,:3] = points_world[:,:3]
+        pcd_save[:,3:6] = colors
+
+        print('Saving npz file...')
+        np.savez(opt.output_path + '/{}.npz'.format(name), pcd=pcd_save)
+    except:
+        continue
