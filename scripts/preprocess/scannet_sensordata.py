@@ -24,4 +24,22 @@ class RGBDFrame():
 
   def decompress_depth(self, compression_type):
     if compression_type == 'zlib_ushort':
-     
+       return self.decompress_depth_zlib()
+    else:
+       raise ValueError("invalid type")
+
+
+  def decompress_depth_zlib(self):
+    return zlib.decompress(self.depth_data)
+
+
+  def decompress_color(self, compression_type):
+    if compression_type == 'jpeg':
+       return self.decompress_color_jpeg()
+    else:
+       raise ValueError("invalid type")
+
+
+  def decompress_color_jpeg(self):
+    return imageio.imread(self.color_data)
+
