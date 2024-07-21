@@ -43,3 +43,18 @@ class RGBDFrame():
   def decompress_color_jpeg(self):
     return imageio.imread(self.color_data)
 
+
+class SensorData:
+
+  def __init__(self, filename):
+    self.version = 4
+    self.load(filename)
+
+
+  def load(self, filename):
+    with open(filename, 'rb') as f:
+      version = struct.unpack('I', f.read(4))[0]
+      assert self.version == version
+      strlen = struct.unpack('Q', f.read(8))[0]
+      self.sensor_name = b''.join(struct.unpack('c'*strlen, f.read(strlen)))
+      self.intr
