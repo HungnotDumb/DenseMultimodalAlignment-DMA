@@ -66,4 +66,14 @@ class SensorData:
       self.color_width = struct.unpack('I', f.read(4))[0]
       self.color_height =  struct.unpack('I', f.read(4))[0]
       self.depth_width = struct.unpack('I', f.read(4))[0]
-      self
+      self.depth_height =  struct.unpack('I', f.read(4))[0]
+      self.depth_shift =  struct.unpack('f', f.read(4))[0]
+      num_frames =  struct.unpack('Q', f.read(8))[0]
+      self.frames = []
+      for i in range(num_frames):
+        frame = RGBDFrame()
+        frame.load(f)
+        self.frames.append(frame)
+
+
+  def export_depth_images(self, output_path, image_size=None, 
