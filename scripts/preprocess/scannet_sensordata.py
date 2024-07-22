@@ -76,4 +76,10 @@ class SensorData:
         self.frames.append(frame)
 
 
-  def export_depth_images(self, output_path, image_size=None, 
+  def export_depth_images(self, output_path, image_size=None, frame_skip=1):
+    if not os.path.exists(output_path):
+      os.makedirs(output_path)
+    print('exporting', len(self.frames)//frame_skip, ' depth frames to', output_path)
+    for f in range(0, len(self.frames), frame_skip):
+      depth_data = self.frames[f].decompress_depth(self.depth_compression_type)
+      depth = np.fromstring(depth_data, dtype=np.uint16).reshape(self.depth_height, self.d
