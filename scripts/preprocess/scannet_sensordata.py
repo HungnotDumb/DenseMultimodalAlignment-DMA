@@ -60,4 +60,10 @@ class SensorData:
       self.intrinsic_color = np.asarray(struct.unpack('f'*16, f.read(16*4)), dtype=np.float32).reshape(4, 4)
       self.extrinsic_color = np.asarray(struct.unpack('f'*16, f.read(16*4)), dtype=np.float32).reshape(4, 4)
       self.intrinsic_depth = np.asarray(struct.unpack('f'*16, f.read(16*4)), dtype=np.float32).reshape(4, 4)
-      self.extrinsic_depth = np.asarray(struct.unpack('f'*16, 
+      self.extrinsic_depth = np.asarray(struct.unpack('f'*16, f.read(16*4)), dtype=np.float32).reshape(4, 4)
+      self.color_compression_type = COMPRESSION_TYPE_COLOR[struct.unpack('i', f.read(4))[0]]
+      self.depth_compression_type = COMPRESSION_TYPE_DEPTH[struct.unpack('i', f.read(4))[0]]
+      self.color_width = struct.unpack('I', f.read(4))[0]
+      self.color_height =  struct.unpack('I', f.read(4))[0]
+      self.depth_width = struct.unpack('I', f.read(4))[0]
+      self
