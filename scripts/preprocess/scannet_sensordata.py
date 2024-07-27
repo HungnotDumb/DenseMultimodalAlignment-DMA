@@ -91,4 +91,9 @@ class SensorData:
   def export_color_images(self, output_path, image_size=None, frame_skip=1):
     if not os.path.exists(output_path):
       os.makedirs(output_path)
-    print('exporti
+    print('exporting', len(self.frames)//frame_skip, 'color frames to', output_path)
+    for f in range(0, len(self.frames), frame_skip):
+      color = self.frames[f].decompress_color(self.color_compression_type)
+      if image_size is not None:
+        color = cv2.resize(color, (image_size[1], image_size[0]), interpolation=cv2.INTER_NEAREST)
+      imageio.imwrite(os.path.join(output_path, str
