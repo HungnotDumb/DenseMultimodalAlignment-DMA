@@ -117,4 +117,7 @@ class SensorData:
     if not os.path.exists(output_path):
       os.makedirs(output_path)
     print('exporting camera intrinsics to', output_path)
-    self.save_mat_to_file(self.intrinsic_color, os.path.join(output_
+    self.save_mat_to_file(self.intrinsic_color, os.path.join(output_path, 'intrinsic_color.txt'))
+    self.save_mat_to_file(self.extrinsic_color, os.path.join(output_path, 'extrinsic_color.txt'))
+    self.save_mat_to_file(self.intrinsic_depth, os.path.join(output_path, 'intrinsic_depth.txt'))
+    self.save_mat_to_file(self.extrinsic_depth, os.path.join(output_path, 'extrinsic_depth.txt'))
