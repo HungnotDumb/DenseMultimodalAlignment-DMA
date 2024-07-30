@@ -109,4 +109,12 @@ class SensorData:
     if not os.path.exists(output_path):
       os.makedirs(output_path)
     print('exporting', len(self.frames)//frame_skip, 'camera poses to', output_path)
-    for f in range(0, len(s
+    for f in range(0, len(self.frames), frame_skip):
+      self.save_mat_to_file(self.frames[f].camera_to_world, os.path.join(output_path, str(f) + '.txt'))
+
+
+  def export_intrinsics(self, output_path):
+    if not os.path.exists(output_path):
+      os.makedirs(output_path)
+    print('exporting camera intrinsics to', output_path)
+    self.save_mat_to_file(self.intrinsic_color, os.path.join(output_
