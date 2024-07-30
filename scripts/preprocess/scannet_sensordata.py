@@ -96,4 +96,17 @@ class SensorData:
       color = self.frames[f].decompress_color(self.color_compression_type)
       if image_size is not None:
         color = cv2.resize(color, (image_size[1], image_size[0]), interpolation=cv2.INTER_NEAREST)
-      imageio.imwrite(os.path.join(output_path, str
+      imageio.imwrite(os.path.join(output_path, str(f) + '.jpg'), color)
+
+
+  def save_mat_to_file(self, matrix, filename):
+    with open(filename, 'w') as f:
+      for line in matrix:
+        np.savetxt(f, line[np.newaxis], fmt='%f')
+
+
+  def export_poses(self, output_path, frame_skip=1):
+    if not os.path.exists(output_path):
+      os.makedirs(output_path)
+    print('exporting', len(self.frames)//frame_skip, 'camera poses to', output_path)
+    for f in range(0, len(s
