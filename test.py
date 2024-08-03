@@ -30,4 +30,13 @@ from plyfile import PlyData, PlyElement
 # color = (color+1)/2
 # save_path = join('./data_matterport/visualization', scene_name)
 # if not os.path.exists(save_path):
-#     os.makedirs(save_
+#     os.makedirs(save_path)
+pc = torch.load('./data/scannet_3d/train/scene0464_00_vh_clean_2.pth')
+pcl=pc[0]
+color = (pc[1]+1)/2
+
+export_pointcloud('0464.ply', pcl, colors=color)
+import pdb; pdb.set_trace()
+# file_dirs_1 = [file.replace('.pth', '_distill.npy').replace('data_matterport/matterport_3d/test','save_matter_openscene') for file in file_dirs]
+# # file_dirs = sorted(glob(join('./save_matter_openscene', scene_name + '_*_distill.npy')))
+# colo
