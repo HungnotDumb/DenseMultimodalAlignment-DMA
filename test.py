@@ -13,4 +13,21 @@ from plyfile import PlyData, PlyElement
 # pcl_list=[]
 # color_list = []
 
-# for file in fil
+# for file in file_dirs:
+#     pc = torch.load(file)
+#     pcl_list.append(pc[0])
+#     color_list.append(pc[1])
+
+# pcl = np.concatenate(pcl_list, axis=0)
+# color = np.concatenate(color_list, axis=0)
+# # import pdb; pdb.set_trace()
+
+# mask = pcl[:,2]<4.0
+
+# pcl = pcl[mask]
+# color = color[mask]
+
+# color = (color+1)/2
+# save_path = join('./data_matterport/visualization', scene_name)
+# if not os.path.exists(save_path):
+#     os.makedirs(save_
