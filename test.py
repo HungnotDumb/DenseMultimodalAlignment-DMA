@@ -51,4 +51,13 @@ import pdb; pdb.set_trace()
 #     # pcl_list.append(pcl)
 
 # # pcl = np.concatenate(pcl_list, axis=0)
-# color = np.concaten
+# color = np.concatenate(color_list, axis=0)
+# color = color[mask]
+# # color = (color+1)/2
+# export_pointcloud(join(save_path, 'openscene_distill.ply'), pcl, colors=color)
+
+# # file_dirs = sorted(glob(join('./save_matter_openscene', scene_name + '_*_gt.npy')))
+# file_dirs_1 = [file.replace('.pth', '_gt.npy').replace('data_matterport/matterport_3d/test','save_matter_openscene') for file in file_dirs]
+# color_list = []
+
+# for fi
