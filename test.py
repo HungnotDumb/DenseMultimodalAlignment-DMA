@@ -98,4 +98,14 @@ import pdb; pdb.set_trace()
 # color_list = []
 
 # for file in file_dirs_1:
-#     # plyda
+#     # plydata = PlyData.read(file)
+#     # data = plydata.elements[0].data
+#     color = torch.load(file)
+#     # color = np.array([[r, g, b] for _,_,_,r,g,b in data])
+#     # pcl = np.array([[x, y, z] for x,y,z,r,g,b in data])
+#     color_list.append(color)
+#     # pcl_list.append(pcl)
+
+# # pcl = np.concatenate(pcl_list, axis=0)
+# color = np.concatenate(color_list, axis=0)
+# color = color[mask]
