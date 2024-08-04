@@ -90,4 +90,12 @@ import pdb; pdb.set_trace()
 
 # # pcl = np.concatenate(pcl_list, axis=0)
 # color = np.concatenate(color_list, axis=0)
-# co
+# color = color[mask]
+# export_pointcloud(join(save_path, 'dma_distill.ply'), pcl, colors=color)
+
+# # file_dirs = sorted(glob(join('./save_mattertext_only', scene_name + '_*_distill.npy')))
+# file_dirs_1 = [file.replace('.pth', '_distill.npy').replace('data_matterport/matterport_3d/test','save_mattertext_only') for file in file_dirs]
+# color_list = []
+
+# for file in file_dirs_1:
+#     # plyda
