@@ -109,3 +109,15 @@ import pdb; pdb.set_trace()
 # # pcl = np.concatenate(pcl_list, axis=0)
 # color = np.concatenate(color_list, axis=0)
 # color = color[mask]
+# export_pointcloud(join(save_path, 'text_distill.ply'), pcl, colors=color)
+
+
+# data_paths = sorted(glob(join('./data_nus/nuscenes_2d/nuscenes_multiview_openseg/', '*.pt')))
+# for i in trange(len(data_paths)):
+#     try:
+#         A = torch.load(data_paths[i])
+#     except Exception as ex:
+#         print(data_paths[i])
+#         import pdb; pdb.set_trace()
+# # A = np.load('./data/tags_tag2text/scene0000_00.npy')
+# imp
