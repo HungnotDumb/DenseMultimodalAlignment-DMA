@@ -120,4 +120,6 @@ import pdb; pdb.set_trace()
 #         print(data_paths[i])
 #         import pdb; pdb.set_trace()
 # # A = np.load('./data/tags_tag2text/scene0000_00.npy')
-# imp
+# import pdb; pdb.set_trace()
+# processed_data = torch.load('./data_nus/nuscenes_2d/nuscenes_multiview_fcclip/cb57adad69c54307907d522fd78c543b.pt')
+# import pdb; pdb.set_trace()
