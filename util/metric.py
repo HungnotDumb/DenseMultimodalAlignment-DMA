@@ -54,3 +54,14 @@ def get_iou_scannet200(label_id, confusion):
     denom = (tp + fp + fn)
     if denom == 0:
         return float('nan')
+    return float(tp) / denom, tp, denom, tp/(tp+fp+1e-5), tp/(tp+fn+1e-5)
+
+
+def evaluate(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
+    if stdout:
+        print('evaluating', gt_ids.size, 'points...')
+    if 'head' in dataset:
+        CLASS_LABELS = HEAD_CATS_SCANNET_200
+    elif 'scannet_200' in dataset:
+        CLASS_LABELS = SCANNET_LABELS_200
+    elif 'scannet_3d' in d
