@@ -39,4 +39,18 @@ def get_iou(label_id, confusion):
     denom = (tp + fp + fn)
     if denom == 0:
         return float('nan')
-    return f
+    return float(tp) / denom, tp, denom
+
+def get_iou_scannet200(label_id, confusion):
+    '''calculate IoU.'''
+
+    # true positives
+    tp = np.longlong(confusion[label_id, label_id])
+    # false positives
+    fp = np.longlong(confusion[label_id, :].sum()) - tp
+    # false negatives
+    fn = np.longlong(confusion[:, label_id].sum()) - tp
+
+    denom = (tp + fp + fn)
+    if denom == 0:
+        return float('nan')
