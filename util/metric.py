@@ -23,4 +23,20 @@ def confusion_matrix(pred_ids, gt_ids, num_classes):
     return np.bincount(
         pred_ids[idxs] * num_classes + gt_ids[idxs],
         minlength=num_classes**2).reshape((
-        
+        num_classes, num_classes)).astype(np.ulonglong)
+
+
+def get_iou(label_id, confusion):
+    '''calculate IoU.'''
+
+    # true positives
+    tp = np.longlong(confusion[label_id, label_id])
+    # false positives
+    fp = np.longlong(confusion[label_id, :].sum()) - tp
+    # false negatives
+    fn = np.longlong(confusion[:, label_id].sum()) - tp
+
+    denom = (tp + fp + fn)
+    if denom == 0:
+        return float('nan')
+    return f
