@@ -64,4 +64,15 @@ def evaluate(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
         CLASS_LABELS = HEAD_CATS_SCANNET_200
     elif 'scannet_200' in dataset:
         CLASS_LABELS = SCANNET_LABELS_200
-    elif 'scannet_3d' in d
+    elif 'scannet_3d' in dataset:
+        CLASS_LABELS = SCANNET_LABELS_20
+    elif 'matterport_3d_40' in dataset:
+        CLASS_LABELS = MATTERPORT_LABELS_40
+    elif 'matterport_3d_80' in dataset:
+        CLASS_LABELS = MATTERPORT_LABELS_80
+    elif 'matterport_3d_160' in dataset:
+        CLASS_LABELS = MATTERPORT_LABELS_160
+    elif 'matterport_3d' in dataset:
+        CLASS_LABELS = MATTERPORT_LABELS_21
+    elif 'nuscenes_3d' in dataset:
+     
