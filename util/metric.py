@@ -89,4 +89,18 @@ def evaluate(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
     count = 0
     for i in range(N_CLASSES):
         label_name = CLASS_LABELS[i]
-        if (gt_ids==i).sum() == 0: # at least 1 point needs to be in the evaluatio
+        if (gt_ids==i).sum() == 0: # at least 1 point needs to be in the evaluation for this class
+            continue
+
+        class_ious[label_name] = get_iou(i, confusion)
+        class_accs[label_name] = class_ious[label_name][1] / (gt_ids==i).sum()
+        count+=1
+
+        mean_iou += class_ious[label_name][0]
+        mean_acc += class_accs[label_name]
+
+    mean_iou /= N_CLASSES
+    mean_acc /= N_CLASSES
+    if stdout:
+        print('classes          IoU')
+        print('-----
