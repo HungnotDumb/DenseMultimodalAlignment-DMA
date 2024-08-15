@@ -75,4 +75,18 @@ def evaluate(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
     elif 'matterport_3d' in dataset:
         CLASS_LABELS = MATTERPORT_LABELS_21
     elif 'nuscenes_3d' in dataset:
-     
+        CLASS_LABELS = NUSCENES_LABELS_16
+    else:
+        raise NotImplementedError
+
+    N_CLASSES = len(CLASS_LABELS)
+    confusion = confusion_matrix(pred_ids, gt_ids, N_CLASSES)
+    class_ious = {}
+    class_accs = {}
+    mean_iou = 0
+    mean_acc = 0
+
+    count = 0
+    for i in range(N_CLASSES):
+        label_name = CLASS_LABELS[i]
+        if (gt_ids==i).sum() == 0: # at least 1 point needs to be in the evaluatio
