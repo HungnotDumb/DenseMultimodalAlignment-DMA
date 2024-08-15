@@ -113,4 +113,16 @@ def evaluate(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
                 else:
                     print('{0:<14s}: {1:>5.3f}   ({2:>6d}/{3:<6d})'.format(
                         label_name,
-                        class_ious[label
+                        class_ious[label_name][0],
+                        class_ious[label_name][1],
+                        class_ious[label_name][2]))
+            except:
+                print(label_name + ' error!')
+                continue
+        print('Mean IoU', mean_iou)
+        print('Mean Acc', mean_acc)
+    return mean_iou
+
+def evaluate_scannet200(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
+    if stdout:
+      
