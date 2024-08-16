@@ -125,4 +125,14 @@ def evaluate(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
 
 def evaluate_scannet200(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
     if stdout:
-      
+        print('evaluating', gt_ids.size, 'points...')
+    if 'head' in dataset:
+        CLASS_LABELS = HEAD_CATS_SCANNET_200
+    elif 'common' in dataset:
+        CLASS_LABELS = COMMON_CATS_SCANNET_200
+    elif 'tail' in dataset:
+        CLASS_LABELS = TAIL_CATS_SCANNET_200
+    elif 'scannet_200' in dataset:
+        CLASS_LABELS = SCANNET_LABELS_200
+    elif 'scannet_3d' in dataset:
+  
