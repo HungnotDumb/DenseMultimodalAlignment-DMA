@@ -185,4 +185,14 @@ def evaluate_scannet200(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
     mean_acc /= N_CLASSES
     mean_precision /= N_CLASSES
     mean_recall /= N_CLASSES
-    if 
+    if stdout:
+        print('classes          IoU')
+        print('----------------------------')
+        for i in range(N_CLASSES):
+            label_name = CLASS_LABELS[i]
+            try:
+                if 'matterport' in dataset:
+                    print('{0:<14s}: {1:>5.3f}'.format(label_name, class_accs[label_name]))
+
+                else:
+                    print('{0:<14s}: {1:>5.3f}   ({2:>6d}/{3:<6d})'.format
