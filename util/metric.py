@@ -145,4 +145,21 @@ def evaluate_scannet200(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
     elif 'matterport_3d' in dataset:
         CLASS_LABELS = MATTERPORT_LABELS_21
     elif 'nuscenes_3d' in dataset:
-        CLASS_LABELS 
+        CLASS_LABELS = NUSCENES_LABELS_16
+    else:
+        raise NotImplementedError
+
+    N_CLASSES = len(CLASS_LABELS)
+    confusion = confusion_matrix(pred_ids, gt_ids, N_CLASSES)
+    class_ious = {}
+    class_accs = {}
+    precision = {}
+    recall = {}
+    mean_iou = 0
+    mean_acc = 0
+    mean_precision = 0
+    mean_recall = 0
+
+    count = 0
+
+    # CLASS_LABELS_HEAD = HEAD_CATS_SCANNET_20
