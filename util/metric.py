@@ -162,4 +162,13 @@ def evaluate_scannet200(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
 
     count = 0
 
-    # CLASS_LABELS_HEAD = HEAD_CATS_SCANNET_20
+    # CLASS_LABELS_HEAD = HEAD_CATS_SCANNET_200   # SCANNET_LABELS_200
+    N_CLASSES = len(CLASS_LABELS)
+    for i in range(N_CLASSES):
+        label_name = CLASS_LABELS[i]
+
+        index = CLASS_LABELS.index(label_name)
+        if (gt_ids==index).sum() == 0: # at least 1 point needs to be in the evaluation for this class
+            continue
+        class_ious[label_name] = get_iou_scannet200(index, confusion)
+        class_accs[labe
