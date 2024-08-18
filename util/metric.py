@@ -171,4 +171,18 @@ def evaluate_scannet200(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
         if (gt_ids==index).sum() == 0: # at least 1 point needs to be in the evaluation for this class
             continue
         class_ious[label_name] = get_iou_scannet200(index, confusion)
-        class_accs[labe
+        class_accs[label_name] = class_ious[label_name][1] / (gt_ids==index).sum()
+        count+=1
+
+        mean_iou += class_ious[label_name][0]
+        mean_acc += class_accs[label_name]
+
+        mean_precision += class_ious[label_name][3]
+        mean_recall += class_ious[label_name][4]
+
+
+    mean_iou /= N_CLASSES
+    mean_acc /= N_CLASSES
+    mean_precision /= N_CLASSES
+    mean_recall /= N_CLASSES
+    if 
