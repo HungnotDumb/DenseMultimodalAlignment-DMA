@@ -206,4 +206,5 @@ def evaluate_scannet200(pred_ids, gt_ids, stdout=False, dataset='scannet_3d'):
         print('Mean IoU', mean_iou)
         print('Mean Acc', mean_acc)
         print('Mean Precision', mean_precision)
-        prin
+        print('Mean Recall', mean_recall)
+    return mean_iou
